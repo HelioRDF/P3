@@ -52,6 +52,7 @@ public class Exibir_C extends javax.swing.JFrame {
         Excluir1 = new javax.swing.JButton();
         Atualizar1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exibir Ficha");
@@ -68,7 +69,7 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(40, 440, 180, 40);
+        Excluir.setBounds(60, 520, 180, 40);
 
         Novo_Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo_Anamnese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
@@ -80,7 +81,7 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Novo_Anamnese);
-        Novo_Anamnese.setBounds(40, 390, 180, 40);
+        Novo_Anamnese.setBounds(60, 470, 180, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -90,7 +91,7 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(660, 450, 49, 39);
+        Fechar.setBounds(680, 520, 49, 39);
 
         CampoBuscarNome.setEditable(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -104,17 +105,17 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome);
-        CampoBuscarNome.setBounds(110, 30, 310, 27);
+        CampoBuscarNome.setBounds(130, 110, 310, 27);
 
         jLabel_Nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel_Nome.setText("Nome:");
         getContentPane().add(jLabel_Nome);
-        jLabel_Nome.setBounds(50, 30, 52, 25);
+        jLabel_Nome.setBounds(70, 110, 52, 25);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setText("Registro:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(510, 30, 70, 25);
+        jLabel4.setBounds(530, 110, 70, 25);
 
         CampoBuscarRegistro.setEditable(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -128,35 +129,35 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarRegistro);
-        CampoBuscarRegistro.setBounds(580, 30, 60, 27);
+        CampoBuscarRegistro.setBounds(600, 110, 60, 27);
 
         jLabel3.setText("Data de Nascimento:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(400, 80, 120, 14);
+        jLabel3.setBounds(420, 160, 120, 14);
 
         jTextField3.setEditable(false);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(520, 70, 120, 30);
+        jTextField3.setBounds(540, 150, 120, 30);
 
         jLabel7.setText("CPF: ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(50, 80, 40, 14);
+        jLabel7.setBounds(70, 160, 40, 14);
 
         jTextField7.setEditable(false);
         getContentPane().add(jTextField7);
-        jTextField7.setBounds(110, 70, 240, 30);
+        jTextField7.setBounds(130, 150, 240, 30);
 
         jLabel8.setText("E-Mail:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(420, 160, 50, 14);
+        jLabel8.setBounds(440, 240, 50, 14);
 
         jLabel5.setText("Telefone:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(50, 160, 60, 14);
+        jLabel5.setBounds(70, 240, 60, 14);
 
         jLabel6.setText("Endereço:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(50, 120, 60, 14);
+        jLabel6.setBounds(70, 200, 60, 14);
 
         jTextField4.setEditable(false);
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -165,11 +166,11 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(110, 150, 210, 30);
+        jTextField4.setBounds(130, 230, 210, 30);
 
         jTextField5.setEditable(false);
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(110, 110, 530, 30);
+        jTextField5.setBounds(130, 190, 530, 30);
 
         jTextField6.setEditable(false);
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
@@ -178,7 +179,7 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(470, 150, 170, 30);
+        jTextField6.setBounds(490, 230, 170, 30);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,7 +192,7 @@ public class Exibir_C extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 260, 620, 110);
+        jScrollPane1.setBounds(60, 340, 620, 110);
 
         Excluir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir1.setForeground(new java.awt.Color(51, 0, 204));
@@ -204,7 +205,7 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir1);
-        Excluir1.setBounds(330, 440, 180, 40);
+        Excluir1.setBounds(350, 520, 180, 40);
 
         Atualizar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/floppy.png"))); // NOI18N
@@ -216,11 +217,17 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar1);
-        Atualizar1.setBounds(330, 390, 180, 40);
+        Atualizar1.setBounds(350, 470, 180, 40);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(45, 229, 620, 10);
+        jSeparator1.setBounds(60, 300, 620, 10);
 
-        setSize(new java.awt.Dimension(750, 548));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel10.setText("Informações do Paciente:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(70, 30, 300, 50);
+
+        setSize(new java.awt.Dimension(867, 628));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
@@ -312,6 +319,7 @@ public class Exibir_C extends javax.swing.JFrame {
     private javax.swing.JButton Excluir1;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Novo_Anamnese;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

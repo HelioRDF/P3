@@ -34,7 +34,7 @@ public class Buscar_P extends javax.swing.JFrame {
         Atualizar = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         BuscarNome = new javax.swing.JRadioButton();
-        BuscaCod = new javax.swing.JRadioButton();
+        BuscaRegistro = new javax.swing.JRadioButton();
         CampoBuscarNome = new javax.swing.JTextField();
         jLabel_Nome = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,6 +61,7 @@ public class Buscar_P extends javax.swing.JFrame {
         Cadastrar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -75,7 +76,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Pesquisar);
-        Pesquisar.setBounds(670, 60, 130, 44);
+        Pesquisar.setBounds(690, 90, 120, 40);
 
         Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 0, 0));
@@ -88,7 +89,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(210, 540, 115, 40);
+        Excluir.setBounds(220, 600, 115, 40);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
@@ -100,7 +101,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar);
-        Atualizar.setBounds(40, 540, 130, 40);
+        Atualizar.setBounds(50, 600, 130, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -110,7 +111,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(850, 540, 49, 39);
+        Fechar.setBounds(860, 600, 49, 39);
 
         buttonGroup1_Busca.add(BuscarNome);
         BuscarNome.setText("Buscar pelo nome");
@@ -120,17 +121,17 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(BuscarNome);
-        BuscarNome.setBounds(480, 40, 130, 30);
+        BuscarNome.setBounds(50, 90, 130, 30);
 
-        buttonGroup1_Busca.add(BuscaCod);
-        BuscaCod.setText("Buscar pelo Registro");
-        BuscaCod.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1_Busca.add(BuscaRegistro);
+        BuscaRegistro.setText("Buscar pelo Registro");
+        BuscaRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscaCodActionPerformed(evt);
+                BuscaRegistroActionPerformed(evt);
             }
         });
-        getContentPane().add(BuscaCod);
-        BuscaCod.setBounds(480, 80, 140, 30);
+        getContentPane().add(BuscaRegistro);
+        BuscaRegistro.setBounds(50, 130, 140, 30);
 
         CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -144,17 +145,17 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome);
-        CampoBuscarNome.setBounds(110, 40, 310, 27);
+        CampoBuscarNome.setBounds(280, 90, 310, 27);
 
         jLabel_Nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel_Nome.setText("Nome:");
         getContentPane().add(jLabel_Nome);
-        jLabel_Nome.setBounds(40, 40, 70, 30);
+        jLabel_Nome.setBounds(210, 90, 70, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setText("Registro");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(40, 80, 70, 30);
+        jLabel4.setBounds(210, 130, 70, 30);
 
         CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -168,7 +169,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarRegistro);
-        CampoBuscarRegistro.setBounds(110, 80, 60, 27);
+        CampoBuscarRegistro.setBounds(280, 130, 60, 27);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -189,15 +190,15 @@ public class Buscar_P extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 420, 860, 100);
+        jScrollPane1.setBounds(50, 480, 860, 100);
 
         jLabel1.setText("Registro:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(640, 160, 70, 20);
+        jLabel1.setBounds(650, 220, 70, 20);
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 160, 40, 20);
+        jLabel2.setBounds(50, 220, 40, 20);
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,7 +206,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(700, 150, 100, 30);
+        jTextField1.setBounds(710, 210, 100, 30);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,31 +214,31 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(110, 150, 410, 30);
+        jTextField2.setBounds(120, 210, 410, 30);
 
         jLabel3.setText("Data de Nascimento:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(370, 200, 120, 30);
+        jLabel3.setBounds(380, 260, 120, 30);
         getContentPane().add(jTextField3);
-        jTextField3.setBounds(490, 200, 120, 30);
+        jTextField3.setBounds(500, 260, 120, 30);
 
         jLabel7.setText("CPF: ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(40, 210, 30, 20);
+        jLabel7.setBounds(50, 270, 30, 20);
         getContentPane().add(jTextField7);
-        jTextField7.setBounds(110, 200, 240, 30);
+        jTextField7.setBounds(120, 260, 240, 30);
 
         jLabel8.setText("E-Mail:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(340, 290, 40, 20);
+        jLabel8.setBounds(350, 350, 40, 20);
 
         jLabel5.setText("Telefone:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(40, 290, 60, 20);
+        jLabel5.setBounds(50, 350, 60, 20);
 
         jLabel6.setText("Endereço:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(40, 250, 60, 20);
+        jLabel6.setBounds(50, 310, 60, 20);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +246,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField4);
-        jTextField4.setBounds(110, 280, 210, 30);
+        jTextField4.setBounds(120, 340, 210, 30);
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,7 +254,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField5);
-        jTextField5.setBounds(110, 240, 500, 30);
+        jTextField5.setBounds(120, 300, 500, 30);
 
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,7 +262,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField6);
-        jTextField6.setBounds(390, 280, 220, 30);
+        jTextField6.setBounds(400, 340, 220, 30);
 
         buttonGroup2_Sexo.add(jRadio_Masculino);
         jRadio_Masculino.setText("Masculino");
@@ -271,16 +272,16 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jRadio_Masculino);
-        jRadio_Masculino.setBounds(630, 230, 100, 30);
+        jRadio_Masculino.setBounds(640, 290, 100, 30);
 
         buttonGroup2_Sexo.add(jRadio_Feminino);
         jRadio_Feminino.setText("Feminino");
         getContentPane().add(jRadio_Feminino);
-        jRadio_Feminino.setBounds(630, 260, 100, 30);
+        jRadio_Feminino.setBounds(640, 320, 100, 30);
 
         jLabel9.setText("Sexo:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(640, 200, 30, 20);
+        jLabel9.setBounds(650, 260, 30, 20);
 
         Cadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Cadastrar.setForeground(new java.awt.Color(0, 0, 102));
@@ -293,13 +294,19 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Cadastrar);
-        Cadastrar.setBounds(40, 330, 130, 40);
+        Cadastrar.setBounds(50, 390, 130, 40);
         getContentPane().add(jSeparator2);
-        jSeparator2.setBounds(40, 392, 860, 10);
+        jSeparator2.setBounds(50, 460, 860, 10);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(40, 132, 860, 2);
+        jSeparator1.setBounds(50, 200, 860, 2);
 
-        setSize(new java.awt.Dimension(1022, 646));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel10.setText("Buscar  Pacientes:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(50, 10, 300, 50);
+
+        setSize(new java.awt.Dimension(1065, 719));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
@@ -320,11 +327,27 @@ public class Buscar_P extends javax.swing.JFrame {
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
 
+        if(BuscarNome.isSelected()){
+            CampoBuscarNome.setEnabled(true);
+            CampoBuscarRegistro.setEnabled(false);
+
+}
+        
     }//GEN-LAST:event_BuscarNomeActionPerformed
 
-    private void BuscaCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaCodActionPerformed
+    private void BuscaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaRegistroActionPerformed
 
-    }//GEN-LAST:event_BuscaCodActionPerformed
+        
+
+if(BuscaRegistro.isSelected()){
+CampoBuscarRegistro.setEnabled(true);
+  CampoBuscarNome.setEnabled(false);
+}
+
+
+        
+        
+    }//GEN-LAST:event_BuscaRegistroActionPerformed
 
     private void CampoBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNomeActionPerformed
         // TODO add your handling code here:
@@ -407,7 +430,7 @@ public class Buscar_P extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atualizar;
-    private javax.swing.JRadioButton BuscaCod;
+    private javax.swing.JRadioButton BuscaRegistro;
     private javax.swing.JRadioButton BuscarNome;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField CampoBuscarNome;
@@ -418,6 +441,7 @@ public class Buscar_P extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1_Busca;
     private javax.swing.ButtonGroup buttonGroup2_Sexo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -441,4 +465,9 @@ public class Buscar_P extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+
 }

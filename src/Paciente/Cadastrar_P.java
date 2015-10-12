@@ -5,15 +5,20 @@
  */
 package Paciente;
 
+import java.util.Date;
+import javafx.scene.chart.PieChart.Data;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Helio Franca
  */
 public class Cadastrar_P extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Cadastrar_P
-     */
+    
+    Controle_P controle = new Controle_P();
+    GetSet_P   getset = new GetSet_P();
+    
+    
     public Cadastrar_P() {
         initComponents();
     }
@@ -27,7 +32,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup1_Sexo = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -37,7 +42,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
         Fechar = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
         jB_Atualizar = new javax.swing.JButton();
-        Cadastrar = new javax.swing.JButton();
+        Novo = new javax.swing.JButton();
         jT_Registro = new javax.swing.JTextField();
         jT_Nome = new javax.swing.JTextField();
         jT_DataNasc = new javax.swing.JTextField();
@@ -55,6 +60,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        Cadastrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -118,19 +124,20 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(jB_Atualizar);
         jB_Atualizar.setBounds(50, 570, 105, 40);
 
-        Cadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Cadastrar.setForeground(new java.awt.Color(0, 0, 102));
-        Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
-        Cadastrar.setText("  Cadastrar");
-        Cadastrar.setToolTipText("");
-        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+        Novo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Novo.setForeground(new java.awt.Color(0, 0, 102));
+        Novo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
+        Novo.setText(" Novo");
+        Novo.setToolTipText("");
+        Novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarActionPerformed(evt);
+                NovoActionPerformed(evt);
             }
         });
-        getContentPane().add(Cadastrar);
-        Cadastrar.setBounds(50, 320, 150, 40);
+        getContentPane().add(Novo);
+        Novo.setBounds(60, 310, 110, 40);
 
+        jT_Registro.setEnabled(false);
         jT_Registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_RegistroActionPerformed(evt);
@@ -139,6 +146,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(jT_Registro);
         jT_Registro.setBounds(130, 80, 100, 30);
 
+        jT_Nome.setEnabled(false);
         jT_Nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_NomeActionPerformed(evt);
@@ -146,9 +154,12 @@ public class Cadastrar_P extends javax.swing.JFrame {
         });
         getContentPane().add(jT_Nome);
         jT_Nome.setBounds(300, 80, 330, 30);
+
+        jT_DataNasc.setEnabled(false);
         getContentPane().add(jT_DataNasc);
         jT_DataNasc.setBounds(510, 140, 120, 30);
 
+        jT_Tel.setEnabled(false);
         jT_Tel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_TelActionPerformed(evt);
@@ -156,9 +167,12 @@ public class Cadastrar_P extends javax.swing.JFrame {
         });
         getContentPane().add(jT_Tel);
         jT_Tel.setBounds(130, 250, 210, 30);
+
+        jTEndereco.setEnabled(false);
         getContentPane().add(jTEndereco);
         jTEndereco.setBounds(130, 190, 500, 30);
 
+        jT_Email.setEnabled(false);
         jT_Email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_EmailActionPerformed(evt);
@@ -170,6 +184,8 @@ public class Cadastrar_P extends javax.swing.JFrame {
         jLabel7.setText("CPF: ");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(60, 150, 30, 20);
+
+        jT_CPF.setEnabled(false);
         getContentPane().add(jT_CPF);
         jT_CPF.setBounds(130, 140, 240, 30);
 
@@ -194,7 +210,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(50, 440, 910, 120);
 
-        buttonGroup1.add(jRadio_Masculino);
+        buttonGroup1_Sexo.add(jRadio_Masculino);
         jRadio_Masculino.setText("Masculino");
         jRadio_Masculino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,8 +220,13 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(jRadio_Masculino);
         jRadio_Masculino.setBounds(710, 170, 100, 30);
 
-        buttonGroup1.add(jRadio_Feminino);
+        buttonGroup1_Sexo.add(jRadio_Feminino);
         jRadio_Feminino.setText("Feminino");
+        jRadio_Feminino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadio_FemininoActionPerformed(evt);
+            }
+        });
         getContentPane().add(jRadio_Feminino);
         jRadio_Feminino.setBounds(710, 200, 100, 30);
 
@@ -227,6 +248,20 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(50, 10, 300, 50);
 
+        Cadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Cadastrar.setForeground(new java.awt.Color(0, 0, 102));
+        Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/floppy.png"))); // NOI18N
+        Cadastrar.setText("  Cadastrar");
+        Cadastrar.setToolTipText("");
+        Cadastrar.setEnabled(false);
+        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadastrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Cadastrar);
+        Cadastrar.setBounds(210, 310, 130, 40);
+
         setSize(new java.awt.Dimension(1070, 680));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -235,7 +270,10 @@ public class Cadastrar_P extends javax.swing.JFrame {
     }//GEN-LAST:event_FecharActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-
+ //Apaga a linha selecionada da tabela.
+        ((DefaultTableModel) jT_Tabela.getModel()).removeRow(jT_Tabela.getSelectedRow());
+        
+        
     }//GEN-LAST:event_ExcluirActionPerformed
 
     private void jB_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AtualizarActionPerformed
@@ -243,11 +281,14 @@ public class Cadastrar_P extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jB_AtualizarActionPerformed
 
-    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-
+    private void NovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoActionPerformed
+        
+        Novo.setEnabled(false);
+        Cadastrar.setEnabled(true);
+        novo();
         
         
-    }//GEN-LAST:event_CadastrarActionPerformed
+    }//GEN-LAST:event_NovoActionPerformed
 
     private void jT_RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_RegistroActionPerformed
         // TODO add your handling code here:
@@ -268,6 +309,19 @@ public class Cadastrar_P extends javax.swing.JFrame {
     private void jRadio_MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_MasculinoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadio_MasculinoActionPerformed
+
+    private void jRadio_FemininoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_FemininoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadio_FemininoActionPerformed
+
+    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
+        // TODO add your handling code here:
+
+        Cadastrar.setEnabled(false);
+        Novo.setEnabled(true);
+        cadastrarPaciente();
+ 
+    }//GEN-LAST:event_CadastrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,7 +362,8 @@ public class Cadastrar_P extends javax.swing.JFrame {
     private javax.swing.JButton Cadastrar;
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton Novo;
+    private javax.swing.ButtonGroup buttonGroup1_Sexo;
     private javax.swing.JButton jB_Atualizar;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -336,7 +391,76 @@ public class Cadastrar_P extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-public void cadastrarPaciente(){
+public void cadastrarPaciente(){ // Método utilizado para cadastrar novos pacientes.
+    
+    //Verifica a seleção do Radio button sexo.
+    String aux="";
+   if(jRadio_Masculino.isSelected()){
+      aux="Masculino";}
+   if(jRadio_Feminino.isSelected()){
+      aux="Feminino";
+   }
+   
+
+String Registro=jT_Registro.getText().trim();
+String Nome=jT_Nome.getText().trim();
+String CPF=jT_CPF.getText().trim();
+String DataNasc=jT_DataNasc.getText().trim();
+String Sexo=aux;
+String Endereco=jTEndereco.getText().trim();
+String  Telefone=jT_Tel.getText().trim();
+String  Email=jT_Email.getText().trim();
+String  Data=jDateChooser2.getDate().toString();
+
+jT_Registro.setEnabled(false);
+jT_Nome.setEnabled(false);
+jT_CPF.setEnabled(false);
+jT_DataNasc.setEnabled(false);
+jRadio_Masculino.setEnabled(false);
+jRadio_Feminino.setEnabled(false);
+jTEndereco.setEnabled(false);
+jT_Tel.setEnabled(false);
+jT_Email.setEnabled(false);
+jDateChooser2.setEnabled(false);
+
+
+
+
+    System.out.println("Data: "+Data);
+    System.out.println("Sexo: "+Sexo);
+
+    
+    getset.setRegistro(Integer.parseInt(Registro));
+    getset.setNome(jT_Nome.getText());
+    getset.setCPF(Integer.parseInt(CPF));
+    getset.setData_Nasc(DataNasc);
+    getset.setSexo(Sexo);
+    getset.setEndereco(Endereco);
+    getset.setTelefone(Integer.parseInt(Telefone));
+    getset.setEmail(Email);
+    getset.setData_Cadastro(Data);
+    
+    controle.Cadastrar(getset);
+    
+    DefaultTableModel val = (DefaultTableModel) jT_Tabela.getModel();
+    val.addRow(new String[]{ Registro,Nome,CPF,DataNasc,Sexo,Endereco,Telefone,Email,Data });
+}
+
+
+public void novo(){
+    
+    
+jT_Registro.setEnabled(true);
+jT_Nome.setEnabled(true);
+jT_CPF.setEnabled(true);
+jT_DataNasc.setEnabled(true);
+jRadio_Masculino.setEnabled(true);
+jRadio_Feminino.setEnabled(true);
+jTEndereco.setEnabled(true);
+jT_Tel.setEnabled(true);
+jT_Email.setEnabled(true);
+jDateChooser2.setEnabled(true);
+Novo.setEnabled(false);
     
 }
 

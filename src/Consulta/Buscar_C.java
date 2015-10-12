@@ -46,7 +46,7 @@ public class Buscar_C extends javax.swing.JFrame {
         Atualizar = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         BuscarNome = new javax.swing.JRadioButton();
-        BuscaCod = new javax.swing.JRadioButton();
+        BuscaRegistro = new javax.swing.JRadioButton();
         CampoBuscarNome = new javax.swing.JTextField();
         jLabel_Nome = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -59,9 +59,11 @@ public class Buscar_C extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar Consulta");
+        getContentPane().setLayout(null);
 
         Abrir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Abrir.setForeground(new java.awt.Color(51, 0, 204));
@@ -73,6 +75,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 AbrirActionPerformed(evt);
             }
         });
+        getContentPane().add(Abrir);
+        Abrir.setBounds(713, 291, 100, 30);
 
         Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 0, 0));
@@ -84,6 +88,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 ExcluirActionPerformed(evt);
             }
         });
+        getContentPane().add(Excluir);
+        Excluir.setBounds(199, 539, 115, 40);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
@@ -94,6 +100,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 AtualizarActionPerformed(evt);
             }
         });
+        getContentPane().add(Atualizar);
+        Atualizar.setBounds(39, 539, 130, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -102,6 +110,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 FecharActionPerformed(evt);
             }
         });
+        getContentPane().add(Fechar);
+        Fechar.setBounds(890, 530, 49, 39);
 
         buttonGroup1.add(BuscarNome);
         BuscarNome.setText("Buscar pelo nome");
@@ -110,14 +120,18 @@ public class Buscar_C extends javax.swing.JFrame {
                 BuscarNomeActionPerformed(evt);
             }
         });
+        getContentPane().add(BuscarNome);
+        BuscarNome.setBounds(29, 88, 130, 23);
 
-        buttonGroup1.add(BuscaCod);
-        BuscaCod.setText("Buscar pelo Registro");
-        BuscaCod.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(BuscaRegistro);
+        BuscaRegistro.setText("Buscar pelo Registro");
+        BuscaRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscaCodActionPerformed(evt);
+                BuscaRegistroActionPerformed(evt);
             }
         });
+        getContentPane().add(BuscaRegistro);
+        BuscaRegistro.setBounds(29, 128, 140, 23);
 
         CampoBuscarNome.setEditable(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -130,12 +144,18 @@ public class Buscar_C extends javax.swing.JFrame {
                 CampoBuscarNomeKeyReleased(evt);
             }
         });
+        getContentPane().add(CampoBuscarNome);
+        CampoBuscarNome.setBounds(259, 88, 310, 27);
 
         jLabel_Nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel_Nome.setText("Nome:");
+        getContentPane().add(jLabel_Nome);
+        jLabel_Nome.setBounds(189, 88, 52, 25);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel4.setText("Registro");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(189, 128, 52, 25);
 
         CampoBuscarRegistro.setEditable(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -148,10 +168,16 @@ public class Buscar_C extends javax.swing.JFrame {
                 CampoBuscarRegistroKeyTyped(evt);
             }
         });
+        getContentPane().add(CampoBuscarRegistro);
+        CampoBuscarRegistro.setBounds(259, 128, 60, 27);
 
         jLabel1.setText("Registro:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(29, 301, 60, 14);
 
         jLabel2.setText("Nome:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(204, 301, 50, 14);
 
         jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +185,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(93, 291, 80, 30);
 
         jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -166,6 +194,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 jTextField2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(264, 291, 410, 30);
 
         Pesquisar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Pesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/magnifier13.png"))); // NOI18N
@@ -176,6 +206,8 @@ public class Buscar_C extends javax.swing.JFrame {
                 Pesquisar1ActionPerformed(evt);
             }
         });
+        getContentPane().add(Pesquisar1);
+        Pesquisar1.setBounds(690, 90, 130, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -195,93 +227,18 @@ public class Buscar_C extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Pesquisar1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BuscarNome)
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CampoBuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BuscaCod)
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(CampoBuscarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel2)
-                        .addGap(29, 29, 29)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(Abrir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 910, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(566, 566, 566)
-                        .addComponent(Fechar))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 937, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(80, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BuscarNome)
-                    .addComponent(jLabel_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoBuscarNome, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BuscaCod)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoBuscarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addComponent(Pesquisar1)
-                .addGap(47, 47, 47)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Abrir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(Fechar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(29, 29, 29))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel2)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(29, 359, 910, 120);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(29, 250, 937, 12);
 
-        setSize(new java.awt.Dimension(1062, 622));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel10.setText("Buscar  Ficha do Paciente:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(30, 10, 300, 50);
+
+        setSize(new java.awt.Dimension(1086, 662));
     }// </editor-fold>//GEN-END:initComponents
 
     private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
@@ -306,11 +263,18 @@ public class Buscar_C extends javax.swing.JFrame {
 
     private void BuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarNomeActionPerformed
 
+        if(BuscarNome.isSelected()){
+            CampoBuscarNome.setEnabled(true);
+            CampoBuscarRegistro.setEnabled(false);}
+        
     }//GEN-LAST:event_BuscarNomeActionPerformed
 
-    private void BuscaCodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaCodActionPerformed
+    private void BuscaRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscaRegistroActionPerformed
 
-    }//GEN-LAST:event_BuscaCodActionPerformed
+        if(BuscaRegistro.isSelected()){
+            CampoBuscarNome.setEnabled(false);
+            CampoBuscarRegistro.setEnabled(true);}
+    }//GEN-LAST:event_BuscaRegistroActionPerformed
 
     private void CampoBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNomeActionPerformed
         // TODO add your handling code here:
@@ -379,7 +343,7 @@ public class Buscar_C extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abrir;
     private javax.swing.JButton Atualizar;
-    private javax.swing.JRadioButton BuscaCod;
+    private javax.swing.JRadioButton BuscaRegistro;
     private javax.swing.JRadioButton BuscarNome;
     private javax.swing.JTextField CampoBuscarNome;
     private javax.swing.JTextField CampoBuscarRegistro;
@@ -388,6 +352,7 @@ public class Buscar_C extends javax.swing.JFrame {
     private javax.swing.JButton Pesquisar1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel_Nome;
