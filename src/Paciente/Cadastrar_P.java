@@ -5,8 +5,10 @@
  */
 package Paciente;
 
+import java.util.Calendar;
 import java.util.Date;
 import javafx.scene.chart.PieChart.Data;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -41,7 +43,6 @@ public class Cadastrar_P extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         Fechar = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
-        jB_Atualizar = new javax.swing.JButton();
         Novo = new javax.swing.JButton();
         jT_Registro = new javax.swing.JTextField();
         jT_Nome = new javax.swing.JTextField();
@@ -56,13 +57,15 @@ public class Cadastrar_P extends javax.swing.JFrame {
         jRadio_Masculino = new javax.swing.JRadioButton();
         jRadio_Feminino = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         Cadastrar = new javax.swing.JButton();
+        DataAtual = new javax.swing.JTextField();
+        Atualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro de Paciente");
         getContentPane().setLayout(null);
 
         jLabel1.setText("Registro:");
@@ -71,7 +74,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
 
         jLabel2.setText("Data:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(780, 90, 40, 20);
+        jLabel2.setBounds(710, 80, 60, 30);
 
         jLabel3.setText("Data de Nascimento:");
         getContentPane().add(jLabel3);
@@ -104,25 +107,14 @@ public class Cadastrar_P extends javax.swing.JFrame {
         Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/close18.png"))); // NOI18N
         Excluir.setText("  Excluir");
         Excluir.setToolTipText("");
+        Excluir.setEnabled(false);
         Excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ExcluirActionPerformed(evt);
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(200, 570, 95, 40);
-
-        jB_Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jB_Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
-        jB_Atualizar.setText("  Atualizar");
-        jB_Atualizar.setToolTipText("");
-        jB_Atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_AtualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jB_Atualizar);
-        jB_Atualizar.setBounds(50, 570, 105, 40);
+        Excluir.setBounds(210, 570, 95, 40);
 
         Novo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo.setForeground(new java.awt.Color(0, 0, 102));
@@ -233,8 +225,6 @@ public class Cadastrar_P extends javax.swing.JFrame {
         jLabel8.setText("Sexo:");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(720, 140, 50, 30);
-        getContentPane().add(jDateChooser2);
-        jDateChooser2.setBounds(830, 80, 120, 30);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(50, 390, 910, 2);
 
@@ -262,6 +252,28 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(Cadastrar);
         Cadastrar.setBounds(210, 310, 130, 40);
 
+        DataAtual.setEnabled(false);
+        DataAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataAtualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DataAtual);
+        DataAtual.setBounds(750, 70, 210, 40);
+
+        Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
+        Atualizar.setText("Atualizar");
+        Atualizar.setToolTipText("");
+        Atualizar.setEnabled(false);
+        Atualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Atualizar);
+        Atualizar.setBounds(50, 570, 130, 40);
+
         setSize(new java.awt.Dimension(1070, 680));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -276,16 +288,11 @@ public class Cadastrar_P extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ExcluirActionPerformed
 
-    private void jB_AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AtualizarActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jB_AtualizarActionPerformed
-
     private void NovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NovoActionPerformed
-        
+         novo();
         Novo.setEnabled(false);
         Cadastrar.setEnabled(true);
-        novo();
+       
         
         
     }//GEN-LAST:event_NovoActionPerformed
@@ -316,12 +323,22 @@ public class Cadastrar_P extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
-
+        cadastrarPaciente();
+        
         Cadastrar.setEnabled(false);
         Novo.setEnabled(true);
-        cadastrarPaciente();
+        Excluir.setEnabled(true);
+        Atualizar.setEnabled(true);
  
     }//GEN-LAST:event_CadastrarActionPerformed
+
+    private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataAtualActionPerformed
+
+    private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -359,13 +376,13 @@ public class Cadastrar_P extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Atualizar;
     private javax.swing.JButton Cadastrar;
+    private javax.swing.JTextField DataAtual;
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Novo;
     private javax.swing.ButtonGroup buttonGroup1_Sexo;
-    private javax.swing.JButton jB_Atualizar;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -390,10 +407,11 @@ public class Cadastrar_P extends javax.swing.JFrame {
     private javax.swing.JTextField jT_Tel;
     // End of variables declaration//GEN-END:variables
 
-
+//=====================================================================================
+    
 public void cadastrarPaciente(){ // Método utilizado para cadastrar novos pacientes.
     
-    //Verifica a seleção do Radio button sexo.
+//Verifica a seleção do Radio button sexo.
     String aux="";
    if(jRadio_Masculino.isSelected()){
       aux="Masculino";}
@@ -402,7 +420,11 @@ public void cadastrarPaciente(){ // Método utilizado para cadastrar novos pacie
    }
    
 
-String Registro=jT_Registro.getText().trim();
+String Registro =""+getset.getRegistro();
+ 
+   
+// Atribui os valores do jtext para os atributos;
+//String Registro=jT_Registro.getText().trim();
 String Nome=jT_Nome.getText().trim();
 String CPF=jT_CPF.getText().trim();
 String DataNasc=jT_DataNasc.getText().trim();
@@ -410,58 +432,99 @@ String Sexo=aux;
 String Endereco=jTEndereco.getText().trim();
 String  Telefone=jT_Tel.getText().trim();
 String  Email=jT_Email.getText().trim();
-String  Data=jDateChooser2.getDate().toString();
-
-jT_Registro.setEnabled(false);
-jT_Nome.setEnabled(false);
-jT_CPF.setEnabled(false);
-jT_DataNasc.setEnabled(false);
-jRadio_Masculino.setEnabled(false);
-jRadio_Feminino.setEnabled(false);
-jTEndereco.setEnabled(false);
-jT_Tel.setEnabled(false);
-jT_Email.setEnabled(false);
-jDateChooser2.setEnabled(false);
+String dataAtual = DataAtual.getText().trim();
 
 
 
+//Passa os valores dos atributos para o array e salva o objeto.    
 
-    System.out.println("Data: "+Data);
-    System.out.println("Sexo: "+Sexo);
+getset.setNome(Nome);
+getset.setCPF(CPF);
+getset.setData_Nasc(DataNasc);
+getset.setSexo(Sexo);
+getset.setEndereco(Endereco);
+getset.setTelefone(Telefone);
+getset.setEmail(Email);
+getset.setData_Cadastro(dataAtual);
+controle.Cadastrar(getset);
+ 
 
+
+//Passa os valores dos jTexts para o jtable.
+DefaultTableModel val = (DefaultTableModel) jT_Tabela.getModel();
+val.addRow(new String[]{Registro,Nome,CPF,DataNasc,Sexo,Endereco,Telefone,Email,dataAtual });
+
+jTextFalse();//jText desabilitado.
+jTextApagar();//Limpa os campos jText.
+
+
+//JOptionPane.showMessageDialog(this, "Falha no cadastro, Preencha todos os campos corretamente.");
     
-    getset.setRegistro(Integer.parseInt(Registro));
-    getset.setNome(jT_Nome.getText());
-    getset.setCPF(Integer.parseInt(CPF));
-    getset.setData_Nasc(DataNasc);
-    getset.setSexo(Sexo);
-    getset.setEndereco(Endereco);
-    getset.setTelefone(Integer.parseInt(Telefone));
-    getset.setEmail(Email);
-    getset.setData_Cadastro(Data);
-    
-    controle.Cadastrar(getset);
-    
-    DefaultTableModel val = (DefaultTableModel) jT_Tabela.getModel();
-    val.addRow(new String[]{ Registro,Nome,CPF,DataNasc,Sexo,Endereco,Telefone,Email,Data });
 }
 
 
+//=====================================================================================
+    
 public void novo(){
     
-    
-jT_Registro.setEnabled(true);
-jT_Nome.setEnabled(true);
-jT_CPF.setEnabled(true);
-jT_DataNasc.setEnabled(true);
-jRadio_Masculino.setEnabled(true);
-jRadio_Feminino.setEnabled(true);
-jTEndereco.setEnabled(true);
-jT_Tel.setEnabled(true);
-jT_Email.setEnabled(true);
-jDateChooser2.setEnabled(true);
+jTextTrue();//jText habilitado
+ Calendar data = Calendar.getInstance(); 
+ DataAtual.setText(data.getTime().toString());
+ 
+jRadio_Masculino.setSelected(true);
+getset.setRegistro(WIDTH);
+jT_Registro.setText(getset.getRegistro().toString());
+
+
+
 Novo.setEnabled(false);
     
 }
+
+
+//=====================================================================================
+    
+
+public void jTextTrue (){//Habilita os campos jText 
+//jT_Registro.setEnabled(true);
+jT_Nome.setEnabled(true);
+jT_CPF.setEnabled(true);
+jT_DataNasc.setEnabled(true);
+jTEndereco.setEnabled(true);
+jT_Tel.setEnabled(true);
+jT_Email.setEnabled(true);
+ 
+}
+
+
+//=====================================================================================
+    
+public void jTextFalse(){//Desabilita os campos JText
+//jT_Registro.setEnabled(false);
+jT_Nome.setEnabled(false);
+jT_CPF.setEnabled(false);
+jT_DataNasc.setEnabled(false);
+jTEndereco.setEnabled(false);
+jT_Tel.setEnabled(false);
+jT_Email.setEnabled(false);
+
+}
+
+
+//=====================================================================================
+    
+public void jTextApagar(){//Apaga os textos dos jTexts
+
+//Zera os campos JText.    
+//jT_Registro.setText("");
+jT_Nome.setText("");
+jT_CPF.setText("");
+jT_DataNasc.setText("");
+jTEndereco.setText("");
+jT_Tel.setText("");
+jT_Email.setText("");
+}
+
+
 
 }

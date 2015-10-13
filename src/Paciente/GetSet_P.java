@@ -18,13 +18,13 @@ public class GetSet_P {
     
 //Atributos.
     private  Integer Registro=0;
-    private  Integer i = 1000;// Código Randomico.
+    private  Integer i=1000;// Código Randomico.
     private  String Nome;
-    private  Integer CPF;
+    private  String CPF;
     private  String Data_Nasc;
     private  String Sexo; 
     private  String Endereco;
-    private  Integer Telefone;
+    private  String Telefone;
     private  String Email;
     private  String Data_Cadastro;
     
@@ -32,7 +32,7 @@ public class GetSet_P {
     //=====================================================================
       //Contrutores
 
-    public GetSet_P(String Nome, int CPF, String Data_Nasc, String Sexo, String Endereco, int Telefone, String Email, String Data_Cadastro) {
+    public GetSet_P(String Nome, String CPF, String Data_Nasc, String Sexo, String Endereco, String Telefone, String Email, String Data_Cadastro) {
         this.Nome = Nome;
         this.CPF = CPF;
         this.Data_Nasc = Data_Nasc;
@@ -55,7 +55,11 @@ public GetSet_P(){}
         return Registro;
     }
     public void setRegistro(Integer Registro) {
+        Registro=i;
         this.Registro = Registro;
+        i++;
+    
+    
     }
    
     public String getData_Nasc() {
@@ -85,9 +89,9 @@ return this.Nome;                  }
 public void setNome(String nome){
 this.Nome=nome;                    }
 
-public Integer getCPF(){
+public String getCPF(){
 return this.CPF;                  } 
-public void setCPF(Integer cpf){
+public void setCPF(String cpf){
     this.setTelefone(CPF);                    }
 
 public String getDate_Nasc(){
@@ -102,9 +106,9 @@ public void setEndereco(String endereco){
 this.Endereco=endereco;                    }
 
 
-public Integer getTelefone(){
+public String getTelefone(){
 return this.Telefone;                  } 
-public void setTelefone(Integer telefone){
+public void setTelefone(String telefone){
 this.Telefone = telefone;                    }
 
 
