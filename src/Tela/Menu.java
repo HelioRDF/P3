@@ -9,6 +9,10 @@ import Paciente.*;
 import Consultar.Buscar_C;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Atendimento.*;
+import Usuarios.*;
+
+
 /**
  *
  * @author Helio Franca
@@ -21,12 +25,11 @@ public class Menu extends javax.swing.JFrame {
     Cadastrar_P TelaCadastro = new Cadastrar_P();
     Buscar_P TelaBuscaCadastro = new Buscar_P();
     Buscar_C buscarConsulta = new Buscar_C();
+    Buscar_atendimento buscarAtendimento = new Buscar_atendimento();
+    Buscar_Usuario buscarUsuario = new Buscar_Usuario();
+    Cadastrar_Usuario cadastrarUsuario = new Cadastrar_Usuario();
     
-    
-    
-    
-    
-    
+                    
     public Menu() throws ClassNotFoundException {
         initComponents();
     }
@@ -48,8 +51,10 @@ public class Menu extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         JM_NovaConsulta = new javax.swing.JMenuItem();
         atendimento = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        novo_Atendimento = new javax.swing.JMenuItem();
         Usuario = new javax.swing.JMenu();
+        novo_Usuario = new javax.swing.JMenuItem();
+        buscar_Usuario = new javax.swing.JMenuItem();
         sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -99,12 +104,34 @@ public class Menu extends javax.swing.JFrame {
 
         atendimento.setText("Atendimento");
 
-        jMenuItem2.setText("Novo");
-        atendimento.add(jMenuItem2);
+        novo_Atendimento.setText("Novo");
+        novo_Atendimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novo_AtendimentoActionPerformed(evt);
+            }
+        });
+        atendimento.add(novo_Atendimento);
 
         jMenuBar1.add(atendimento);
 
         Usuario.setText("Usuário");
+
+        novo_Usuario.setText("Novo");
+        novo_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novo_UsuarioActionPerformed(evt);
+            }
+        });
+        Usuario.add(novo_Usuario);
+
+        buscar_Usuario.setText("Buscar");
+        buscar_Usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscar_UsuarioActionPerformed(evt);
+            }
+        });
+        Usuario.add(buscar_Usuario);
+
         jMenuBar1.add(Usuario);
 
         sair.setText("Sair");
@@ -146,6 +173,26 @@ public class Menu extends javax.swing.JFrame {
         
            buscarConsulta.setVisible(true);
     }//GEN-LAST:event_JM_NovaConsultaActionPerformed
+
+    private void novo_AtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novo_AtendimentoActionPerformed
+        // TODO add your handling code here:
+        
+        buscarAtendimento.setVisible(true);
+        
+    }//GEN-LAST:event_novo_AtendimentoActionPerformed
+
+    private void novo_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novo_UsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        cadastrarUsuario.setVisible(true);
+    }//GEN-LAST:event_novo_UsuarioActionPerformed
+
+    private void buscar_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_UsuarioActionPerformed
+        // TODO add your handling code here:
+        
+        buscarUsuario.setVisible(true);
+        
+    }//GEN-LAST:event_buscar_UsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,12 +238,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem JM_NovaConsulta;
     private javax.swing.JMenu Usuario;
     private javax.swing.JMenu atendimento;
+    private javax.swing.JMenuItem buscar_Usuario;
     private javax.swing.JMenu jM_BuscaCadastro;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenu_Novo;
+    private javax.swing.JMenuItem novo_Atendimento;
+    private javax.swing.JMenuItem novo_Usuario;
     private javax.swing.JMenu sair;
     // End of variables declaration//GEN-END:variables
 }
