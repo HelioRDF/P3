@@ -35,7 +35,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() throws ClassNotFoundException {
         initComponents();
         
-       
+       setExtendedState(JFrame.MAXIMIZED_BOTH);
         
     }
 
