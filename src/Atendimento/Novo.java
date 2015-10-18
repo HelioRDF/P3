@@ -2,6 +2,7 @@
 package Atendimento;
 
 import Consultar.*;
+import java.util.Calendar;
 
 
 
@@ -18,6 +19,10 @@ public class Novo extends javax.swing.JFrame {
  
     public Novo()  {
         initComponents();
+        
+       
+     Calendar data = Calendar.getInstance(); 
+     DataAtual.setText(data.getTime().toString());
     
     }
     
@@ -39,7 +44,6 @@ public class Novo extends javax.swing.JFrame {
         Fechar = new javax.swing.JButton();
         CampoBuscarNome = new javax.swing.JTextField();
         jLabel_Nome = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         CampoBuscarRegistro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
@@ -51,8 +55,7 @@ public class Novo extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        Cadastrar = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        Gravar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -83,6 +86,8 @@ public class Novo extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
+        DataAtual = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Anamneses");
@@ -96,7 +101,7 @@ public class Novo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(870, 610, 49, 39);
+        Fechar.setBounds(900, 610, 49, 39);
 
         CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -116,11 +121,6 @@ public class Novo extends javax.swing.JFrame {
         jLabel_Nome.setText("Nome:");
         getContentPane().add(jLabel_Nome);
         jLabel_Nome.setBounds(50, 30, 60, 25);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel4.setText("Data:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(730, 240, 50, 40);
 
         CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -186,20 +186,18 @@ public class Novo extends javax.swing.JFrame {
         getContentPane().add(jTextField6);
         jTextField6.setBounds(470, 150, 190, 30);
 
-        Cadastrar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Cadastrar.setForeground(new java.awt.Color(0, 0, 102));
-        Cadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
-        Cadastrar.setText(" Gravar");
-        Cadastrar.setToolTipText("");
-        Cadastrar.addActionListener(new java.awt.event.ActionListener() {
+        Gravar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Gravar.setForeground(new java.awt.Color(0, 0, 102));
+        Gravar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
+        Gravar.setText(" Gravar");
+        Gravar.setToolTipText("");
+        Gravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CadastrarActionPerformed(evt);
+                GravarActionPerformed(evt);
             }
         });
-        getContentPane().add(Cadastrar);
-        Cadastrar.setBounds(60, 600, 170, 40);
-        getContentPane().add(jDateChooser1);
-        jDateChooser1.setBounds(780, 240, 130, 40);
+        getContentPane().add(Gravar);
+        Gravar.setBounds(60, 600, 170, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Bebidas alcoólicas:");
@@ -338,6 +336,19 @@ public class Novo extends javax.swing.JFrame {
         getContentPane().add(jLabel20);
         jLabel20.setBounds(50, 250, 70, 20);
 
+        DataAtual.setEnabled(false);
+        DataAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataAtualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DataAtual);
+        DataAtual.setBounds(720, 240, 210, 30);
+
+        jLabel11.setText("Data:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(680, 240, 60, 30);
+
         setSize(new java.awt.Dimension(1056, 706));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -371,13 +382,17 @@ public class Novo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
-    private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
-
-    }//GEN-LAST:event_CadastrarActionPerformed
+    private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
+      
+    }//GEN-LAST:event_GravarActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataAtualActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,18 +434,19 @@ public class Novo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField CampoBuscarNome;
     private javax.swing.JTextField CampoBuscarRegistro;
+    private javax.swing.JTextField DataAtual;
     private javax.swing.JButton Fechar;
+    private javax.swing.JButton Gravar;
     private javax.swing.ButtonGroup buttonGroup1_Bebidas;
     private javax.swing.ButtonGroup buttonGroup1_Deficiencia;
     private javax.swing.ButtonGroup buttonGroup1_Doença;
     private javax.swing.ButtonGroup buttonGroup1_Fuma;
     private javax.swing.ButtonGroup buttonGroup2_Drogas;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -442,7 +458,6 @@ public class Novo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

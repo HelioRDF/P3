@@ -47,19 +47,12 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTnome = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTDataNasc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTCPF = new javax.swing.JTextField();
+        jTSenha = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTTelefone = new javax.swing.JTextField();
         jTEndereco = new javax.swing.JTextField();
         jTEmail = new javax.swing.JTextField();
-        jRadio_Masculino = new javax.swing.JRadioButton();
-        jRadio_Feminino = new javax.swing.JRadioButton();
-        jLabel9 = new javax.swing.JLabel();
         Gravar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
@@ -129,7 +122,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         BuscarNome.setBounds(50, 90, 130, 30);
 
         buttonGroup1_Busca.add(BuscaRegistro);
-        BuscaRegistro.setText("Buscar pelo Registro");
+        BuscaRegistro.setText("Buscar pelo CRM");
         BuscaRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscaRegistroActionPerformed(evt);
@@ -158,7 +151,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         jLabel_Nome.setBounds(210, 90, 70, 30);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel4.setText("Registro");
+        jLabel4.setText("CRM");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(210, 130, 70, 30);
 
@@ -181,11 +174,11 @@ public class Buscar_Usuario extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Registro", "Nome", "CPF", "Data de Nascimento", "Sexo", "Endereço", "Telefone", "E-mail"
+                "CRM", "Nome", "Senha", "Tipo", "Email"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -197,9 +190,9 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(50, 480, 860, 100);
 
-        jLabel1.setText("Registro:");
+        jLabel1.setText("CRM:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(650, 230, 70, 20);
+        jLabel1.setBounds(650, 230, 50, 20);
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
@@ -212,7 +205,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(710, 220, 100, 30);
+        jTextField1.setBounds(700, 220, 100, 30);
 
         jTnome.setEnabled(false);
         jTnome.addActionListener(new java.awt.event.ActionListener() {
@@ -223,42 +216,21 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         getContentPane().add(jTnome);
         jTnome.setBounds(120, 220, 410, 30);
 
-        jLabel3.setText("Data de Nascimento:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(380, 270, 120, 30);
-
-        jTDataNasc.setEnabled(false);
-        getContentPane().add(jTDataNasc);
-        jTDataNasc.setBounds(500, 270, 120, 30);
-
-        jLabel7.setText("CPF: ");
+        jLabel7.setText("Senha: ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(50, 280, 30, 20);
+        jLabel7.setBounds(50, 280, 50, 20);
 
-        jTCPF.setEnabled(false);
-        getContentPane().add(jTCPF);
-        jTCPF.setBounds(120, 270, 240, 30);
+        jTSenha.setEnabled(false);
+        getContentPane().add(jTSenha);
+        jTSenha.setBounds(120, 270, 150, 30);
 
         jLabel8.setText("E-Mail:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(350, 360, 40, 20);
+        jLabel8.setBounds(50, 360, 40, 20);
 
-        jLabel5.setText("Telefone:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(50, 360, 60, 20);
-
-        jLabel6.setText("Endereço:");
+        jLabel6.setText("Tipo:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(50, 320, 60, 20);
-
-        jTTelefone.setEnabled(false);
-        jTTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTTelefoneActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTTelefone);
-        jTTelefone.setBounds(120, 350, 210, 30);
 
         jTEndereco.setEnabled(false);
         jTEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -267,7 +239,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTEndereco);
-        jTEndereco.setBounds(120, 310, 500, 30);
+        jTEndereco.setBounds(120, 310, 110, 30);
 
         jTEmail.setEnabled(false);
         jTEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -276,26 +248,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTEmail);
-        jTEmail.setBounds(400, 350, 220, 30);
-
-        buttonGroup2_Sexo.add(jRadio_Masculino);
-        jRadio_Masculino.setText("Masculino");
-        jRadio_Masculino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadio_MasculinoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadio_Masculino);
-        jRadio_Masculino.setBounds(640, 300, 100, 30);
-
-        buttonGroup2_Sexo.add(jRadio_Feminino);
-        jRadio_Feminino.setText("Feminino");
-        getContentPane().add(jRadio_Feminino);
-        jRadio_Feminino.setBounds(640, 330, 100, 30);
-
-        jLabel9.setText("Sexo:");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(650, 270, 30, 20);
+        jTEmail.setBounds(120, 350, 240, 30);
 
         Gravar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Gravar.setForeground(new java.awt.Color(0, 0, 102));
@@ -393,17 +346,9 @@ CampoBuscarRegistro.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jTnomeActionPerformed
 
-    private void jTTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTTelefoneActionPerformed
-
     private void jTEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTEmailActionPerformed
-
-    private void jRadio_MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_MasculinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadio_MasculinoActionPerformed
 
     private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
 
@@ -464,24 +409,17 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JRadioButton jRadio_Feminino;
-    private javax.swing.JRadioButton jRadio_Masculino;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTCPF;
-    private javax.swing.JTextField jTDataNasc;
     private javax.swing.JTextField jTEmail;
     private javax.swing.JTextField jTEndereco;
-    private javax.swing.JTextField jTTelefone;
+    private javax.swing.JTextField jTSenha;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTnome;
@@ -491,11 +429,10 @@ CampoBuscarRegistro.setEnabled(true);
 
 public void atualizar(){
     
-    jTCPF.setEnabled(true);
-    jTDataNasc.setEnabled(true);
+  
     jTEmail.setEnabled(true);
     jTEndereco.setEnabled(true);
-    jTTelefone.setEnabled(true);
+   
     jTnome.setEnabled(true);
     
 }

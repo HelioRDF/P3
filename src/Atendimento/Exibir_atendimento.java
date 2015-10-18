@@ -70,7 +70,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(60, 520, 180, 40);
+        Excluir.setBounds(60, 550, 180, 40);
 
         Novo_Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo_Anamnese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
@@ -82,7 +82,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Novo_Anamnese);
-        Novo_Anamnese.setBounds(60, 470, 180, 40);
+        Novo_Anamnese.setBounds(60, 500, 180, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -92,7 +92,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(680, 520, 49, 39);
+        Fechar.setBounds(710, 550, 49, 39);
 
         CampoBuscarNome.setEditable(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -206,7 +206,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir1);
-        Excluir1.setBounds(350, 520, 180, 40);
+        Excluir1.setBounds(350, 550, 180, 40);
 
         Atualizar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/floppy.png"))); // NOI18N
@@ -218,7 +218,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar1);
-        Atualizar1.setBounds(350, 470, 180, 40);
+        Atualizar1.setBounds(350, 500, 180, 40);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(60, 300, 620, 10);
 
