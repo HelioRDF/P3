@@ -11,6 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Atendimento.*;
 import Usuarios.*;
+import java.awt.GridLayout;
+import javax.swing.JFrame;
 
 
 /**
@@ -32,6 +34,9 @@ public class Menu extends javax.swing.JFrame {
                     
     public Menu() throws ClassNotFoundException {
         initComponents();
+        
+       
+        
     }
 
     /**
@@ -43,6 +48,7 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         JD_Tela = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_BuscaCadastro = new javax.swing.JMenu();
@@ -58,6 +64,8 @@ public class Menu extends javax.swing.JFrame {
         sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(java.awt.Color.white);
 
         javax.swing.GroupLayout JD_TelaLayout = new javax.swing.GroupLayout(JD_Tela);
         JD_Tela.setLayout(JD_TelaLayout);
@@ -70,7 +78,20 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 526, Short.MAX_VALUE)
         );
 
-        jM_BuscaCadastro.setText("Cadastro");
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JD_Tela)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JD_Tela)
+        );
+        jDesktopPane1.setLayer(JD_Tela, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jM_BuscaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/contract11.png"))); // NOI18N
+        jM_BuscaCadastro.setText("Cadastro      ");
 
         jMenu_Novo.setText("Novo");
         jMenu_Novo.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +111,8 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jM_BuscaCadastro);
 
-        jMenu2.setText("   Consultar");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102.png"))); // NOI18N
+        jMenu2.setText("Consultar      ");
 
         JM_NovaConsulta.setText("Buscar");
         JM_NovaConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +124,8 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        atendimento.setText("Atendimento");
+        atendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5.png"))); // NOI18N
+        atendimento.setText("Atendimento      ");
 
         novo_Atendimento.setText("Novo");
         novo_Atendimento.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +137,8 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(atendimento);
 
-        Usuario.setText("Usuário");
+        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/user168.png"))); // NOI18N
+        Usuario.setText("Usuário                          ");
 
         novo_Usuario.setText("Novo");
         novo_Usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +158,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(Usuario);
 
+        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout7.png"))); // NOI18N
         sair.setText("Sair");
         jMenuBar1.add(sair);
 
@@ -143,11 +168,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JD_Tela)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JD_Tela)
+            .addComponent(jDesktopPane1, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -239,6 +264,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu Usuario;
     private javax.swing.JMenu atendimento;
     private javax.swing.JMenuItem buscar_Usuario;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jM_BuscaCadastro;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
@@ -248,4 +274,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem novo_Usuario;
     private javax.swing.JMenu sair;
     // End of variables declaration//GEN-END:variables
+
+
+
+
+
 }
