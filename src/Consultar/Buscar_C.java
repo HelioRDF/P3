@@ -27,7 +27,9 @@ public class Buscar_C extends javax.swing.JFrame {
     public Buscar_C() {
         initComponents();
         
-        
+        Atualizar.setEnabled(false);
+        Excluir.setEnabled(false);
+        BuscaRegistro.setSelected(true);
         
     }
 
@@ -133,7 +135,7 @@ public class Buscar_C extends javax.swing.JFrame {
         getContentPane().add(BuscaRegistro);
         BuscaRegistro.setBounds(29, 128, 140, 23);
 
-        CampoBuscarNome.setEditable(false);
+        CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoBuscarNomeActionPerformed(evt);
@@ -157,7 +159,7 @@ public class Buscar_C extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(189, 128, 52, 25);
 
-        CampoBuscarRegistro.setEditable(false);
+        CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoBuscarRegistroActionPerformed(evt);
@@ -220,9 +222,16 @@ public class Buscar_C extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -240,13 +249,6 @@ public class Buscar_C extends javax.swing.JFrame {
 
         setSize(new java.awt.Dimension(1086, 662));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
-
-    new Exibir_C().setVisible(true);
-        
-        
-    }//GEN-LAST:event_AbrirActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
 
@@ -293,17 +295,25 @@ public class Buscar_C extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CampoBuscarRegistroKeyTyped
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void Pesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pesquisar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+         Atualizar.setEnabled(true);
+        Excluir.setEnabled(true);
+    }//GEN-LAST:event_Pesquisar1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void Pesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pesquisar1ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Pesquisar1ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
+
+        new Exibir_C().setVisible(true);
+
+    }//GEN-LAST:event_AbrirActionPerformed
 
     /**
      * @param args the command line arguments

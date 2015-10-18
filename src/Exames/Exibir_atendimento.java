@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Consultar;
+package Exames;
 
+import Atendimento.*;
+import Consultar.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -12,12 +14,12 @@ import java.util.logging.Logger;
  *
  * @author Helio Franca
  */
-public class Exibir_C extends javax.swing.JFrame {
+public class Exibir_atendimento extends javax.swing.JFrame {
 
     /**
      * Creates new form Exibir_C
      */
-    public Exibir_C() {
+    public Exibir_atendimento() {
         initComponents();
     }
 
@@ -31,6 +33,7 @@ public class Exibir_C extends javax.swing.JFrame {
     private void initComponents() {
 
         Excluir = new javax.swing.JButton();
+        Novo_Anamnese = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         CampoBuscarNome = new javax.swing.JTextField();
         jLabel_Nome = new javax.swing.JLabel();
@@ -49,13 +52,9 @@ public class Exibir_C extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Excluir1 = new javax.swing.JButton();
+        Atualizar1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        Excluir2 = new javax.swing.JButton();
-        DataAtual = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        CampoBuscarNome1 = new javax.swing.JTextField();
-        jLabel_Nome1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exibir Ficha");
@@ -72,7 +71,19 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(60, 570, 180, 40);
+        Excluir.setBounds(60, 550, 180, 40);
+
+        Novo_Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Novo_Anamnese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
+        Novo_Anamnese.setText(" Novo Anamnese");
+        Novo_Anamnese.setToolTipText("");
+        Novo_Anamnese.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Novo_AnamneseActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Novo_Anamnese);
+        Novo_Anamnese.setBounds(60, 500, 180, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -82,7 +93,7 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(800, 590, 49, 39);
+        Fechar.setBounds(710, 550, 49, 39);
 
         CampoBuscarNome.setEditable(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -177,33 +188,18 @@ public class Exibir_C extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Arquivo", "Data"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 420, 730, 110);
+        jScrollPane1.setBounds(60, 340, 620, 110);
 
         Excluir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir1.setForeground(new java.awt.Color(51, 0, 204));
-        Excluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
-        Excluir1.setText("Abrir");
+        Excluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pass2.png"))); // NOI18N
+        Excluir1.setText("  Listar Exames");
         Excluir1.setToolTipText("");
         Excluir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,9 +207,21 @@ public class Exibir_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir1);
-        Excluir1.setBounds(690, 330, 100, 40);
+        Excluir1.setBounds(350, 550, 180, 40);
+
+        Atualizar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Atualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/floppy.png"))); // NOI18N
+        Atualizar1.setText(" Salvar Exame");
+        Atualizar1.setToolTipText("");
+        Atualizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Atualizar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Atualizar1);
+        Atualizar1.setBounds(350, 500, 180, 40);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(60, 300, 730, 10);
+        jSeparator1.setBounds(60, 300, 620, 10);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -221,57 +229,18 @@ public class Exibir_C extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(70, 30, 300, 50);
 
-        Excluir2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Excluir2.setForeground(new java.awt.Color(51, 0, 204));
-        Excluir2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pass2.png"))); // NOI18N
-        Excluir2.setText("  Listar Exames");
-        Excluir2.setToolTipText("");
-        Excluir2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Excluir2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Excluir2);
-        Excluir2.setBounds(280, 570, 180, 40);
-
-        DataAtual.setEditable(false);
-        DataAtual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DataAtualActionPerformed(evt);
-            }
-        });
-        getContentPane().add(DataAtual);
-        DataAtual.setBounds(400, 340, 220, 30);
-
-        jLabel2.setText("Data:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(360, 340, 60, 30);
-
-        CampoBuscarNome1.setEditable(false);
-        CampoBuscarNome1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoBuscarNome1ActionPerformed(evt);
-            }
-        });
-        CampoBuscarNome1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                CampoBuscarNome1KeyReleased(evt);
-            }
-        });
-        getContentPane().add(CampoBuscarNome1);
-        CampoBuscarNome1.setBounds(150, 340, 160, 27);
-
-        jLabel_Nome1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel_Nome1.setText("Arquivo:");
-        getContentPane().add(jLabel_Nome1);
-        jLabel_Nome1.setBounds(60, 340, 80, 25);
-
-        setSize(new java.awt.Dimension(916, 681));
+        setSize(new java.awt.Dimension(935, 671));
     }// </editor-fold>//GEN-END:initComponents
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
 
     }//GEN-LAST:event_ExcluirActionPerformed
+
+    private void Novo_AnamneseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Novo_AnamneseActionPerformed
+           // TODO add your handling code here:
+            new Novo().setVisible(true);
+       
+    }//GEN-LAST:event_Novo_AnamneseActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
         dispose();
@@ -301,25 +270,13 @@ public class Exibir_C extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
-    private void Excluir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Excluir2ActionPerformed
-
-    private void CampoBuscarNome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoBuscarNome1KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoBuscarNome1KeyReleased
-
-    private void CampoBuscarNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNome1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoBuscarNome1ActionPerformed
-
-    private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DataAtualActionPerformed
-
     private void Excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Excluir1ActionPerformed
+
+    private void Atualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Atualizar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Atualizar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -338,35 +295,40 @@ public class Exibir_C extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Exibir_C.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exibir_atendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Exibir_C.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exibir_atendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Exibir_C.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exibir_atendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Exibir_C.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Exibir_atendimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Exibir_C().setVisible(true);
+                new Exibir_atendimento().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Atualizar1;
     private javax.swing.JTextField CampoBuscarNome;
-    private javax.swing.JTextField CampoBuscarNome1;
     private javax.swing.JTextField CampoBuscarRegistro;
-    private javax.swing.JTextField DataAtual;
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Excluir1;
-    private javax.swing.JButton Excluir2;
     private javax.swing.JButton Fechar;
+    private javax.swing.JButton Novo_Anamnese;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -374,7 +336,6 @@ public class Exibir_C extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JLabel jLabel_Nome1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;

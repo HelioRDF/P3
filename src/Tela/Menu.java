@@ -62,6 +62,8 @@ public class Menu extends javax.swing.JFrame {
         novo_Usuario = new javax.swing.JMenuItem();
         buscar_Usuario = new javax.swing.JMenuItem();
         sair = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -160,6 +162,13 @@ public class Menu extends javax.swing.JFrame {
 
         sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout7.png"))); // NOI18N
         sair.setText("Sair");
+
+        jMenuItem2.setText("Mudar de usuário");
+        sair.add(jMenuItem2);
+
+        jMenuItem3.setText("Fechar");
+        sair.add(jMenuItem3);
+
         jMenuBar1.add(sair);
 
         setJMenuBar(jMenuBar1);
@@ -269,6 +278,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenu_Novo;
     private javax.swing.JMenuItem novo_Atendimento;
     private javax.swing.JMenuItem novo_Usuario;

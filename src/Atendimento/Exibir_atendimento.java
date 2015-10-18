@@ -6,6 +6,7 @@
 package Atendimento;
 
 import Consultar.*;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,6 +21,9 @@ public class Exibir_atendimento extends javax.swing.JFrame {
      */
     public Exibir_atendimento() {
         initComponents();
+        
+     Calendar data = Calendar.getInstance(); 
+     DataAtual.setText(data.getTime().toString());
     }
 
     /**
@@ -31,7 +35,6 @@ public class Exibir_atendimento extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Excluir = new javax.swing.JButton();
         Novo_Anamnese = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         CampoBuscarNome = new javax.swing.JTextField();
@@ -48,29 +51,20 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        Solicitar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         Excluir1 = new javax.swing.JButton();
-        Atualizar1 = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel10 = new javax.swing.JLabel();
+        DataAtual = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        CampoBuscarNome1 = new javax.swing.JTextField();
+        jLabel_Nome1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exibir Ficha");
         getContentPane().setLayout(null);
-
-        Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Excluir.setForeground(new java.awt.Color(51, 0, 204));
-        Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/visible9.png"))); // NOI18N
-        Excluir.setText("  Visualizar Anamneses");
-        Excluir.setToolTipText("");
-        Excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcluirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Excluir);
-        Excluir.setBounds(60, 550, 180, 40);
 
         Novo_Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo_Anamnese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
@@ -82,7 +76,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Novo_Anamnese);
-        Novo_Anamnese.setBounds(60, 500, 180, 40);
+        Novo_Anamnese.setBounds(70, 560, 150, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -181,46 +175,8 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField6);
         jTextField6.setBounds(490, 230, 170, 30);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 340, 620, 110);
-
-        Excluir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Excluir1.setForeground(new java.awt.Color(51, 0, 204));
-        Excluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/pass2.png"))); // NOI18N
-        Excluir1.setText("  Listar Exames");
-        Excluir1.setToolTipText("");
-        Excluir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Excluir1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Excluir1);
-        Excluir1.setBounds(350, 550, 180, 40);
-
-        Atualizar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Atualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/floppy.png"))); // NOI18N
-        Atualizar1.setText(" Salvar Exame");
-        Atualizar1.setToolTipText("");
-        Atualizar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Atualizar1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Atualizar1);
-        Atualizar1.setBounds(350, 500, 180, 40);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(60, 300, 620, 10);
+        jSeparator1.setBounds(60, 300, 760, 10);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -228,12 +184,86 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(70, 30, 300, 50);
 
+        Solicitar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Solicitar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/medical9.png"))); // NOI18N
+        Solicitar.setText(" Solicitar Exame");
+        Solicitar.setToolTipText("");
+        Solicitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SolicitarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Solicitar);
+        Solicitar.setBounds(310, 560, 160, 40);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Consulta Nº", "Registro", "Nome", "Data"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(60, 420, 760, 110);
+
+        Excluir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Excluir1.setForeground(new java.awt.Color(51, 0, 204));
+        Excluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
+        Excluir1.setText("  Agendar");
+        Excluir1.setToolTipText("");
+        Excluir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Excluir1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Excluir1);
+        Excluir1.setBounds(660, 330, 130, 40);
+
+        DataAtual.setEditable(false);
+        DataAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataAtualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DataAtual);
+        DataAtual.setBounds(400, 340, 220, 30);
+
+        jLabel2.setText("Data:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(360, 340, 60, 30);
+
+        CampoBuscarNome1.setEditable(false);
+        CampoBuscarNome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoBuscarNome1ActionPerformed(evt);
+            }
+        });
+        CampoBuscarNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CampoBuscarNome1KeyReleased(evt);
+            }
+        });
+        getContentPane().add(CampoBuscarNome1);
+        CampoBuscarNome1.setBounds(140, 340, 160, 27);
+
+        jLabel_Nome1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel_Nome1.setText("Consulta Nº:");
+        getContentPane().add(jLabel_Nome1);
+        jLabel_Nome1.setBounds(60, 340, 110, 25);
+
         setSize(new java.awt.Dimension(935, 671));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-
-    }//GEN-LAST:event_ExcluirActionPerformed
 
     private void Novo_AnamneseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Novo_AnamneseActionPerformed
            // TODO add your handling code here:
@@ -269,13 +299,25 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
+    private void SolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SolicitarActionPerformed
+
     private void Excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Excluir1ActionPerformed
 
-    private void Atualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Atualizar1ActionPerformed
+    private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Atualizar1ActionPerformed
+    }//GEN-LAST:event_DataAtualActionPerformed
+
+    private void CampoBuscarNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoBuscarNome1ActionPerformed
+
+    private void CampoBuscarNome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoBuscarNome1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoBuscarNome1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -316,14 +358,16 @@ public class Exibir_atendimento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Atualizar1;
     private javax.swing.JTextField CampoBuscarNome;
+    private javax.swing.JTextField CampoBuscarNome1;
     private javax.swing.JTextField CampoBuscarRegistro;
-    private javax.swing.JButton Excluir;
+    private javax.swing.JTextField DataAtual;
     private javax.swing.JButton Excluir1;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Novo_Anamnese;
+    private javax.swing.JButton Solicitar;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -331,6 +375,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel_Nome;
+    private javax.swing.JLabel jLabel_Nome1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;

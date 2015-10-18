@@ -16,6 +16,7 @@ public class Buscar_P extends javax.swing.JFrame {
      */
     public Buscar_P() {
         initComponents();
+        BuscaRegistro.setSelected(true);
     }
 
     /**
@@ -43,7 +44,7 @@ public class Buscar_P extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTSexo = new javax.swing.JTextField();
         jTnome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTDataNasc = new javax.swing.JTextField();
@@ -55,13 +56,12 @@ public class Buscar_P extends javax.swing.JFrame {
         jTTelefone = new javax.swing.JTextField();
         jTEndereco = new javax.swing.JTextField();
         jTEmail = new javax.swing.JTextField();
-        jRadio_Masculino = new javax.swing.JRadioButton();
-        jRadio_Feminino = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         Gravar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
+        jT_registro = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar Paciente");
@@ -185,9 +185,16 @@ public class Buscar_P extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTable1);
@@ -203,14 +210,14 @@ public class Buscar_P extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(50, 230, 40, 20);
 
-        jTextField1.setEnabled(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTSexo.setEnabled(false);
+        jTSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTSexoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(710, 220, 100, 30);
+        getContentPane().add(jTSexo);
+        jTSexo.setBounds(710, 270, 100, 30);
 
         jTnome.setEnabled(false);
         jTnome.addActionListener(new java.awt.event.ActionListener() {
@@ -276,21 +283,6 @@ public class Buscar_P extends javax.swing.JFrame {
         getContentPane().add(jTEmail);
         jTEmail.setBounds(400, 350, 220, 30);
 
-        buttonGroup2_Sexo.add(jRadio_Masculino);
-        jRadio_Masculino.setText("Masculino");
-        jRadio_Masculino.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadio_MasculinoActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jRadio_Masculino);
-        jRadio_Masculino.setBounds(640, 300, 100, 30);
-
-        buttonGroup2_Sexo.add(jRadio_Feminino);
-        jRadio_Feminino.setText("Feminino");
-        getContentPane().add(jRadio_Feminino);
-        jRadio_Feminino.setBounds(640, 330, 100, 30);
-
         jLabel9.setText("Sexo:");
         getContentPane().add(jLabel9);
         jLabel9.setBounds(650, 270, 30, 20);
@@ -318,6 +310,15 @@ public class Buscar_P extends javax.swing.JFrame {
         jLabel10.setText("Buscar  Pacientes:");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(50, 10, 300, 50);
+
+        jT_registro.setEnabled(false);
+        jT_registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jT_registroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jT_registro);
+        jT_registro.setBounds(710, 220, 100, 30);
 
         setSize(new java.awt.Dimension(1065, 731));
     }// </editor-fold>//GEN-END:initComponents
@@ -383,9 +384,9 @@ CampoBuscarRegistro.setEnabled(true);
 
     }//GEN-LAST:event_CampoBuscarRegistroKeyTyped
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTSexoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTSexoActionPerformed
 
     private void jTnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnomeActionPerformed
         // TODO add your handling code here:
@@ -399,10 +400,6 @@ CampoBuscarRegistro.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jTEmailActionPerformed
 
-    private void jRadio_MasculinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadio_MasculinoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadio_MasculinoActionPerformed
-
     private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
 
     }//GEN-LAST:event_GravarActionPerformed
@@ -410,6 +407,10 @@ CampoBuscarRegistro.setEnabled(true);
     private void jTEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEnderecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTEnderecoActionPerformed
+
+    private void jT_registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_registroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jT_registroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -469,8 +470,6 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JRadioButton jRadio_Feminino;
-    private javax.swing.JRadioButton jRadio_Masculino;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -478,9 +477,10 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JTextField jTDataNasc;
     private javax.swing.JTextField jTEmail;
     private javax.swing.JTextField jTEndereco;
+    private javax.swing.JTextField jTSexo;
     private javax.swing.JTextField jTTelefone;
+    private javax.swing.JTextField jT_registro;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTnome;
     // End of variables declaration//GEN-END:variables
 

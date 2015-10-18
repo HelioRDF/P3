@@ -135,7 +135,7 @@ public class Login_Senha extends javax.swing.JFrame {
         }
 
         else {
-            JOptionPane.showMessageDialog(null, "Acesso Negado, usuário ou senha está incorreto");
+            JOptionPane.showMessageDialog(null, "Acesso Negado, usuário ou senha está incorreto\nPara testes, Utilizar o usuário teste e senha 123.");
         }
 
     }//GEN-LAST:event_AcessarActionPerformed

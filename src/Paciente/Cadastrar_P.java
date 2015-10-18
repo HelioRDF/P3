@@ -192,9 +192,16 @@ public class Cadastrar_P extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jT_Tabela);
@@ -252,14 +259,14 @@ public class Cadastrar_P extends javax.swing.JFrame {
         getContentPane().add(Cadastrar);
         Cadastrar.setBounds(210, 310, 130, 40);
 
-        DataAtual.setEnabled(false);
+        DataAtual.setEditable(false);
         DataAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DataAtualActionPerformed(evt);
             }
         });
         getContentPane().add(DataAtual);
-        DataAtual.setBounds(750, 70, 210, 40);
+        DataAtual.setBounds(750, 80, 220, 30);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N

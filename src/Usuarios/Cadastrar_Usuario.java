@@ -45,7 +45,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
         Atualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTCRM = new javax.swing.JTextField();
         jTnome = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTSenha = new javax.swing.JTextField();
@@ -68,7 +68,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(910, 590, 49, 39);
+        Fechar.setBounds(910, 580, 49, 39);
 
         Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 0, 0));
@@ -82,7 +82,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(210, 570, 95, 40);
+        Excluir.setBounds(210, 550, 95, 40);
 
         Novo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo.setForeground(new java.awt.Color(0, 0, 102));
@@ -95,9 +95,9 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Novo);
-        Novo.setBounds(60, 310, 110, 40);
+        Novo.setBounds(50, 260, 110, 40);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(50, 390, 910, 2);
+        jSeparator1.setBounds(50, 360, 910, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -117,7 +117,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Cadastrar);
-        Cadastrar.setBounds(210, 310, 130, 40);
+        Cadastrar.setBounds(200, 260, 130, 40);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
@@ -130,7 +130,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar);
-        Atualizar.setBounds(50, 570, 130, 40);
+        Atualizar.setBounds(50, 550, 130, 40);
 
         jLabel1.setText("CRM:");
         getContentPane().add(jLabel1);
@@ -140,14 +140,14 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(50, 100, 40, 20);
 
-        jTextField1.setEnabled(false);
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTCRM.setEnabled(false);
+        jTCRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTCRMActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(700, 90, 100, 30);
+        getContentPane().add(jTCRM);
+        jTCRM.setBounds(700, 90, 100, 30);
 
         jTnome.setEnabled(false);
         jTnome.addActionListener(new java.awt.event.ActionListener() {
@@ -168,11 +168,11 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
 
         jLabel8.setText("E-Mail:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(50, 230, 40, 20);
+        jLabel8.setBounds(50, 210, 210, 20);
 
         jLabel6.setText("Tipo:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(50, 190, 60, 20);
+        jLabel6.setBounds(350, 150, 60, 20);
 
         jTEndereco.setEnabled(false);
         jTEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTEndereco);
-        jTEndereco.setBounds(120, 180, 110, 30);
+        jTEndereco.setBounds(420, 140, 110, 30);
 
         jTEmail.setEnabled(false);
         jTEmail.addActionListener(new java.awt.event.ActionListener() {
@@ -190,7 +190,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTEmail);
-        jTEmail.setBounds(120, 220, 240, 30);
+        jTEmail.setBounds(120, 200, 410, 30);
 
         jT_Tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -211,9 +211,9 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jT_Tabela);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 430, 860, 100);
+        jScrollPane1.setBounds(50, 400, 860, 110);
 
-        setSize(new java.awt.Dimension(1070, 680));
+        setSize(new java.awt.Dimension(1032, 676));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -251,9 +251,9 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AtualizarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTCRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCRMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTCRMActionPerformed
 
     private void jTnomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTnomeActionPerformed
         // TODO add your handling code here:
@@ -320,11 +320,11 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTCRM;
     private javax.swing.JTextField jTEmail;
     private javax.swing.JTextField jTEndereco;
     private javax.swing.JTextField jTSenha;
     private javax.swing.JTable jT_Tabela;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTnome;
     // End of variables declaration//GEN-END:variables
 
@@ -377,6 +377,11 @@ Novo.setEnabled(false);
 
 public void jTextTrue (){//Habilita os campos jText 
 //jT_Registro.setEnabled(true);
+    jTnome.setEnabled(true);
+    jTEndereco.setEnabled(true);
+    jTEmail.setEnabled(true);
+    jTSenha.setEnabled(true);
+    jTCRM.setEnabled(true);
  
 }
 
@@ -385,6 +390,12 @@ public void jTextTrue (){//Habilita os campos jText
     
 public void jTextFalse(){//Desabilita os campos JText
 //jT_Registro.setEnabled(false);
+    
+    jTnome.setEnabled(false);
+    jTEndereco.setEnabled(false);
+    jTEmail.setEnabled(false);
+    jTSenha.setEnabled(false);
+    jTCRM.setEnabled(false);
 
 }
 

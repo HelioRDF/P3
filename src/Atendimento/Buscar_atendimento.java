@@ -28,7 +28,9 @@ public class Buscar_atendimento extends javax.swing.JFrame {
     public Buscar_atendimento() {
         initComponents();
         
-        
+        Abrir.setEnabled(false);
+        Atualizar.setEnabled(false);
+        Excluir.setEnabled(false);
         
     }
 
@@ -134,7 +136,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         getContentPane().add(BuscaRegistro);
         BuscaRegistro.setBounds(29, 128, 140, 23);
 
-        CampoBuscarNome.setEditable(false);
+        CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoBuscarNomeActionPerformed(evt);
@@ -158,7 +160,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         getContentPane().add(jLabel4);
         jLabel4.setBounds(189, 128, 52, 25);
 
-        CampoBuscarRegistro.setEditable(false);
+        CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoBuscarRegistroActionPerformed(evt);
@@ -235,7 +237,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
-        jLabel10.setText("Buscar  Ficha do Paciente:");
+        jLabel10.setText("Novo Atendimento:");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(30, 10, 300, 50);
 
@@ -304,6 +306,11 @@ public class Buscar_atendimento extends javax.swing.JFrame {
 
     private void Pesquisar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pesquisar1ActionPerformed
         // TODO add your handling code here:
+        
+        Abrir.setEnabled(true);
+        Atualizar.setEnabled(true);
+        Excluir.setEnabled(true);
+        
     }//GEN-LAST:event_Pesquisar1ActionPerformed
 
     /**

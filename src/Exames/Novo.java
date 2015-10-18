@@ -1,8 +1,9 @@
 // referência-https://pt.wikipedia.org/wiki/Anamnese_%28sa%C3%BAde%29
 
 
-package Atendimento;
+package Exames;
 
+import Atendimento.*;
 import Consultar.*;
 import java.util.Calendar;
 
@@ -94,8 +95,6 @@ public class Novo extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jSeparator4 = new javax.swing.JSeparator();
-        jSeparator5 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Anamneses");
@@ -109,7 +108,7 @@ public class Novo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(880, 620, 49, 39);
+        Fechar.setBounds(940, 740, 49, 39);
 
         CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -205,39 +204,39 @@ public class Novo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Gravar);
-        Gravar.setBounds(50, 610, 170, 40);
+        Gravar.setBounds(50, 740, 170, 40);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Bebidas alcoólicas:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(50, 400, 140, 20);
+        jLabel1.setBounds(50, 390, 140, 20);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("KG");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(200, 350, 60, 20);
+        jLabel2.setBounds(190, 340, 60, 20);
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Fuma:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(320, 400, 50, 20);
+        jLabel9.setBounds(50, 470, 50, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel10.setText("Deficiencia:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(320, 440, 70, 20);
+        jLabel10.setBounds(50, 510, 90, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel12.setText("Doenças:");
+        jLabel12.setText("Doença:");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(540, 400, 70, 20);
+        jLabel12.setBounds(50, 550, 110, 20);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel13.setText("Uso de drogas:");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(50, 440, 120, 20);
+        jLabel13.setBounds(50, 430, 120, 20);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(330, 340, 70, 30);
+        jTextField1.setBounds(320, 340, 70, 30);
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,68 +244,68 @@ public class Novo extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(120, 340, 70, 30);
+        jTextField2.setBounds(110, 340, 70, 30);
 
         buttonGroup1_Fuma.add(jRadioButton2);
         jRadioButton2.setText("Sim");
         getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(400, 400, 50, 23);
+        jRadioButton2.setBounds(170, 470, 50, 23);
 
         buttonGroup1_Fuma.add(jRadioButton4);
         jRadioButton4.setText("Não");
         getContentPane().add(jRadioButton4);
-        jRadioButton4.setBounds(460, 400, 50, 23);
+        jRadioButton4.setBounds(250, 470, 93, 23);
 
         buttonGroup2_Drogas.add(jRadioButton9);
         jRadioButton9.setText("Sim");
         getContentPane().add(jRadioButton9);
-        jRadioButton9.setBounds(170, 440, 50, 23);
+        jRadioButton9.setBounds(170, 430, 50, 23);
 
         buttonGroup2_Drogas.add(jRadioButton10);
         jRadioButton10.setText("Não");
         getContentPane().add(jRadioButton10);
-        jRadioButton10.setBounds(230, 440, 60, 23);
+        jRadioButton10.setBounds(250, 430, 93, 23);
 
         buttonGroup1_Bebidas.add(jRadioButton11);
         jRadioButton11.setText("Sim");
         getContentPane().add(jRadioButton11);
-        jRadioButton11.setBounds(170, 400, 50, 23);
+        jRadioButton11.setBounds(170, 390, 50, 23);
 
         buttonGroup1_Bebidas.add(jRadioButton12);
         jRadioButton12.setText("Não");
         getContentPane().add(jRadioButton12);
-        jRadioButton12.setBounds(230, 400, 60, 23);
+        jRadioButton12.setBounds(250, 390, 93, 23);
 
         buttonGroup1_Deficiencia.add(jRadioButton13);
         jRadioButton13.setText("Sim");
         getContentPane().add(jRadioButton13);
-        jRadioButton13.setBounds(400, 440, 50, 23);
+        jRadioButton13.setBounds(170, 510, 50, 23);
 
         buttonGroup1_Deficiencia.add(jRadioButton14);
         jRadioButton14.setText("Não");
         getContentPane().add(jRadioButton14);
-        jRadioButton14.setBounds(460, 440, 50, 23);
+        jRadioButton14.setBounds(250, 510, 93, 23);
 
         buttonGroup1_Doença.add(jRadioButton15);
         jRadioButton15.setText("Sim");
         getContentPane().add(jRadioButton15);
-        jRadioButton15.setBounds(620, 400, 50, 23);
+        jRadioButton15.setBounds(170, 550, 50, 23);
 
         buttonGroup1_Doença.add(jRadioButton16);
         jRadioButton16.setText("Não");
         getContentPane().add(jRadioButton16);
-        jRadioButton16.setBounds(680, 400, 60, 23);
+        jRadioButton16.setBounds(250, 550, 93, 23);
 
         jLabel14.setText("Observações gerais:");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(50, 490, 140, 30);
+        jLabel14.setBounds(50, 600, 140, 30);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 520, 880, 80);
+        jScrollPane1.setBounds(50, 650, 530, 70);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(50, 210, 870, 10);
 
@@ -318,31 +317,31 @@ public class Novo extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel16.setText("cm");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(410, 350, 60, 20);
+        jLabel16.setBounds(400, 340, 60, 20);
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel17.setText("Altura:");
         getContentPane().add(jLabel17);
-        jLabel17.setBounds(280, 350, 60, 20);
+        jLabel17.setBounds(260, 340, 60, 20);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel18.setText("Peso:");
         getContentPane().add(jLabel18);
-        jLabel18.setBounds(50, 350, 50, 20);
+        jLabel18.setBounds(50, 340, 40, 20);
         getContentPane().add(jTextField8);
-        jTextField8.setBounds(580, 240, 70, 30);
+        jTextField8.setBounds(550, 240, 70, 30);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel19.setText("Consulta Nº:");
         getContentPane().add(jLabel19);
-        jLabel19.setBounds(490, 250, 80, 20);
+        jLabel19.setBounds(460, 250, 80, 20);
         getContentPane().add(jTextField9);
-        jTextField9.setBounds(210, 240, 250, 30);
+        jTextField9.setBounds(130, 240, 250, 30);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel20.setText("Nome do Médico:");
+        jLabel20.setText("Médico:");
         getContentPane().add(jLabel20);
-        jLabel20.setBounds(50, 250, 110, 20);
+        jLabel20.setBounds(50, 250, 70, 20);
 
         DataAtual.setEnabled(false);
         DataAtual.addActionListener(new java.awt.event.ActionListener() {
@@ -357,31 +356,21 @@ public class Novo extends javax.swing.JFrame {
         getContentPane().add(jLabel11);
         jLabel11.setBounds(680, 240, 60, 30);
         getContentPane().add(jTextField10);
-        jTextField10.setBounds(210, 290, 250, 30);
+        jTextField10.setBounds(550, 400, 340, 30);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel21.setText("Faz Tratamentos? Quais?:");
         getContentPane().add(jLabel21);
-        jLabel21.setBounds(50, 300, 150, 20);
+        jLabel21.setBounds(390, 410, 150, 20);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(650, 290, 280, 30);
+        jTextField11.setBounds(550, 450, 340, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Toma Remédios? Quais?:");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(490, 300, 150, 20);
+        jLabel22.setBounds(390, 460, 150, 20);
 
-        jSeparator4.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        getContentPane().add(jSeparator4);
-        jSeparator4.setBounds(520, 400, 20, 80);
-
-        jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        jSeparator5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        getContentPane().add(jSeparator5);
-        jSeparator5.setBounds(300, 400, 20, 80);
-
-        setSize(new java.awt.Dimension(997, 717));
+        setSize(new java.awt.Dimension(1118, 855));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -453,6 +442,8 @@ public class Novo extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -510,8 +501,6 @@ public class Novo extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
