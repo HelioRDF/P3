@@ -6,7 +6,7 @@
 package Tela;
 
 import Paciente.*;
-import Consulta.Buscar_C;
+import Consultar.Buscar_C;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -47,6 +47,10 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         JM_NovaConsulta = new javax.swing.JMenuItem();
+        atendimento = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        Usuario = new javax.swing.JMenu();
+        sair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -58,7 +62,7 @@ public class Menu extends javax.swing.JFrame {
         );
         JD_TelaLayout.setVerticalGroup(
             JD_TelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+            .addGap(0, 526, Short.MAX_VALUE)
         );
 
         jM_BuscaCadastro.setText("Cadastro");
@@ -81,9 +85,9 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jM_BuscaCadastro);
 
-        jMenu2.setText("   Consulta");
+        jMenu2.setText("   Consultar");
 
-        JM_NovaConsulta.setText("Nova");
+        JM_NovaConsulta.setText("Buscar");
         JM_NovaConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JM_NovaConsultaActionPerformed(evt);
@@ -92,6 +96,19 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(JM_NovaConsulta);
 
         jMenuBar1.add(jMenu2);
+
+        atendimento.setText("Atendimento");
+
+        jMenuItem2.setText("Novo");
+        atendimento.add(jMenuItem2);
+
+        jMenuBar1.add(atendimento);
+
+        Usuario.setText("Usuário");
+        jMenuBar1.add(Usuario);
+
+        sair.setText("Sair");
+        jMenuBar1.add(sair);
 
         setJMenuBar(jMenuBar1);
 
@@ -172,10 +189,14 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane JD_Tela;
     private javax.swing.JMenuItem JM_NovaConsulta;
+    private javax.swing.JMenu Usuario;
+    private javax.swing.JMenu atendimento;
     private javax.swing.JMenu jM_BuscaCadastro;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenu_Novo;
+    private javax.swing.JMenu sair;
     // End of variables declaration//GEN-END:variables
 }
