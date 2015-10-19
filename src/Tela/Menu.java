@@ -78,7 +78,7 @@ public class Menu extends javax.swing.JFrame {
         );
         JD_TelaLayout.setVerticalGroup(
             JD_TelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 515, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -89,13 +89,15 @@ public class Menu extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JD_Tela)
+            .addComponent(JD_Tela, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         jDesktopPane1.setLayer(JD_Tela, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jM_BuscaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/contract11.png"))); // NOI18N
-        jM_BuscaCadastro.setText("Cadastro      ");
+        jM_BuscaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/contract11 (2).png"))); // NOI18N
+        jM_BuscaCadastro.setText(" Cadastro          ");
+        jM_BuscaCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        jMenu_Novo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jMenu_Novo.setText("Novo");
         jMenu_Novo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +106,7 @@ public class Menu extends javax.swing.JFrame {
         });
         jM_BuscaCadastro.add(jMenu_Novo);
 
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jMenuItem1.setText("Buscar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,9 +117,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jM_BuscaCadastro);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102.png"))); // NOI18N
-        jMenu2.setText("Consultar      ");
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102 (2).png"))); // NOI18N
+        jMenu2.setText(" Consultar          ");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        JM_NovaConsulta.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         JM_NovaConsulta.setText("Buscar");
         JM_NovaConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,9 +132,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        atendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5.png"))); // NOI18N
-        atendimento.setText("Atendimento      ");
+        atendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5 (2).png"))); // NOI18N
+        atendimento.setText(" Atendimento          ");
+        atendimento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        novo_Atendimento.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         novo_Atendimento.setText("Novo");
         novo_Atendimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,9 +147,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(atendimento);
 
-        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/user168.png"))); // NOI18N
-        Usuario.setText("Usuário                          ");
+        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/users149.png"))); // NOI18N
+        Usuario.setText(" Usuário            ");
+        Usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        novo_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         novo_Usuario.setText("Novo");
         novo_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +160,7 @@ public class Menu extends javax.swing.JFrame {
         });
         Usuario.add(novo_Usuario);
 
+        buscar_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         buscar_Usuario.setText("Buscar");
         buscar_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,12 +171,15 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(Usuario);
 
-        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout7.png"))); // NOI18N
-        sair.setText("Sair");
+        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout7 (2).png"))); // NOI18N
+        sair.setText(" Sair       ");
+        sair.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jMenuItem2.setText("Mudar de usuário");
         sair.add(jMenuItem2);
 
+        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jMenuItem3.setText("Fechar");
         sair.add(jMenuItem3);
 

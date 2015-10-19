@@ -44,6 +44,7 @@ public class Login_Senha extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tela de Login");
         getContentPane().setLayout(null);
 
         Acessar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -108,8 +109,9 @@ public class Login_Senha extends javax.swing.JFrame {
         jLabel5.setBounds(40, 160, 460, 100);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Background.jpg"))); // NOI18N
+        jLabel4.setToolTipText("");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(0, 0, 580, 665);
+        jLabel4.setBounds(0, -5, 580, 670);
 
         setSize(new java.awt.Dimension(595, 706));
     }// </editor-fold>//GEN-END:initComponents
