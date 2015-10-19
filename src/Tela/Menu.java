@@ -176,7 +176,7 @@ public class Menu extends javax.swing.JFrame {
         sair.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jMenuItem2.setText("Mudar de usuário");
+        jMenuItem2.setText("Trocar de Usuário");
         sair.add(jMenuItem2);
 
         jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
