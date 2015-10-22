@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Atendimento.*;
 import Usuarios.*;
-import java.awt.GridLayout;
+import Realizar_exame.Cadastrar_Exame;
 import javax.swing.JFrame;
 
 
@@ -27,9 +27,12 @@ public class Menu extends javax.swing.JFrame {
     Cadastrar_P TelaCadastro = new Cadastrar_P();
     Buscar_P TelaBuscaCadastro = new Buscar_P();
     Buscar_C buscarConsulta = new Buscar_C();
-    Buscar_atendimento buscarAtendimento = new Buscar_atendimento();
+    Novo_atendimento novoAtendimento = new Novo_atendimento();
     Buscar_Usuario buscarUsuario = new Buscar_Usuario();
     Cadastrar_Usuario cadastrarUsuario = new Cadastrar_Usuario();
+    Cadastrar_Exame  novoExame = new Cadastrar_Exame();
+    
+    
     
                     
     public Menu() throws ClassNotFoundException {
@@ -52,29 +55,32 @@ public class Menu extends javax.swing.JFrame {
         JD_Tela = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_BuscaCadastro = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        Cadastrar_paciente = new javax.swing.JMenuItem();
+        Cadastrar_usuario = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        Visualizar_paciente = new javax.swing.JMenuItem();
+        Visualizar_usuario = new javax.swing.JMenuItem();
+        Abrir_ficha = new javax.swing.JMenu();
+        Nova_ficha = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        Realizar_exame = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu principal");
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(java.awt.Color.white);
 
+        JD_Tela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout JD_TelaLayout = new javax.swing.GroupLayout(JD_Tela);
         JD_Tela.setLayout(JD_TelaLayout);
         JD_TelaLayout.setHorizontalGroup(
             JD_TelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 954, Short.MAX_VALUE)
+            .addGap(0, 952, Short.MAX_VALUE)
         );
         JD_TelaLayout.setVerticalGroup(
             JD_TelaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 515, Short.MAX_VALUE)
+            .addGap(0, 513, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
@@ -93,16 +99,21 @@ public class Menu extends javax.swing.JFrame {
         jM_BuscaCadastro.setText(" Cadastrar          ");
         jM_BuscaCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem4.setText("Paciente");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        Cadastrar_paciente.setText("Paciente");
+        Cadastrar_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                Cadastrar_pacienteActionPerformed(evt);
             }
         });
-        jM_BuscaCadastro.add(jMenuItem4);
+        jM_BuscaCadastro.add(Cadastrar_paciente);
 
-        jMenuItem5.setText("Usuário");
-        jM_BuscaCadastro.add(jMenuItem5);
+        Cadastrar_usuario.setText("Usuário");
+        Cadastrar_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Cadastrar_usuarioActionPerformed(evt);
+            }
+        });
+        jM_BuscaCadastro.add(Cadastrar_usuario);
 
         jMenuBar1.add(jM_BuscaCadastro);
 
@@ -110,34 +121,48 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.setText("Visualizar        ");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem6.setText("Paciente");
-        jMenu2.add(jMenuItem6);
-
-        jMenuItem7.setText("Usuário");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        Visualizar_paciente.setText("Paciente");
+        Visualizar_paciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                Visualizar_pacienteActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem7);
+        jMenu2.add(Visualizar_paciente);
+
+        Visualizar_usuario.setText("Usuário");
+        Visualizar_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Visualizar_usuarioActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Visualizar_usuario);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5 (2).png"))); // NOI18N
-        jMenu1.setText("Atendimento           ");
+        Abrir_ficha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5 (2).png"))); // NOI18N
+        Abrir_ficha.setText("Atendimento           ");
 
-        jMenuItem1.setText("Abrir Ficha");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        Nova_ficha.setText("Abrir Ficha");
+        Nova_ficha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                Nova_fichaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        Abrir_ficha.add(Nova_ficha);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Abrir_ficha);
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/medical59.png"))); // NOI18N
         jMenu3.setText("Exame");
+
+        Realizar_exame.setText("Realizar exame");
+        Realizar_exame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Realizar_exameActionPerformed(evt);
+            }
+        });
+        jMenu3.add(Realizar_exame);
+
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
@@ -156,17 +181,39 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void Nova_fichaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Nova_fichaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        novoAtendimento.setVisible(true);
+        
+    }//GEN-LAST:event_Nova_fichaActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void Visualizar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Visualizar_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+        buscarUsuario.setVisible(true);
+    }//GEN-LAST:event_Visualizar_usuarioActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void Cadastrar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar_pacienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+        TelaCadastro.setVisible(true);
+        
+        
+    }//GEN-LAST:event_Cadastrar_pacienteActionPerformed
+
+    private void Cadastrar_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cadastrar_usuarioActionPerformed
+        // TODO add your handling code here:
+        cadastrarUsuario.setVisible(true);
+    }//GEN-LAST:event_Cadastrar_usuarioActionPerformed
+
+    private void Visualizar_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Visualizar_pacienteActionPerformed
+        // TODO add your handling code here:
+        TelaBuscaCadastro.setVisible(true);
+    }//GEN-LAST:event_Visualizar_pacienteActionPerformed
+
+    private void Realizar_exameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Realizar_exameActionPerformed
+        // TODO add your handling code here:
+        
+        novoExame.setVisible(true);
+    }//GEN-LAST:event_Realizar_exameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,18 +255,19 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Abrir_ficha;
+    private javax.swing.JMenuItem Cadastrar_paciente;
+    private javax.swing.JMenuItem Cadastrar_usuario;
     private javax.swing.JDesktopPane JD_Tela;
+    private javax.swing.JMenuItem Nova_ficha;
+    private javax.swing.JMenuItem Realizar_exame;
+    private javax.swing.JMenuItem Visualizar_paciente;
+    private javax.swing.JMenuItem Visualizar_usuario;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jM_BuscaCadastro;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 
 
