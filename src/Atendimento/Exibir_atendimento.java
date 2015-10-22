@@ -282,6 +282,8 @@ public class Exibir_atendimento extends javax.swing.JFrame {
 
     private void SolicitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SolicitarActionPerformed
         // TODO add your handling code here:
+        new Novo_exame().setVisible(true);
+        
     }//GEN-LAST:event_SolicitarActionPerformed
 
     private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed

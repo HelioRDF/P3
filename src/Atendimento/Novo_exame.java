@@ -236,14 +236,14 @@ public class Novo_exame extends javax.swing.JFrame {
         getContentPane().add(Fechar);
         Fechar.setBounds(890, 680, 40, 39);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(160, 330, 70, 20);
+        jTextField11.setBounds(160, 320, 70, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Exame Nº:");
         getContentPane().add(jLabel22);
         jLabel22.setBounds(50, 330, 80, 20);
 
-        pack();
+        setSize(new java.awt.Dimension(1022, 796));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNomeActionPerformed

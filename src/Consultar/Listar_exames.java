@@ -194,7 +194,7 @@ public class Listar_exames extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir1);
-        Excluir1.setBounds(620, 360, 80, 30);
+        Excluir1.setBounds(620, 370, 80, 30);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(60, 300, 730, 10);
 
@@ -211,7 +211,7 @@ public class Listar_exames extends javax.swing.JFrame {
             }
         });
         getContentPane().add(DataAtual);
-        DataAtual.setBounds(370, 370, 220, 20);
+        DataAtual.setBounds(370, 370, 220, 30);
 
         jLabel2.setText("Data:");
         getContentPane().add(jLabel2);
@@ -229,21 +229,21 @@ public class Listar_exames extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome1);
-        CampoBuscarNome1.setBounds(140, 370, 160, 20);
+        CampoBuscarNome1.setBounds(140, 370, 160, 30);
 
         jLabel_Nome1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel_Nome1.setText("Arquivo:");
         getContentPane().add(jLabel_Nome1);
         jLabel_Nome1.setBounds(60, 370, 80, 20);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(140, 330, 70, 20);
+        jTextField11.setBounds(140, 320, 70, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Exame Nº:");
         getContentPane().add(jLabel22);
         jLabel22.setBounds(60, 330, 80, 20);
 
-        pack();
+        setSize(new java.awt.Dimension(840, 682));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed

@@ -46,8 +46,6 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         BuscarNome = new javax.swing.JRadioButton();
         BuscaRegistro = new javax.swing.JRadioButton();
         CampoBuscarNome = new javax.swing.JTextField();
-        jLabel_Nome = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         CampoBuscarRegistro = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -120,17 +118,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome);
-        CampoBuscarNome.setBounds(259, 88, 310, 27);
-
-        jLabel_Nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel_Nome.setText("Nome:");
-        getContentPane().add(jLabel_Nome);
-        jLabel_Nome.setBounds(189, 88, 52, 25);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel4.setText("Registro");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(189, 128, 52, 25);
+        CampoBuscarNome.setBounds(180, 80, 310, 27);
 
         CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -144,7 +132,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarRegistro);
-        CampoBuscarRegistro.setBounds(259, 128, 60, 27);
+        CampoBuscarRegistro.setBounds(180, 120, 60, 27);
 
         jLabel1.setText("Registro:");
         getContentPane().add(jLabel1);
@@ -182,7 +170,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Pesquisar1);
-        Pesquisar1.setBounds(690, 80, 130, 40);
+        Pesquisar1.setBounds(550, 80, 130, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -353,8 +341,6 @@ public class Buscar_atendimento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel_Nome;
     private javax.swing.JLabel jLabel_Nome1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;

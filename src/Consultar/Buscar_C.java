@@ -41,7 +41,7 @@ public class Buscar_C extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        Abrir = new javax.swing.JButton();
+        Anamnese = new javax.swing.JButton();
         Excluir = new javax.swing.JButton();
         Atualizar = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
@@ -60,24 +60,24 @@ public class Buscar_C extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
-        Abrir1 = new javax.swing.JButton();
+        Exames = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar Consulta");
         getContentPane().setLayout(null);
 
-        Abrir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Abrir.setForeground(new java.awt.Color(51, 0, 204));
-        Abrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
-        Abrir.setText("Listar Anamnese");
-        Abrir.setToolTipText("");
-        Abrir.addActionListener(new java.awt.event.ActionListener() {
+        Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Anamnese.setForeground(new java.awt.Color(51, 0, 204));
+        Anamnese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
+        Anamnese.setText("Listar Anamnese");
+        Anamnese.setToolTipText("");
+        Anamnese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AbrirActionPerformed(evt);
+                AnamneseActionPerformed(evt);
             }
         });
-        getContentPane().add(Abrir);
-        Abrir.setBounds(740, 330, 160, 30);
+        getContentPane().add(Anamnese);
+        Anamnese.setBounds(740, 330, 160, 30);
 
         Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 0, 0));
@@ -246,18 +246,18 @@ public class Buscar_C extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(30, 10, 300, 50);
 
-        Abrir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Abrir1.setForeground(new java.awt.Color(51, 0, 204));
-        Abrir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/medical9.png"))); // NOI18N
-        Abrir1.setText("Listar Exames");
-        Abrir1.setToolTipText("");
-        Abrir1.addActionListener(new java.awt.event.ActionListener() {
+        Exames.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Exames.setForeground(new java.awt.Color(51, 0, 204));
+        Exames.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/medical9.png"))); // NOI18N
+        Exames.setText("Listar Exames");
+        Exames.setToolTipText("");
+        Exames.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Abrir1ActionPerformed(evt);
+                ExamesActionPerformed(evt);
             }
         });
-        getContentPane().add(Abrir1);
-        Abrir1.setBounds(740, 290, 160, 30);
+        getContentPane().add(Exames);
+        Exames.setBounds(740, 290, 160, 30);
 
         setSize(new java.awt.Dimension(1086, 662));
     }// </editor-fold>//GEN-END:initComponents
@@ -321,15 +321,17 @@ public class Buscar_C extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
+    private void AnamneseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnamneseActionPerformed
 
-      
+      new Listar_anamnese().setVisible(true);
 
-    }//GEN-LAST:event_AbrirActionPerformed
+    }//GEN-LAST:event_AnamneseActionPerformed
 
-    private void Abrir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Abrir1ActionPerformed
+    private void ExamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Abrir1ActionPerformed
+        
+        new Listar_exames().setVisible(true);
+    }//GEN-LAST:event_ExamesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -367,13 +369,13 @@ public class Buscar_C extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Abrir;
-    private javax.swing.JButton Abrir1;
+    private javax.swing.JButton Anamnese;
     private javax.swing.JButton Atualizar;
     private javax.swing.JRadioButton BuscaRegistro;
     private javax.swing.JRadioButton BuscarNome;
     private javax.swing.JTextField CampoBuscarNome;
     private javax.swing.JTextField CampoBuscarRegistro;
+    private javax.swing.JButton Exames;
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Pesquisar1;

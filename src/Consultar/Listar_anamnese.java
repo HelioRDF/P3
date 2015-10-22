@@ -183,7 +183,7 @@ public class Listar_anamnese extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 420, 730, 110);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(60, 300, 730, 10);
+        jSeparator1.setBounds(60, 290, 730, 10);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -211,7 +211,7 @@ public class Listar_anamnese extends javax.swing.JFrame {
             }
         });
         getContentPane().add(DataAtual);
-        DataAtual.setBounds(370, 370, 220, 20);
+        DataAtual.setBounds(370, 360, 220, 30);
 
         jLabel2.setText("Data:");
         getContentPane().add(jLabel2);
@@ -229,21 +229,21 @@ public class Listar_anamnese extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome1);
-        CampoBuscarNome1.setBounds(150, 370, 160, 20);
+        CampoBuscarNome1.setBounds(150, 360, 160, 30);
 
         jLabel_Nome1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jLabel_Nome1.setText("Arquivo:");
         getContentPane().add(jLabel_Nome1);
         jLabel_Nome1.setBounds(60, 370, 80, 20);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(150, 330, 70, 20);
+        jTextField11.setBounds(150, 310, 70, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Anamnese Nº:");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(60, 330, 80, 20);
+        jLabel22.setBounds(60, 320, 80, 20);
 
-        pack();
+        setSize(new java.awt.Dimension(858, 669));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
