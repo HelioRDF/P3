@@ -5,10 +5,9 @@
  */
 package Atendimento;
 
-import Consultar.*;
+
 import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -36,7 +35,6 @@ public class Exibir_atendimento extends javax.swing.JFrame {
     private void initComponents() {
 
         Novo_Anamnese = new javax.swing.JButton();
-        Fechar = new javax.swing.JButton();
         CampoBuscarNome = new javax.swing.JTextField();
         jLabel_Nome = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -56,11 +54,11 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         Solicitar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        Excluir1 = new javax.swing.JButton();
         DataAtual = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         CampoBuscarNome1 = new javax.swing.JTextField();
         jLabel_Nome1 = new javax.swing.JLabel();
+        Fechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exibir Ficha");
@@ -68,7 +66,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
 
         Novo_Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo_Anamnese.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
-        Novo_Anamnese.setText(" Novo Anamnese");
+        Novo_Anamnese.setText(" Preencher Anamnese");
         Novo_Anamnese.setToolTipText("");
         Novo_Anamnese.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,17 +74,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Novo_Anamnese);
-        Novo_Anamnese.setBounds(70, 560, 150, 40);
-
-        Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
-        Fechar.setToolTipText("");
-        Fechar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FecharActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Fechar);
-        Fechar.setBounds(710, 550, 49, 39);
+        Novo_Anamnese.setBounds(660, 340, 190, 40);
 
         CampoBuscarNome.setEditable(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +182,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Solicitar);
-        Solicitar.setBounds(310, 560, 160, 40);
+        Solicitar.setBounds(660, 390, 190, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -215,20 +203,7 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(60, 420, 760, 110);
-
-        Excluir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Excluir1.setForeground(new java.awt.Color(51, 0, 204));
-        Excluir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/bold6.png"))); // NOI18N
-        Excluir1.setText("  Agendar");
-        Excluir1.setToolTipText("");
-        Excluir1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Excluir1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Excluir1);
-        Excluir1.setBounds(660, 330, 130, 40);
+        jScrollPane1.setBounds(60, 450, 760, 110);
 
         DataAtual.setEditable(false);
         DataAtual.addActionListener(new java.awt.event.ActionListener() {
@@ -262,18 +237,24 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         getContentPane().add(jLabel_Nome1);
         jLabel_Nome1.setBounds(60, 340, 110, 25);
 
-        setSize(new java.awt.Dimension(935, 671));
+        Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
+        Fechar.setToolTipText("");
+        Fechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FecharActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Fechar);
+        Fechar.setBounds(810, 580, 40, 39);
+
+        setSize(new java.awt.Dimension(918, 692));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Novo_AnamneseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Novo_AnamneseActionPerformed
            // TODO add your handling code here:
-            new Novo().setVisible(true);
+            new Preencher_anamnese().setVisible(true);
        
     }//GEN-LAST:event_Novo_AnamneseActionPerformed
-
-    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
-        dispose();
-    }//GEN-LAST:event_FecharActionPerformed
 
     private void CampoBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNomeActionPerformed
         // TODO add your handling code here:
@@ -303,10 +284,6 @@ public class Exibir_atendimento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_SolicitarActionPerformed
 
-    private void Excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Excluir1ActionPerformed
-
     private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DataAtualActionPerformed
@@ -318,6 +295,10 @@ public class Exibir_atendimento extends javax.swing.JFrame {
     private void CampoBuscarNome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoBuscarNome1KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoBuscarNome1KeyReleased
+
+    private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
+        dispose();
+    }//GEN-LAST:event_FecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -362,7 +343,6 @@ public class Exibir_atendimento extends javax.swing.JFrame {
     private javax.swing.JTextField CampoBuscarNome1;
     private javax.swing.JTextField CampoBuscarRegistro;
     private javax.swing.JTextField DataAtual;
-    private javax.swing.JButton Excluir1;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Novo_Anamnese;
     private javax.swing.JButton Solicitar;

@@ -5,8 +5,6 @@
  */
 package Consultar;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -62,6 +60,7 @@ public class Buscar_C extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
+        Abrir1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar Consulta");
@@ -70,7 +69,7 @@ public class Buscar_C extends javax.swing.JFrame {
         Abrir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Abrir.setForeground(new java.awt.Color(51, 0, 204));
         Abrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
-        Abrir.setText("  Abrir");
+        Abrir.setText("Listar Anamnese");
         Abrir.setToolTipText("");
         Abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +77,7 @@ public class Buscar_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Abrir);
-        Abrir.setBounds(713, 291, 100, 30);
+        Abrir.setBounds(740, 330, 160, 30);
 
         Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 0, 0));
@@ -237,7 +236,7 @@ public class Buscar_C extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(29, 359, 910, 120);
+        jScrollPane1.setBounds(20, 390, 910, 120);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(29, 250, 937, 12);
 
@@ -246,6 +245,19 @@ public class Buscar_C extends javax.swing.JFrame {
         jLabel10.setText("Buscar  Ficha do Paciente:");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(30, 10, 300, 50);
+
+        Abrir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Abrir1.setForeground(new java.awt.Color(51, 0, 204));
+        Abrir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/medical9.png"))); // NOI18N
+        Abrir1.setText("Listar Exames");
+        Abrir1.setToolTipText("");
+        Abrir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Abrir1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Abrir1);
+        Abrir1.setBounds(740, 290, 160, 30);
 
         setSize(new java.awt.Dimension(1086, 662));
     }// </editor-fold>//GEN-END:initComponents
@@ -311,9 +323,13 @@ public class Buscar_C extends javax.swing.JFrame {
 
     private void AbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AbrirActionPerformed
 
-        new Exibir_C().setVisible(true);
+      
 
     }//GEN-LAST:event_AbrirActionPerformed
+
+    private void Abrir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Abrir1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Abrir1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,6 +368,7 @@ public class Buscar_C extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abrir;
+    private javax.swing.JButton Abrir1;
     private javax.swing.JButton Atualizar;
     private javax.swing.JRadioButton BuscaRegistro;
     private javax.swing.JRadioButton BuscarNome;

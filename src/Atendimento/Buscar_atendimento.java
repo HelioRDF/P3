@@ -5,9 +5,7 @@
  */
 package Atendimento;
 
-import Consultar.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -29,8 +27,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         initComponents();
         
         Abrir.setEnabled(false);
-        Atualizar.setEnabled(false);
-        Excluir.setEnabled(false);
+      
         
     }
 
@@ -45,8 +42,6 @@ public class Buscar_atendimento extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         Abrir = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
-        Atualizar = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         BuscarNome = new javax.swing.JRadioButton();
         BuscaRegistro = new javax.swing.JRadioButton();
@@ -63,6 +58,8 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
+        CampoBuscarNome1 = new javax.swing.JTextField();
+        jLabel_Nome1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar Consulta");
@@ -71,7 +68,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         Abrir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Abrir.setForeground(new java.awt.Color(51, 0, 204));
         Abrir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/documents54.png"))); // NOI18N
-        Abrir.setText("  Abrir");
+        Abrir.setText("Atender");
         Abrir.setToolTipText("");
         Abrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,32 +76,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Abrir);
-        Abrir.setBounds(713, 291, 100, 30);
-
-        Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Excluir.setForeground(new java.awt.Color(255, 0, 0));
-        Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/close18.png"))); // NOI18N
-        Excluir.setText("  Excluir");
-        Excluir.setToolTipText("");
-        Excluir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcluirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Excluir);
-        Excluir.setBounds(199, 539, 115, 40);
-
-        Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
-        Atualizar.setText("Atualizar");
-        Atualizar.setToolTipText("");
-        Atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AtualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Atualizar);
-        Atualizar.setBounds(39, 539, 130, 40);
+        Abrir.setBounds(840, 290, 100, 30);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -114,7 +86,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(890, 530, 49, 39);
+        Fechar.setBounds(983, 550, 40, 39);
 
         buttonGroup1.add(BuscarNome);
         BuscarNome.setText("Buscar pelo nome");
@@ -198,7 +170,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(264, 291, 410, 30);
+        jTextField2.setBounds(264, 291, 220, 30);
 
         Pesquisar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Pesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/magnifier13.png"))); // NOI18N
@@ -210,7 +182,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Pesquisar1);
-        Pesquisar1.setBounds(690, 90, 130, 40);
+        Pesquisar1.setBounds(690, 80, 130, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -231,7 +203,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(29, 359, 910, 120);
+        jScrollPane1.setBounds(30, 370, 910, 130);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(29, 250, 937, 12);
 
@@ -240,6 +212,25 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         jLabel10.setText("Novo Atendimento:");
         getContentPane().add(jLabel10);
         jLabel10.setBounds(30, 10, 300, 50);
+
+        CampoBuscarNome1.setEditable(false);
+        CampoBuscarNome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoBuscarNome1ActionPerformed(evt);
+            }
+        });
+        CampoBuscarNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CampoBuscarNome1KeyReleased(evt);
+            }
+        });
+        getContentPane().add(CampoBuscarNome1);
+        CampoBuscarNome1.setBounds(600, 290, 160, 27);
+
+        jLabel_Nome1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        jLabel_Nome1.setText("Consulta Nº:");
+        getContentPane().add(jLabel_Nome1);
+        jLabel_Nome1.setBounds(520, 290, 110, 25);
 
         setSize(new java.awt.Dimension(1086, 662));
     }// </editor-fold>//GEN-END:initComponents
@@ -250,15 +241,6 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_AbrirActionPerformed
-
-    private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-
-    }//GEN-LAST:event_ExcluirActionPerformed
-
-    private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_AtualizarActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
         dispose();
@@ -308,10 +290,17 @@ public class Buscar_atendimento extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         Abrir.setEnabled(true);
-        Atualizar.setEnabled(true);
-        Excluir.setEnabled(true);
+     
         
     }//GEN-LAST:event_Pesquisar1ActionPerformed
+
+    private void CampoBuscarNome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNome1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoBuscarNome1ActionPerformed
+
+    private void CampoBuscarNome1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoBuscarNome1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoBuscarNome1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -353,12 +342,11 @@ public class Buscar_atendimento extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abrir;
-    private javax.swing.JButton Atualizar;
     private javax.swing.JRadioButton BuscaRegistro;
     private javax.swing.JRadioButton BuscarNome;
     private javax.swing.JTextField CampoBuscarNome;
+    private javax.swing.JTextField CampoBuscarNome1;
     private javax.swing.JTextField CampoBuscarRegistro;
-    private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Pesquisar1;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -367,6 +355,7 @@ public class Buscar_atendimento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel_Nome;
+    private javax.swing.JLabel jLabel_Nome1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;

@@ -52,18 +52,14 @@ public class Menu extends javax.swing.JFrame {
         JD_Tela = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jM_BuscaCadastro = new javax.swing.JMenu();
-        jMenu_Novo = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        JM_NovaConsulta = new javax.swing.JMenuItem();
-        atendimento = new javax.swing.JMenu();
-        novo_Atendimento = new javax.swing.JMenuItem();
-        Usuario = new javax.swing.JMenu();
-        novo_Usuario = new javax.swing.JMenuItem();
-        buscar_Usuario = new javax.swing.JMenuItem();
-        sair = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu principal");
@@ -94,96 +90,48 @@ public class Menu extends javax.swing.JFrame {
         jDesktopPane1.setLayer(JD_Tela, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jM_BuscaCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/contract11 (2).png"))); // NOI18N
-        jM_BuscaCadastro.setText(" Cadastro          ");
+        jM_BuscaCadastro.setText(" Cadastrar          ");
         jM_BuscaCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenu_Novo.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jMenu_Novo.setText("Novo");
-        jMenu_Novo.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Paciente");
+        jM_BuscaCadastro.add(jMenuItem4);
+
+        jMenuItem5.setText("Usuário");
+        jM_BuscaCadastro.add(jMenuItem5);
+
+        jMenuBar1.add(jM_BuscaCadastro);
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102 (2).png"))); // NOI18N
+        jMenu2.setText("Visualizar     ");
+        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+
+        jMenuItem6.setText("Paciente");
+        jMenu2.add(jMenuItem6);
+
+        jMenuItem7.setText("Usuário");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu_NovoActionPerformed(evt);
+                jMenuItem7ActionPerformed(evt);
             }
         });
-        jM_BuscaCadastro.add(jMenu_Novo);
+        jMenu2.add(jMenuItem7);
 
-        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jMenuItem1.setText("Buscar");
+        jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Atendimento");
+
+        jMenuItem1.setText("Abrir Ficha");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jM_BuscaCadastro.add(jMenuItem1);
+        jMenu1.add(jMenuItem1);
 
-        jMenuBar1.add(jM_BuscaCadastro);
+        jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102 (2).png"))); // NOI18N
-        jMenu2.setText(" Consultar          ");
-        jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        JM_NovaConsulta.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        JM_NovaConsulta.setText("Buscar");
-        JM_NovaConsulta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JM_NovaConsultaActionPerformed(evt);
-            }
-        });
-        jMenu2.add(JM_NovaConsulta);
-
-        jMenuBar1.add(jMenu2);
-
-        atendimento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5 (2).png"))); // NOI18N
-        atendimento.setText(" Atendimento          ");
-        atendimento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        novo_Atendimento.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        novo_Atendimento.setText("Novo");
-        novo_Atendimento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novo_AtendimentoActionPerformed(evt);
-            }
-        });
-        atendimento.add(novo_Atendimento);
-
-        jMenuBar1.add(atendimento);
-
-        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/users149.png"))); // NOI18N
-        Usuario.setText(" Usuário            ");
-        Usuario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        novo_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        novo_Usuario.setText("Novo");
-        novo_Usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                novo_UsuarioActionPerformed(evt);
-            }
-        });
-        Usuario.add(novo_Usuario);
-
-        buscar_Usuario.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        buscar_Usuario.setText("Buscar");
-        buscar_Usuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buscar_UsuarioActionPerformed(evt);
-            }
-        });
-        Usuario.add(buscar_Usuario);
-
-        jMenuBar1.add(Usuario);
-
-        sair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logout7 (2).png"))); // NOI18N
-        sair.setText(" Sair       ");
-        sair.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jMenuItem2.setText("Trocar de Usuário");
-        sair.add(jMenuItem2);
-
-        jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jMenuItem3.setText("Fechar");
-        sair.add(jMenuItem3);
-
-        jMenuBar1.add(sair);
+        jMenu3.setText("jMenu3");
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -201,46 +149,13 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu_NovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_NovoActionPerformed
-        // TODO add your handling code here:
-        
-        TelaCadastro.setVisible(true);
-        
-        
-        
-    }//GEN-LAST:event_jMenu_NovoActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        TelaBuscaCadastro.setVisible(true);
-        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void JM_NovaConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JM_NovaConsultaActionPerformed
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        
-           buscarConsulta.setVisible(true);
-    }//GEN-LAST:event_JM_NovaConsultaActionPerformed
-
-    private void novo_AtendimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novo_AtendimentoActionPerformed
-        // TODO add your handling code here:
-        
-        buscarAtendimento.setVisible(true);
-        
-    }//GEN-LAST:event_novo_AtendimentoActionPerformed
-
-    private void novo_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novo_UsuarioActionPerformed
-        // TODO add your handling code here:
-        
-        cadastrarUsuario.setVisible(true);
-    }//GEN-LAST:event_novo_UsuarioActionPerformed
-
-    private void buscar_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscar_UsuarioActionPerformed
-        // TODO add your handling code here:
-        
-        buscarUsuario.setVisible(true);
-        
-    }//GEN-LAST:event_buscar_UsuarioActionPerformed
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -283,21 +198,17 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane JD_Tela;
-    private javax.swing.JMenuItem JM_NovaConsulta;
-    private javax.swing.JMenu Usuario;
-    private javax.swing.JMenu atendimento;
-    private javax.swing.JMenuItem buscar_Usuario;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jM_BuscaCadastro;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenu_Novo;
-    private javax.swing.JMenuItem novo_Atendimento;
-    private javax.swing.JMenuItem novo_Usuario;
-    private javax.swing.JMenu sair;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 
 
