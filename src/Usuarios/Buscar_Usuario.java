@@ -59,7 +59,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Buscar Paciente");
+        setTitle("Buscar usuário");
         getContentPane().setLayout(null);
 
         Pesquisar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

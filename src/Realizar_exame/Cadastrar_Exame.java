@@ -62,7 +62,6 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Buscar Consulta");
         getContentPane().setLayout(null);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

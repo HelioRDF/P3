@@ -60,7 +60,7 @@ public class Novo_atendimento extends javax.swing.JFrame {
         jLabel_Nome1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Buscar Consulta");
+        setTitle("Novo Atendimento");
         getContentPane().setLayout(null);
 
         Abrir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N

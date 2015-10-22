@@ -57,7 +57,7 @@ public class Cadastrar_Usuario extends javax.swing.JFrame {
         jT_Tabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Cadastro de Paciente");
+        setTitle("Cadastro de usuário");
         getContentPane().setLayout(null);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N

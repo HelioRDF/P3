@@ -63,7 +63,7 @@ public class Buscar_C extends javax.swing.JFrame {
         Exames = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Buscar Consulta");
+        setTitle("Buscar ficha");
         getContentPane().setLayout(null);
 
         Anamnese.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
