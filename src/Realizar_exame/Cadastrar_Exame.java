@@ -124,7 +124,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         Abrir1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Abrir1.setForeground(new java.awt.Color(51, 0, 204));
         Abrir1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/floppy.png"))); // NOI18N
-        Abrir1.setText("Salvar Exames");
+        Abrir1.setText("Salvar Exame");
         Abrir1.setToolTipText("");
         Abrir1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

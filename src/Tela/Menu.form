@@ -35,7 +35,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/search102 (2).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Visualizar     "/>
+            <Property name="text" type="java.lang.String" value="Visualizar        "/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
@@ -61,7 +61,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Imagens/verification5 (2).png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Atendimento"/>
+            <Property name="text" type="java.lang.String" value="Atendimento           "/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
@@ -73,6 +73,14 @@
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu3">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagens/medical59.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Exame"/>
+          </Properties>
         </Menu>
       </SubComponents>
     </Menu>

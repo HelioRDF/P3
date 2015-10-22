@@ -59,6 +59,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu principal");
@@ -106,7 +107,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jM_BuscaCadastro);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102 (2).png"))); // NOI18N
-        jMenu2.setText("Visualizar     ");
+        jMenu2.setText("Visualizar        ");
         jMenu2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         jMenuItem6.setText("Paciente");
@@ -123,7 +124,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/verification5 (2).png"))); // NOI18N
-        jMenu1.setText("Atendimento");
+        jMenu1.setText("Atendimento           ");
 
         jMenuItem1.setText("Abrir Ficha");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,6 +135,10 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/medical59.png"))); // NOI18N
+        jMenu3.setText("Exame");
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -208,6 +213,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jM_BuscaCadastro;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
