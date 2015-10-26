@@ -60,6 +60,8 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         DataAtual = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -74,7 +76,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar);
-        Atualizar.setBounds(40, 150, 170, 40);
+        Atualizar.setBounds(630, 70, 170, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -84,15 +86,15 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(810, 550, 49, 39);
+        Fechar.setBounds(830, 670, 49, 39);
 
         jLabel1.setText("Registro:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 300, 60, 14);
+        jLabel1.setBounds(30, 410, 60, 14);
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(200, 300, 50, 14);
+        jLabel2.setBounds(200, 410, 50, 14);
 
         jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,7 +103,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(100, 290, 80, 30);
+        jTextField1.setBounds(100, 400, 80, 30);
 
         jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +112,9 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(260, 290, 410, 30);
+        jTextField2.setBounds(260, 400, 410, 30);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(29, 250, 840, 12);
+        jSeparator1.setBounds(30, 340, 840, 2);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -131,16 +133,64 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Abrir1);
-        Abrir1.setBounds(710, 290, 140, 30);
+        Abrir1.setBounds(710, 400, 140, 30);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(100, 340, 70, 30);
+        jTextField11.setBounds(100, 450, 70, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Exame Nº:");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(30, 350, 80, 20);
+        jLabel22.setBounds(30, 460, 80, 20);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Exame nº", "Consulta nº", "Tipo de Exame", "Data"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 170, 730, 110);
+        getContentPane().add(jTextField12);
+        jTextField12.setBounds(100, 80, 120, 30);
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel23.setText("Exame Nº:");
+        getContentPane().add(jLabel23);
+        jLabel23.setBounds(30, 90, 80, 20);
+
+        DataAtual.setEnabled(false);
+        DataAtual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataAtualActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DataAtual);
+        DataAtual.setBounds(330, 80, 210, 30);
+
+        jLabel11.setText("Data:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(290, 80, 50, 30);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -163,32 +213,12 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jTable2);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 400, 730, 110);
-        getContentPane().add(jTextField12);
-        jTextField12.setBounds(100, 80, 120, 30);
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(30, 510, 730, 110);
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel23.setText("Exame Nº:");
-        getContentPane().add(jLabel23);
-        jLabel23.setBounds(30, 90, 80, 20);
-
-        DataAtual.setEnabled(false);
-        DataAtual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DataAtualActionPerformed(evt);
-            }
-        });
-        getContentPane().add(DataAtual);
-        DataAtual.setBounds(330, 80, 210, 30);
-
-        jLabel11.setText("Data:");
-        getContentPane().add(jLabel11);
-        jLabel11.setBounds(290, 80, 50, 30);
-
-        setSize(new java.awt.Dimension(914, 662));
+        setSize(new java.awt.Dimension(989, 788));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -266,8 +296,10 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
