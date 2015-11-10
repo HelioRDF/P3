@@ -173,7 +173,7 @@ public class Buscar_C extends javax.swing.JFrame {
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(204, 301, 50, 14);
+        jLabel2.setBounds(300, 300, 50, 14);
 
         jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +182,7 @@ public class Buscar_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(93, 291, 80, 30);
+        jTextField1.setBounds(93, 291, 170, 30);
 
         jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +191,7 @@ public class Buscar_C extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(264, 291, 410, 30);
+        jTextField2.setBounds(340, 290, 340, 30);
 
         Pesquisar1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Pesquisar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/magnifier13.png"))); // NOI18N
@@ -325,7 +325,7 @@ public class Buscar_C extends javax.swing.JFrame {
     private void ExamesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamesActionPerformed
         // TODO add your handling code here:
         
-        new Listar_exames().setVisible(true);
+        new Gerenciar_imagem().setVisible(true);
     }//GEN-LAST:event_ExamesActionPerformed
 
     /**

@@ -14,10 +14,8 @@ import Usuarios.*;
 import Realizar_exame.Cadastrar_Exame;
 import javax.swing.JFrame;
 import Medico.*;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import javax.swing.JOptionPane;
+import Realizar_exame.*;
+
 
 
 /**
@@ -38,6 +36,8 @@ public class Menu extends javax.swing.JFrame {
     Cadastrar_Exame  novoExame = new Cadastrar_Exame();
     Buscar_Medico buscarMedico = new Buscar_Medico();
     Cadastrar_Medico cadastroMedico = new Cadastrar_Medico();
+    Cadastrar_Exame cadastroExame = new Cadastrar_Exame();
+    
     
     
     
@@ -238,7 +238,7 @@ public class Menu extends javax.swing.JFrame {
     private void Realizar_exameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Realizar_exameActionPerformed
         // TODO add your handling code here:
         
-        novoExame.setVisible(true);
+        cadastroExame.setVisible(true);
     }//GEN-LAST:event_Realizar_exameActionPerformed
 
     private void jMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicoActionPerformed

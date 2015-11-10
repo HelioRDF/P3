@@ -87,24 +87,24 @@ public class Novo_atendimento extends javax.swing.JFrame {
         Fechar.setBounds(983, 550, 40, 39);
 
         buttonGroup1.add(BuscarNome);
-        BuscarNome.setText("Buscar pelo nome");
+        BuscarNome.setText("Buscar Paciente pelo nome:");
         BuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscarNomeActionPerformed(evt);
             }
         });
         getContentPane().add(BuscarNome);
-        BuscarNome.setBounds(29, 88, 130, 23);
+        BuscarNome.setBounds(29, 88, 160, 23);
 
         buttonGroup1.add(BuscaRegistro);
-        BuscaRegistro.setText("Buscar pelo Registro");
+        BuscaRegistro.setText("Buscar Paciente pelo RG:");
         BuscaRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscaRegistroActionPerformed(evt);
             }
         });
         getContentPane().add(BuscaRegistro);
-        BuscaRegistro.setBounds(29, 128, 140, 23);
+        BuscaRegistro.setBounds(30, 140, 150, 23);
 
         CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +118,7 @@ public class Novo_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome);
-        CampoBuscarNome.setBounds(180, 80, 310, 27);
+        CampoBuscarNome.setBounds(200, 90, 310, 27);
 
         CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +132,7 @@ public class Novo_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarRegistro);
-        CampoBuscarRegistro.setBounds(180, 120, 60, 27);
+        CampoBuscarRegistro.setBounds(200, 140, 60, 27);
 
         jLabel1.setText("Registro:");
         getContentPane().add(jLabel1);
@@ -170,7 +170,7 @@ public class Novo_atendimento extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Pesquisar1);
-        Pesquisar1.setBounds(550, 80, 130, 40);
+        Pesquisar1.setBounds(560, 90, 130, 40);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

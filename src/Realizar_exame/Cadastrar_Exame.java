@@ -6,6 +6,15 @@
 package Realizar_exame;
 
 import Consultar.*;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -76,7 +85,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar);
-        Atualizar.setBounds(630, 70, 170, 40);
+        Atualizar.setBounds(590, 80, 160, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -86,15 +95,15 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(830, 670, 49, 39);
+        Fechar.setBounds(760, 670, 49, 39);
 
         jLabel1.setText("Registro:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 410, 60, 14);
+        jLabel1.setBounds(30, 440, 60, 14);
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(200, 410, 50, 14);
+        jLabel2.setBounds(200, 440, 50, 14);
 
         jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +112,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(100, 400, 80, 30);
+        jTextField1.setBounds(100, 430, 80, 30);
 
         jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -112,9 +121,9 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2);
-        jTextField2.setBounds(260, 400, 410, 30);
+        jTextField2.setBounds(260, 430, 320, 30);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(30, 340, 840, 2);
+        jSeparator1.setBounds(30, 380, 810, 10);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -133,14 +142,14 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Abrir1);
-        Abrir1.setBounds(710, 400, 140, 30);
+        Abrir1.setBounds(620, 430, 140, 30);
         getContentPane().add(jTextField11);
-        jTextField11.setBounds(100, 450, 70, 30);
+        jTextField11.setBounds(100, 480, 70, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Exame Nº:");
         getContentPane().add(jLabel22);
-        jLabel22.setBounds(30, 460, 80, 20);
+        jLabel22.setBounds(30, 490, 80, 20);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -168,7 +177,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 170, 770, 120);
+        jScrollPane1.setBounds(30, 170, 780, 140);
         getContentPane().add(jTextField12);
         jTextField12.setBounds(100, 80, 120, 30);
 
@@ -216,9 +225,9 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 510, 780, 110);
+        jScrollPane2.setBounds(30, 540, 780, 110);
 
-        setSize(new java.awt.Dimension(989, 788));
+        setSize(new java.awt.Dimension(905, 823));
     }// </editor-fold>//GEN-END:initComponents
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
@@ -232,9 +241,14 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
-
+JLabel lbl = new JLabel();
     private void Abrir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Abrir1ActionPerformed
         // TODO add your handling code here:
+        
+           Gerenciar_imagem  gi = new Gerenciar_imagem();
+           gi.setVisible(true);
+        
+        
     }//GEN-LAST:event_Abrir1ActionPerformed
 
     private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
@@ -305,4 +319,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
+
+
+
 }

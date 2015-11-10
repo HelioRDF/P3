@@ -45,8 +45,6 @@ public class Novo_exame extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
         DataAtual = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
@@ -158,7 +156,7 @@ public class Novo_exame extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(0, 51, 153));
         jLabel23.setText("Solicitar novo exame:");
         getContentPane().add(jLabel23);
-        jLabel23.setBounds(50, 40, 300, 50);
+        jLabel23.setBounds(50, 30, 300, 50);
         getContentPane().add(jTextField8);
         jTextField8.setBounds(160, 380, 70, 30);
 
@@ -166,13 +164,6 @@ public class Novo_exame extends javax.swing.JFrame {
         jLabel19.setText("Consulta Nº:");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(50, 390, 80, 20);
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(390, 380, 250, 30);
-
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel20.setText("Nome do Médico:");
-        getContentPane().add(jLabel20);
-        jLabel20.setBounds(280, 390, 110, 20);
 
         DataAtual.setEnabled(false);
         DataAtual.addActionListener(new java.awt.event.ActionListener() {
@@ -187,31 +178,31 @@ public class Novo_exame extends javax.swing.JFrame {
         getContentPane().add(jLabel11);
         jLabel11.setBounds(670, 320, 50, 30);
         getContentPane().add(jTextField10);
-        jTextField10.setBounds(160, 460, 300, 30);
+        jTextField10.setBounds(370, 320, 230, 30);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel21.setText("Nome do Médico:");
         getContentPane().add(jLabel21);
-        jLabel21.setBounds(50, 470, 110, 20);
+        jLabel21.setBounds(250, 330, 100, 20);
         getContentPane().add(jTextField12);
-        jTextField12.setBounds(620, 460, 300, 30);
+        jTextField12.setBounds(370, 380, 230, 30);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel24.setText("Observações:");
         getContentPane().add(jLabel24);
-        jLabel24.setBounds(50, 590, 90, 20);
+        jLabel24.setBounds(50, 520, 90, 20);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(160, 550, 770, 96);
+        jScrollPane1.setBounds(160, 480, 770, 96);
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel25.setText("Tipo de exame:");
         getContentPane().add(jLabel25);
-        jLabel25.setBounds(510, 470, 100, 20);
+        jLabel25.setBounds(250, 390, 100, 20);
 
         Gravar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Gravar.setForeground(new java.awt.Color(0, 0, 102));
@@ -224,7 +215,7 @@ public class Novo_exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Gravar);
-        Gravar.setBounds(50, 680, 170, 40);
+        Gravar.setBounds(40, 640, 170, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -234,7 +225,7 @@ public class Novo_exame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(890, 680, 40, 39);
+        Fechar.setBounds(890, 640, 40, 39);
         getContentPane().add(jTextField11);
         jTextField11.setBounds(160, 320, 70, 30);
 
@@ -243,7 +234,7 @@ public class Novo_exame extends javax.swing.JFrame {
         getContentPane().add(jLabel22);
         jLabel22.setBounds(50, 330, 80, 20);
 
-        setSize(new java.awt.Dimension(1022, 796));
+        setSize(new java.awt.Dimension(1022, 761));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNomeActionPerformed
@@ -326,7 +317,6 @@ public class Novo_exame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -350,6 +340,5 @@ public class Novo_exame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
