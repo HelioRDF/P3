@@ -6,6 +6,13 @@
 package Usuarios;
 
 import Paciente.*;
+import java.awt.HeadlessException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Formatter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -38,11 +45,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         BuscarNome = new javax.swing.JRadioButton();
         BuscaRegistro = new javax.swing.JRadioButton();
         CampoBuscarNome = new javax.swing.JTextField();
-        jLabel_Nome = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        CampoBuscarRegistro = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        CampoBuscarCRM = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTCRM = new javax.swing.JTextField();
@@ -51,12 +54,17 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         jTSenha = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTEndereco = new javax.swing.JTextField();
+        jTData = new javax.swing.JTextField();
         jTEmail = new javax.swing.JTextField();
         Gravar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jtTipo = new javax.swing.JTextField();
+        jTSexo = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar usuário");
@@ -72,12 +80,12 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Pesquisar);
-        Pesquisar.setBounds(690, 90, 120, 40);
+        Pesquisar.setBounds(550, 80, 130, 40);
 
         Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Excluir.setForeground(new java.awt.Color(255, 0, 0));
         Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/close18.png"))); // NOI18N
-        Excluir.setText("  Excluir");
+        Excluir.setText("  Limpar");
         Excluir.setToolTipText("");
         Excluir.setEnabled(false);
         Excluir.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +94,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(220, 610, 115, 40);
+        Excluir.setBounds(220, 530, 115, 40);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
@@ -99,7 +107,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar);
-        Atualizar.setBounds(50, 610, 130, 40);
+        Atualizar.setBounds(50, 530, 130, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -109,7 +117,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(860, 610, 49, 39);
+        Fechar.setBounds(860, 530, 49, 39);
 
         buttonGroup1_Busca.add(BuscarNome);
         BuscarNome.setText("Buscar pelo nome");
@@ -131,6 +139,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         getContentPane().add(BuscaRegistro);
         BuscaRegistro.setBounds(50, 130, 140, 30);
 
+        CampoBuscarNome.setEditable(false);
         CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,71 +152,40 @@ public class Buscar_Usuario extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome);
-        CampoBuscarNome.setBounds(280, 90, 310, 27);
+        CampoBuscarNome.setBounds(190, 90, 190, 27);
 
-        jLabel_Nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel_Nome.setText("Nome:");
-        getContentPane().add(jLabel_Nome);
-        jLabel_Nome.setBounds(210, 90, 70, 30);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel4.setText("CRM");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 130, 70, 30);
-
-        CampoBuscarRegistro.setEnabled(false);
-        CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
+        CampoBuscarCRM.setEnabled(false);
+        CampoBuscarCRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CampoBuscarRegistroActionPerformed(evt);
+                CampoBuscarCRMActionPerformed(evt);
             }
         });
-        CampoBuscarRegistro.addKeyListener(new java.awt.event.KeyAdapter() {
+        CampoBuscarCRM.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                CampoBuscarRegistroKeyTyped(evt);
+                CampoBuscarCRMKeyTyped(evt);
             }
         });
-        getContentPane().add(CampoBuscarRegistro);
-        CampoBuscarRegistro.setBounds(280, 130, 60, 27);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "CRM", "Nome", "Senha", "Tipo", "Email"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 480, 860, 100);
+        getContentPane().add(CampoBuscarCRM);
+        CampoBuscarCRM.setBounds(190, 130, 150, 27);
 
         jLabel1.setText("CRM:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(650, 230, 50, 20);
+        jLabel1.setBounds(620, 270, 50, 20);
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(50, 230, 40, 20);
 
-        jTCRM.setEnabled(false);
+        jTCRM.setEditable(false);
         jTCRM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTCRMActionPerformed(evt);
             }
         });
         getContentPane().add(jTCRM);
-        jTCRM.setBounds(700, 220, 100, 30);
+        jTCRM.setBounds(670, 270, 100, 30);
 
-        jTnome.setEnabled(false);
+        jTnome.setEditable(false);
         jTnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTnomeActionPerformed(evt);
@@ -220,7 +198,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         getContentPane().add(jLabel7);
         jLabel7.setBounds(50, 280, 70, 20);
 
-        jTSenha.setEnabled(false);
+        jTSenha.setEditable(false);
         getContentPane().add(jTSenha);
         jTSenha.setBounds(120, 270, 170, 30);
 
@@ -230,18 +208,18 @@ public class Buscar_Usuario extends javax.swing.JFrame {
 
         jLabel6.setText("Tipo:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(370, 270, 40, 20);
+        jLabel6.setBounds(370, 280, 40, 20);
 
-        jTEndereco.setEnabled(false);
-        jTEndereco.addActionListener(new java.awt.event.ActionListener() {
+        jTData.setEditable(false);
+        jTData.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTEnderecoActionPerformed(evt);
+                jTDataActionPerformed(evt);
             }
         });
-        getContentPane().add(jTEndereco);
-        jTEndereco.setBounds(420, 260, 110, 30);
+        getContentPane().add(jTData);
+        jTData.setBounds(670, 210, 240, 30);
 
-        jTEmail.setEnabled(false);
+        jTEmail.setEditable(false);
         jTEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTEmailActionPerformed(evt);
@@ -264,7 +242,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         getContentPane().add(Gravar);
         Gravar.setBounds(50, 400, 130, 40);
         getContentPane().add(jSeparator2);
-        jSeparator2.setBounds(50, 460, 860, 10);
+        jSeparator2.setBounds(50, 490, 860, 10);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(50, 200, 860, 2);
 
@@ -274,18 +252,48 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(50, 10, 300, 50);
 
-        setSize(new java.awt.Dimension(1065, 731));
+        jLabel3.setText("Desabilitado");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(390, 90, 70, 20);
+
+        jLabel4.setText("Data:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(620, 210, 60, 30);
+
+        jtTipo.setEditable(false);
+        jtTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtTipoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jtTipo);
+        jtTipo.setBounds(410, 270, 120, 30);
+
+        jTSexo.setEditable(false);
+        jTSexo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTSexoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTSexo);
+        jTSexo.setBounds(670, 320, 100, 30);
+
+        jLabel11.setText("Sexo:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(620, 330, 30, 20);
+
+        setSize(new java.awt.Dimension(1065, 654));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
-
+        buscarXML();
         Atualizar.setEnabled(true);
         Excluir.setEnabled(true);
         
     }//GEN-LAST:event_PesquisarActionPerformed
 
     private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-
+jTextApagar();
     }//GEN-LAST:event_ExcluirActionPerformed
 
     private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
@@ -302,7 +310,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
 
         if(BuscarNome.isSelected()){
             CampoBuscarNome.setEnabled(true);
-            CampoBuscarRegistro.setEnabled(false);
+            CampoBuscarCRM.setEnabled(false);
 
 }
         
@@ -313,7 +321,7 @@ public class Buscar_Usuario extends javax.swing.JFrame {
         
 
 if(BuscaRegistro.isSelected()){
-CampoBuscarRegistro.setEnabled(true);
+CampoBuscarCRM.setEnabled(true);
   CampoBuscarNome.setEnabled(false);
 }
 
@@ -330,13 +338,13 @@ CampoBuscarRegistro.setEnabled(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoBuscarNomeKeyReleased
 
-    private void CampoBuscarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarRegistroActionPerformed
+    private void CampoBuscarCRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarCRMActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoBuscarRegistroActionPerformed
+    }//GEN-LAST:event_CampoBuscarCRMActionPerformed
 
-    private void CampoBuscarRegistroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoBuscarRegistroKeyTyped
+    private void CampoBuscarCRMKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoBuscarCRMKeyTyped
 
-    }//GEN-LAST:event_CampoBuscarRegistroKeyTyped
+    }//GEN-LAST:event_CampoBuscarCRMKeyTyped
 
     private void jTCRMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCRMActionPerformed
         // TODO add your handling code here:
@@ -351,12 +359,21 @@ CampoBuscarRegistro.setEnabled(true);
     }//GEN-LAST:event_jTEmailActionPerformed
 
     private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
-
+salvarXML();
+Editablefalse();
     }//GEN-LAST:event_GravarActionPerformed
 
-    private void jTEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEnderecoActionPerformed
+    private void jTDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDataActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTEnderecoActionPerformed
+    }//GEN-LAST:event_jTDataActionPerformed
+
+    private void jtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtTipoActionPerformed
+
+    private void jTSexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTSexoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTSexoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -398,8 +415,8 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JButton Atualizar;
     private javax.swing.JRadioButton BuscaRegistro;
     private javax.swing.JRadioButton BuscarNome;
+    private javax.swing.JTextField CampoBuscarCRM;
     private javax.swing.JTextField CampoBuscarNome;
-    private javax.swing.JTextField CampoBuscarRegistro;
     private javax.swing.JButton Excluir;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Gravar;
@@ -408,34 +425,223 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.ButtonGroup buttonGroup2_Sexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTCRM;
+    private javax.swing.JTextField jTData;
     private javax.swing.JTextField jTEmail;
-    private javax.swing.JTextField jTEndereco;
     private javax.swing.JTextField jTSenha;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTSexo;
     private javax.swing.JTextField jTnome;
+    private javax.swing.JTextField jtTipo;
     // End of variables declaration//GEN-END:variables
 
 
 
+//=====================================================================================
+  
+
 public void atualizar(){
     
-  
-    jTEmail.setEnabled(true);
-    jTEndereco.setEnabled(true);
-    jTSenha.setEnabled(true);
-    jTnome.setEnabled(true);
-    jTCRM.setEnabled(true);
+    jTCRM.setEditable(true);
+    jTnome.setEditable(true);
+    jTEmail.setEditable(true);
+    //jTData.setEditable(true);
+    jTSenha.setEditable(true);
+    jtTipo.setEditable(true);
+    jTSexo.setEditable(true);
     
+
+
+
+
 }
 
+//=====================================================================================
+  
+
+public void buscarXML(){
+    
+    String crm="";
+    
+     
+   if(BuscarNome.isSelected()){
+      crm = CampoBuscarNome.getText().trim();
+   }
+   if(BuscaRegistro.isSelected()){
+      crm = CampoBuscarCRM.getText().trim();
+   }
+               
+             String CRM;
+             String nome;
+             String senha;
+             String sexo;
+             String email;
+             String data;
+             String tipo;
+                  
+             String mostra="";
+	     String nomeArq="Cadastro/usuario/"+crm+".xml"; //Nome do arquivo, pode ser absoluto, ou pastas /dir/teste.txt
+	     String linha="";
+	     
+		File arq = new File(nomeArq);
+		
+		//Arquivo existe
+		if (arq.exists()){
+		//	mostra="Arquivo - '"+nomeArq+"', aberto com sucesso!\n";
+		//	mostra+="Tamanho do arquivo "+Long.toString(arq.length())+"\n";
+		
+                    //tentando ler arquivo
+			try{
+				
+				FileReader reader = new FileReader(nomeArq); //abrindo arquivo para leitura
+				BufferedReader leitor = new BufferedReader(reader); //leitor do arquivo
+				
+				leitor.readLine(); //<xml
+				leitor.readLine(); //<cadastro
+                                leitor.readLine(); //<Paciente
+				while(true){
+                                
+					crm=leitor.readLine();
+                                        crm=crm.substring(crm.indexOf(">")+1,crm.indexOf("/")-1); //pegando entre as tags
+                                        jTCRM.setText(crm);
+                                        
+					nome=leitor.readLine();
+                                        nome=nome.substring(nome.indexOf(">")+1,nome.indexOf("/")-1); //pegando entre as tags
+                                        jTnome.setText(nome);
+                                       
+                                        senha=leitor.readLine();
+                                        senha=senha.substring(senha.indexOf(">")+1,senha.indexOf("/")-1); //pegando entre as tags
+                                        jTSenha.setText(senha);
+                                        			                
+                                        sexo=leitor.readLine();
+                                        sexo=sexo.substring(sexo.indexOf(">")+1,sexo.indexOf("/")-1); //pegando entre as tags
+                                        jTSexo.setText(sexo);
+                                                                                                                                                                                                 
+                                        tipo=leitor.readLine();
+                                        tipo=tipo.substring(tipo.indexOf(">")+1,tipo.indexOf("/")-1);
+                                        jTData.setText(tipo);
+                                        
+                                      
+                                        
+                                        email=leitor.readLine();
+                                        email=email.substring(email.indexOf(">")+1,email.indexOf("/")-1);
+                                        jTEmail.setText(email);
+                                        
+                                        data=leitor.readLine(); 
+                                        data=data.substring(data.indexOf(">")+1,data.indexOf("/")-1);
+                                        jtTipo.setText(data);
+                                        
+                                         mostra+="Usuário: "+ nome+"\n\n";
+                                        /* mostra+="Registro: "+registro
+                                                +"\nNome: "+nome
+                                                +"\nCPF: "+cpf
+                                                +"\nData de Nascimento: "+dataNasc
+                                                +"\nSexo: "+sexo
+                                                +"\nEndereço: "+endereco
+                                                +"\nTelefone: "+telefone
+                                                +"\nE-mail: "+email
+                                                +"\nData: "+data+"\n";   */                                                       
+			             
+					
+                                     if(nome==null){break;}
+				
+                                }
+                                        
+                                                 
+                                        
+			}
+			catch(Exception erro) {
+			//JOptionPane.showMessageDialog(null,mostra,"Arquivo (catch)",1);
+		}}
+		//Se nao existir
+		else
+			JOptionPane.showMessageDialog(null,"Arquivo nao existe!","Erro",0);
+	
+}
+
+//=====================================================================================
+  
+public void salvarXML(){//Salva as informações em XML.
+                               
+             String crm= jTCRM.getText().trim();
+             String nome= jTnome.getText().trim();
+              String senha= jTSenha.getText().trim();
+                  
+             String tipo=jTData.getText().trim();
+             String email=jTEmail.getText().trim();
+             String sexo=jTSexo.getText().trim();
+             String data=jtTipo.getText().trim(); 
+                
+                   
+		//String nomeArq="Cadastro/"+registro+"_"+nome+".xml";
+                String nomeArq="Cadastro/usuario/"+crm+".xml";
+             
+		String texto;
+		//tentando criar arquivo
+		try
+		{
+                try (Formatter saida = new Formatter(nomeArq)) {
+                    texto="<?xml version='1.0' encoding='ISO-8859-1' ?>\n"+
+                            "<cadastros>\n";
+                                       
+                   texto+=" <Usuario>\n";
+                    texto+=" <Registro>"+crm+"</Registro>\n";
+                    texto+=" <Nome>"+nome+"</Nome>\n";
+                    texto+=" <CPF>"+senha+"</CPF>\n";
+                    texto+=" <Sexo>"+sexo+"</Sexo>\n";
+                    texto+=" <E_mail>"+email+"</E_mail>\n";
+                    texto+=" <Data>"+data+"</Data>\n";
+                    texto+=" <Data>"+tipo+"</Data>\n";
+                    texto+=" </Paciente>\n";
+                    texto+="</Usuario>";
+                    saida.format(texto);
+                    
+                }
+			JOptionPane.showMessageDialog(null,"Arquivo '"+nomeArq+"' criado!","Arquivo",1);
+		}
+		//mostrando erro em caso se nao for possivel gerar arquivo
+		catch(FileNotFoundException | HeadlessException erro){
+			JOptionPane.showMessageDialog(null,"Arquivo nao pode ser gerado!","Erro",0);
+                
+        }
+}
+
+//=====================================================================================
+    
+public void jTextApagar(){//Apaga os textos dos jTexts
+
+//Zera os campos JText.    
+//jT_Registro.setText("");
+             jTCRM.setText("");
+             jTnome.setText("");
+             jTSenha.setText("");
+                  
+             jTData.setText("");
+             jTEmail.setText("");
+             jTSexo.setText("");
+             jtTipo.setText("");
+
+}
+
+
+//=====================================================================================
+    
+public void Editablefalse(){//Apaga os textos dos jTexts
+
+jTCRM.setEditable(false);
+    jTnome.setEditable(false);
+    jTEmail.setEditable(false);
+    //jTData.setEditable(true);
+    jTSenha.setEditable(false);
+    jtTipo.setEditable(false);
+    jTSexo.setEditable(false);
+}
 }

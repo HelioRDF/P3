@@ -168,7 +168,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 170, 730, 110);
+        jScrollPane1.setBounds(30, 170, 770, 120);
         getContentPane().add(jTextField12);
         jTextField12.setBounds(100, 80, 120, 30);
 
@@ -216,7 +216,7 @@ public class Cadastrar_Exame extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(30, 510, 730, 110);
+        jScrollPane2.setBounds(30, 510, 780, 110);
 
         setSize(new java.awt.Dimension(989, 788));
     }// </editor-fold>//GEN-END:initComponents

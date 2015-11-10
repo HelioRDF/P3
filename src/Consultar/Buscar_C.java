@@ -15,13 +15,8 @@ public class Buscar_C extends javax.swing.JFrame {
     /**
      * Creates new form Buscar_C
      */
-    
-    
-    
-    
-    
-    
-    
+           
+           
     public Buscar_C() {
         initComponents();
         

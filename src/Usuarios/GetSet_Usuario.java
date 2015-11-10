@@ -8,11 +8,22 @@ public class GetSet_Usuario {
 
   
 
-private int CRM;//
-private int tipo;//cod tipo
+private String CRM;//
+private String tipo;//cod tipo
 private String nomeUsuário;//login
 private String senha;//Senha do usuário
 private String email;
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+private String data;
+
+    
     
    
 
@@ -20,24 +31,33 @@ private String email;
     //Get e set.
 
 
+public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+private String sexo;
+
  public GetSet_Usuario() {
     }
-    public int getCRM(){
+    public String getCRM(){
        
            
         return CRM;       
         
 }
 
-    public void setCRM(int CRM) {
+    public void setCRM(String CRM) {
         this.CRM = CRM;
     }
 
-    public int getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 

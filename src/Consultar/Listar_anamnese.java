@@ -9,6 +9,14 @@ package Consultar;
  *
  * @author hfranca
  */
+
+
+import com.itextpdf.text.Document;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class Listar_anamnese extends javax.swing.JFrame {
 
     /**
@@ -16,6 +24,11 @@ public class Listar_anamnese extends javax.swing.JFrame {
      */
     public Listar_anamnese() {
         initComponents();
+        
+        
+        
+        
+        
     }
 
     /**
@@ -51,7 +64,7 @@ public class Listar_anamnese extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         CampoBuscarNome1 = new javax.swing.JTextField();
         jLabel_Nome1 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        CampoAnamneseN = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -235,8 +248,8 @@ public class Listar_anamnese extends javax.swing.JFrame {
         jLabel_Nome1.setText("Arquivo:");
         getContentPane().add(jLabel_Nome1);
         jLabel_Nome1.setBounds(60, 370, 80, 20);
-        getContentPane().add(jTextField11);
-        jTextField11.setBounds(150, 310, 70, 30);
+        getContentPane().add(CampoAnamneseN);
+        CampoAnamneseN.setBounds(150, 310, 70, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Anamnese Nº:");
@@ -275,7 +288,13 @@ public class Listar_anamnese extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void Excluir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Excluir1ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+
+            NF_PDF();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Listar_anamnese.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_Excluir1ActionPerformed
 
     private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
@@ -326,6 +345,7 @@ public class Listar_anamnese extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CampoAnamneseN;
     private javax.swing.JTextField CampoBuscarNome;
     private javax.swing.JTextField CampoBuscarNome1;
     private javax.swing.JTextField CampoBuscarRegistro;
@@ -346,11 +366,46 @@ public class Listar_anamnese extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables
+
+
+
+    
+    
+    public  void NF_PDF () throws FileNotFoundException {
+        // TODO code application logic here
+        
+        
+    String anamneseN=CampoAnamneseN.getText().trim();
+    Document documentoPDF = new Document();
+    
+     
+    try{
+        
+        
+    
+        //abrir o documento
+        documentoPDF.open();
+        
+           
+        //Busca e abre o arquivo PDF.
+         java.awt.Desktop.getDesktop().open( new File(anamneseN+"_anamnese.pdf" ) ); 
+        
+    }
+                                        
+            catch(IOException ioe){
+            }     
+            finally{
+        documentoPDF.close();
+    }        
+
+
+ }
 }
+
+

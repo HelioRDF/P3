@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<cadastros>
+ <Paciente>
+ <Registro>2</Registro>
+ <Nome>3</Nome>
+ <CPF>4</CPF>
+ <Data_de_Nascimento>5</Data_de_Nascimento>
+ <Sexo>Masculino</Sexo>
+ <Endereco>6</Endereco>
+ <Telefone>7</Telefone>
+ <E_mail>8</E_mail>
+ <Data>Tue Nov 10 12:23:09 BRST 2015</Data>
+ </Paciente>
+</Cadastros>

@@ -5,6 +5,15 @@
  */
 package Paciente;
 
+import java.awt.HeadlessException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Formatter;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Helio Franca
@@ -31,17 +40,13 @@ public class Buscar_P extends javax.swing.JFrame {
         buttonGroup2_Sexo = new javax.swing.ButtonGroup();
         buttonGroup1_Busca = new javax.swing.ButtonGroup();
         Pesquisar = new javax.swing.JButton();
-        Excluir = new javax.swing.JButton();
+        Limpar = new javax.swing.JButton();
         Atualizar = new javax.swing.JButton();
         Fechar = new javax.swing.JButton();
         BuscarNome = new javax.swing.JRadioButton();
         BuscaRegistro = new javax.swing.JRadioButton();
         CampoBuscarNome = new javax.swing.JTextField();
-        jLabel_Nome = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         CampoBuscarRegistro = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTSexo = new javax.swing.JTextField();
@@ -62,6 +67,9 @@ public class Buscar_P extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jLabel10 = new javax.swing.JLabel();
         jT_registro = new javax.swing.JTextField();
+        DataCadastro = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Buscar Paciente");
@@ -77,21 +85,21 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Pesquisar);
-        Pesquisar.setBounds(690, 90, 120, 40);
+        Pesquisar.setBounds(680, 90, 140, 40);
 
-        Excluir.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Excluir.setForeground(new java.awt.Color(255, 0, 0));
-        Excluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/close18.png"))); // NOI18N
-        Excluir.setText("  Excluir");
-        Excluir.setToolTipText("");
-        Excluir.setEnabled(false);
-        Excluir.addActionListener(new java.awt.event.ActionListener() {
+        Limpar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Limpar.setForeground(new java.awt.Color(255, 0, 0));
+        Limpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/close18.png"))); // NOI18N
+        Limpar.setText("Limpar");
+        Limpar.setToolTipText("");
+        Limpar.setEnabled(false);
+        Limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ExcluirActionPerformed(evt);
+                LimparActionPerformed(evt);
             }
         });
-        getContentPane().add(Excluir);
-        Excluir.setBounds(220, 610, 115, 40);
+        getContentPane().add(Limpar);
+        Limpar.setBounds(220, 580, 115, 40);
 
         Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
@@ -104,7 +112,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Atualizar);
-        Atualizar.setBounds(50, 610, 130, 40);
+        Atualizar.setBounds(50, 580, 130, 40);
 
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/left176.png"))); // NOI18N
         Fechar.setToolTipText("");
@@ -114,7 +122,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Fechar);
-        Fechar.setBounds(860, 610, 49, 39);
+        Fechar.setBounds(860, 570, 49, 39);
 
         buttonGroup1_Busca.add(BuscarNome);
         BuscarNome.setText("Buscar pelo nome");
@@ -127,7 +135,7 @@ public class Buscar_P extends javax.swing.JFrame {
         BuscarNome.setBounds(50, 90, 130, 30);
 
         buttonGroup1_Busca.add(BuscaRegistro);
-        BuscaRegistro.setText("Buscar pelo Registro");
+        BuscaRegistro.setText("Buscar pelo RG");
         BuscaRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BuscaRegistroActionPerformed(evt);
@@ -136,6 +144,7 @@ public class Buscar_P extends javax.swing.JFrame {
         getContentPane().add(BuscaRegistro);
         BuscaRegistro.setBounds(50, 130, 140, 30);
 
+        CampoBuscarNome.setEditable(false);
         CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,17 +157,7 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarNome);
-        CampoBuscarNome.setBounds(280, 90, 310, 27);
-
-        jLabel_Nome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel_Nome.setText("Nome:");
-        getContentPane().add(jLabel_Nome);
-        jLabel_Nome.setBounds(210, 90, 70, 30);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel4.setText("Registro");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 130, 70, 30);
+        CampoBuscarNome.setBounds(200, 90, 310, 27);
 
         CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -172,120 +171,92 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(CampoBuscarRegistro);
-        CampoBuscarRegistro.setBounds(280, 130, 60, 27);
+        CampoBuscarRegistro.setBounds(200, 130, 150, 27);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Registro", "Nome", "CPF", "Data de Nascimento", "Sexo", "Endereço", "Telefone", "E-mail"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 480, 860, 100);
-
-        jLabel1.setText("Registro:");
+        jLabel1.setText("Desabilitado");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(650, 230, 70, 20);
+        jLabel1.setBounds(520, 100, 70, 20);
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 230, 40, 20);
+        jLabel2.setBounds(50, 260, 40, 20);
 
-        jTSexo.setEnabled(false);
+        jTSexo.setEditable(false);
         jTSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTSexoActionPerformed(evt);
             }
         });
         getContentPane().add(jTSexo);
-        jTSexo.setBounds(710, 270, 100, 30);
+        jTSexo.setBounds(710, 300, 100, 30);
 
-        jTnome.setEnabled(false);
+        jTnome.setEditable(false);
         jTnome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTnomeActionPerformed(evt);
             }
         });
         getContentPane().add(jTnome);
-        jTnome.setBounds(120, 220, 410, 30);
+        jTnome.setBounds(120, 250, 410, 30);
 
         jLabel3.setText("Data de Nascimento:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(380, 270, 120, 30);
+        jLabel3.setBounds(380, 300, 120, 30);
 
-        jTDataNasc.setEnabled(false);
+        jTDataNasc.setEditable(false);
         getContentPane().add(jTDataNasc);
-        jTDataNasc.setBounds(500, 270, 120, 30);
+        jTDataNasc.setBounds(500, 300, 120, 30);
 
         jLabel7.setText("CPF: ");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(50, 280, 30, 20);
+        jLabel7.setBounds(50, 310, 30, 20);
 
-        jTCPF.setEnabled(false);
+        jTCPF.setEditable(false);
         getContentPane().add(jTCPF);
-        jTCPF.setBounds(120, 270, 240, 30);
+        jTCPF.setBounds(120, 300, 240, 30);
 
         jLabel8.setText("E-Mail:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(350, 360, 40, 20);
+        jLabel8.setBounds(350, 390, 40, 20);
 
         jLabel5.setText("Telefone:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(50, 360, 60, 20);
+        jLabel5.setBounds(50, 390, 60, 20);
 
         jLabel6.setText("Endereço:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(50, 320, 60, 20);
+        jLabel6.setBounds(50, 350, 60, 20);
 
-        jTTelefone.setEnabled(false);
+        jTTelefone.setEditable(false);
         jTTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTTelefoneActionPerformed(evt);
             }
         });
         getContentPane().add(jTTelefone);
-        jTTelefone.setBounds(120, 350, 210, 30);
+        jTTelefone.setBounds(120, 380, 210, 30);
 
-        jTEndereco.setEnabled(false);
+        jTEndereco.setEditable(false);
         jTEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTEnderecoActionPerformed(evt);
             }
         });
         getContentPane().add(jTEndereco);
-        jTEndereco.setBounds(120, 310, 500, 30);
+        jTEndereco.setBounds(120, 340, 500, 30);
 
-        jTEmail.setEnabled(false);
+        jTEmail.setEditable(false);
         jTEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTEmailActionPerformed(evt);
             }
         });
         getContentPane().add(jTEmail);
-        jTEmail.setBounds(400, 350, 220, 30);
+        jTEmail.setBounds(400, 380, 220, 30);
 
         jLabel9.setText("Sexo:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(650, 270, 30, 20);
+        jLabel9.setBounds(650, 300, 30, 20);
 
         Gravar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Gravar.setForeground(new java.awt.Color(0, 0, 102));
@@ -299,9 +270,9 @@ public class Buscar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Gravar);
-        Gravar.setBounds(50, 400, 130, 40);
+        Gravar.setBounds(50, 450, 130, 40);
         getContentPane().add(jSeparator2);
-        jSeparator2.setBounds(50, 460, 860, 10);
+        jSeparator2.setBounds(50, 530, 860, 10);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(50, 200, 860, 2);
 
@@ -311,31 +282,47 @@ public class Buscar_P extends javax.swing.JFrame {
         getContentPane().add(jLabel10);
         jLabel10.setBounds(50, 10, 300, 50);
 
-        jT_registro.setEnabled(false);
+        jT_registro.setEditable(false);
         jT_registro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jT_registroActionPerformed(evt);
             }
         });
         getContentPane().add(jT_registro);
-        jT_registro.setBounds(710, 220, 100, 30);
+        jT_registro.setBounds(710, 250, 100, 30);
 
-        setSize(new java.awt.Dimension(1065, 731));
+        DataCadastro.setEditable(false);
+        DataCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DataCadastroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(DataCadastro);
+        DataCadastro.setBounds(690, 470, 220, 30);
+
+        jLabel11.setText("Data:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(650, 470, 60, 30);
+
+        jLabel4.setText("Registro:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(650, 260, 70, 20);
+
+        setSize(new java.awt.Dimension(992, 696));
     }// </editor-fold>//GEN-END:initComponents
 
     private void PesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarActionPerformed
-
+        buscarXML();
         Atualizar.setEnabled(true);
-        Excluir.setEnabled(true);
+        Limpar.setEnabled(true);
         
     }//GEN-LAST:event_PesquisarActionPerformed
 
-    private void ExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExcluirActionPerformed
-
-    }//GEN-LAST:event_ExcluirActionPerformed
+    private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
+    jTextApagar();
+    }//GEN-LAST:event_LimparActionPerformed
 
     private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
-
         atualizar();
         Gravar.setEnabled(true);
     }//GEN-LAST:event_AtualizarActionPerformed
@@ -401,7 +388,11 @@ CampoBuscarRegistro.setEnabled(true);
     }//GEN-LAST:event_jTEmailActionPerformed
 
     private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
-
+        salvarXML();
+        jTeditablefalse();
+         Atualizar.setEnabled(false);
+    
+        Gravar.setEnabled(false);
     }//GEN-LAST:event_GravarActionPerformed
 
     private void jTEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTEnderecoActionPerformed
@@ -411,6 +402,10 @@ CampoBuscarRegistro.setEnabled(true);
     private void jT_registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jT_registroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jT_registroActionPerformed
+
+    private void DataCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataCadastroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DataCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -453,14 +448,16 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JRadioButton BuscarNome;
     private javax.swing.JTextField CampoBuscarNome;
     private javax.swing.JTextField CampoBuscarRegistro;
-    private javax.swing.JButton Excluir;
+    private javax.swing.JTextField DataCadastro;
     private javax.swing.JButton Fechar;
     private javax.swing.JButton Gravar;
+    private javax.swing.JButton Limpar;
     private javax.swing.JButton Pesquisar;
     private javax.swing.ButtonGroup buttonGroup1_Busca;
     private javax.swing.ButtonGroup buttonGroup2_Sexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -469,8 +466,6 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTCPF;
@@ -480,21 +475,222 @@ CampoBuscarRegistro.setEnabled(true);
     private javax.swing.JTextField jTSexo;
     private javax.swing.JTextField jTTelefone;
     private javax.swing.JTextField jT_registro;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTnome;
     // End of variables declaration//GEN-END:variables
 
 
+//=====================================================================================
+  
 
 public void atualizar(){
     
-    jTCPF.setEnabled(true);
-    jTDataNasc.setEnabled(true);
-    jTEmail.setEnabled(true);
-    jTEndereco.setEnabled(true);
-    jTTelefone.setEnabled(true);
-    jTnome.setEnabled(true);
+    jTnome.requestFocus();
+    
+    
+    jTSexo.setEditable(true);
+    jT_registro.setEditable(true);
+    jTCPF.setEditable(true);
+    jTDataNasc.setEditable(true);
+    jTEmail.setEditable(true);
+    jTEndereco.setEditable(true);
+    jTTelefone.setEditable(true);
+    jTnome.setEditable(true);
     
 }
+
+//=====================================================================================
+  
+
+public void buscarXML(){
+    
+    String registro="";
+    
+     
+   if(BuscarNome.isSelected()){
+      registro = CampoBuscarNome.getText().trim();
+   }
+   if(BuscaRegistro.isSelected()){
+      registro = CampoBuscarRegistro.getText().trim();
+   }
+           
+    
+             String nome;
+             String cpf;
+             String dataNasc;
+             String sexo;
+             String endereco;
+             String telefone;
+             String email;
+             String data; 
+  
+    
+    
+            
+             String mostra="";
+	     String nomeArq="Cadastro/Paciente/"+registro+".xml"; //Nome do arquivo, pode ser absoluto, ou pastas /dir/teste.txt
+	     String linha="";
+	     
+		File arq = new File(nomeArq);
+		
+		//Arquivo existe
+		if (arq.exists()){
+		//	mostra="Arquivo - '"+nomeArq+"', aberto com sucesso!\n";
+		//	mostra+="Tamanho do arquivo "+Long.toString(arq.length())+"\n";
+		
+                    //tentando ler arquivo
+			try{
+				
+				FileReader reader = new FileReader(nomeArq); //abrindo arquivo para leitura
+				BufferedReader leitor = new BufferedReader(reader); //leitor do arquivo
+				
+				leitor.readLine(); //<xml
+				leitor.readLine(); //<cadastro
+                                leitor.readLine(); //<Paciente
+				while(true){
+                                
+					
+                                        
+                                        registro=leitor.readLine();
+                                        registro=registro.substring(registro.indexOf(">")+1,registro.indexOf("/")-1); //pegando entre as tags
+                                        jT_registro.setText(registro);
+                                        
+					nome=leitor.readLine();
+                                        nome=nome.substring(nome.indexOf(">")+1,nome.indexOf("/")-1); //pegando entre as tags
+                                        jTnome.setText(nome);
+                                       
+                                        cpf=leitor.readLine();
+                                        cpf=cpf.substring(cpf.indexOf(">")+1,cpf.indexOf("/")-1); //pegando entre as tags
+                                        jTCPF.setText(cpf);
+                                        			                
+                                        dataNasc=leitor.readLine();
+                                        dataNasc=dataNasc.substring(dataNasc.indexOf(">")+1,dataNasc.indexOf("/")-1); //pegando entre as tags
+                                        jTDataNasc.setText(dataNasc);
+                                        
+                                        sexo=leitor.readLine();
+                                        sexo=sexo.substring(sexo.indexOf(">")+1,sexo.indexOf("/")-1);
+                                        jTSexo.setText(sexo);
+                                                                                                                    
+                                        endereco=leitor.readLine();
+                                        endereco=endereco.substring(endereco.indexOf(">")+1,endereco.indexOf("/")-1);
+                                        jTEndereco.setText(endereco);
+                                        
+                                        telefone=leitor.readLine();
+                                        telefone=telefone.substring(telefone.indexOf(">")+1,telefone.indexOf("/")-1);
+                                        jTTelefone.setText(telefone);
+                                        
+                                        email=leitor.readLine();
+                                        email=email.substring(email.indexOf(">")+1,email.indexOf("/")-1);
+                                        jTEmail.setText(email);
+                                        
+                                        data=leitor.readLine(); 
+                                        data=data.substring(data.indexOf(">")+1,data.indexOf("/")-1);
+                                        DataCadastro.setText(data);
+                                        
+                                         mostra+="Paciente: "+ nome+"\n\n";
+                                        /* mostra+="Registro: "+registro
+                                                +"\nNome: "+nome
+                                                +"\nCPF: "+cpf
+                                                +"\nData de Nascimento: "+dataNasc
+                                                +"\nSexo: "+sexo
+                                                +"\nEndereço: "+endereco
+                                                +"\nTelefone: "+telefone
+                                                +"\nE-mail: "+email
+                                                +"\nData: "+data+"\n";   */                                                       
+			             
+					
+                                     if(nome==null){break;}
+				
+                                }
+                                        
+			}
+			catch(Exception erro) {
+			//JOptionPane.showMessageDialog(null,mostra,"Arquivo (catch)",1);
+		}}
+		//Se nao existir
+		else
+			JOptionPane.showMessageDialog(null,"Arquivo nao existe!","Erro",0);
+	
+}
+
+//=====================================================================================
+  
+public void salvarXML(){//Salva as informações em XML.
+                               
+             String registro= jT_registro.getText().trim();
+             String nome= jTnome.getText().trim();
+             String cpf= jTCPF.getText().trim();
+             String dataNasc= jTDataNasc.getText().trim();
+             String sexo=jTSexo.getText().trim();
+             String endereco=jTEndereco.getText().trim();
+             String telefone=jTTelefone.getText().trim();
+             String email=jTEmail.getText().trim();
+             String data=DataCadastro.getText().trim(); 
+                
+                   
+		//String nomeArq="Cadastro/"+registro+"_"+nome+".xml";
+                String nomeArq="Cadastro/Paciente/"+registro+".xml";
+             
+		String texto;
+		//tentando criar arquivo
+		try
+		{
+                try (Formatter saida = new Formatter(nomeArq)) {
+                    texto="<?xml version='1.0' encoding='ISO-8859-1' ?>\n"+
+                            "<cadastros>\n";
+                                       
+                    texto+=" <Paciente>\n";
+                    texto+=" <Registro>"+registro+"</Registro>\n";
+                    texto+=" <Nome>"+nome+"</Nome>\n";
+                    texto+=" <CPF>"+cpf+"</CPF>\n";
+                    texto+=" <Data_de_Nascimento>"+dataNasc+"</Data_de_Nascimento>\n";
+                    texto+=" <Sexo>"+sexo+"</Sexo>\n";
+                    texto+=" <Endereco>"+endereco+"</Endereco>\n";
+                    texto+=" <Telefone>"+telefone+"</Telefone>\n";
+                    texto+=" <E_mail>"+email+"</E_mail>\n";
+                    texto+=" <Data>"+data+"</Data>\n";
+                    texto+=" </Paciente>\n";
+                    texto+="</Cadastros>";
+                    saida.format(texto);
+                    
+                }
+			JOptionPane.showMessageDialog(null,"Arquivo '"+nomeArq+"' criado!","Arquivo",1);
+		}
+		//mostrando erro em caso se nao for possivel gerar arquivo
+		catch(FileNotFoundException | HeadlessException erro){
+			JOptionPane.showMessageDialog(null,"Arquivo nao pode ser gerado!","Erro",0);
+                
+        }
+}
+
+//=====================================================================================
+    
+public void jTextApagar(){//Apaga os textos dos jTexts
+
+//Zera os campos JText.    
+//jT_Registro.setText("");
+jTnome.setText("");
+jTCPF.setText("");
+jTEndereco.setText("");
+jTDataNasc.setText("");
+jTEmail.setText("");
+jTSexo.setText("");
+jTTelefone.setText("");
+jT_registro.setText("");
+DataCadastro.setText("");
+
+
+}
+
+
+//=====================================================================================
+    
+public void jTeditablefalse(){//Apaga os textos dos jTexts
+
+jTCPF.setEditable(false);
+    jTDataNasc.setEditable(false);
+    jTEmail.setEditable(false);
+    jTEndereco.setEditable(false);
+    jTTelefone.setEditable(false);
+    jTnome.setEditable(false);}
 
 }

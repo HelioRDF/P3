@@ -16,20 +16,21 @@ public class Controle_P {//Inicio da classe Paciente_Controle
     // b) Implementar uma classe de gestão que tenha um atributo List do tipo paciente, contendo o CRUD:
 
      GetSet_P list;
-     int i;
+  
      
      //Construtor.
      public Controle_P (){
+         list = new GetSet_P();
          Controle = new ArrayList();         }
     
 //=============================================================================================================     
 //1. Cadastrar Paciente.     
      
     public void Cadastrar(GetSet_P objeto){
-      i++;  
-     objeto.setRegistro(i);
+     
      Controle.add(objeto);
-        
+     
+     
     }
 //=============================================================================================================   
 //2.A Buscar Paciente pelo nome. Retorna o Objeto.

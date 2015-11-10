@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<cadastros>
+ <Usuario>
+ <Registro>23</Registro>
+ <Nome>helio</Nome>
+ <CPF>123</CPF>
+ <Sexo>Masculino</Sexo>
+ <E_mail>jpfranca</E_mail>
+ <Data>Tue Nov 10 14:28:26 BRST 2015</Data>
+ <Data>2</Data>
+ </Paciente>
+</Usuario>

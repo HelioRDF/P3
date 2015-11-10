@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<cadastros>
+ <Paciente>
+ <Registro>454546</Registro>
+ <Nome>Neguinha</Nome>
+ <CPF>65656565</CPF>
+ <Data_de_Nascimento>565656</Data_de_Nascimento>
+ <Sexo>Feminino</Sexo>
+ <Endereco>jksdjkfhsjkdhfkjssdf</Endereco>
+ <Telefone>5554545</Telefone>
+ <E_mail>kjklsdfjlksfd</E_mail>
+ <Data>Tue Nov 10 15:02:40 BRST 2015</Data>
+ </Paciente>
+</Cadastros>

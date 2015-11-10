@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<cadastros>
+ <Paciente>
+ <Registro>336897</Registro>
+ <Nome>helio</Nome>
+ <CPF>4554554</CPF>
+ <Data_de_Nascimento>54545454</Data_de_Nascimento>
+ <Sexo>Masculino</Sexo>
+ <Endereco>44554</Endereco>
+ <Telefone>555</Telefone>
+ <E_mail>sdfsdfs5</E_mail>
+ <Data>Tue Nov 10 12:21:08 BRST 2015</Data>
+ </Paciente>
+</Cadastros>

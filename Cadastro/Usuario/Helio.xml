@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<cadastros>
+ <Usuario>
+ <Registro>Helio</Registro>
+ <Nome>Doom</Nome>
+ <Senha>123</Senha>
+ <Sexo>Masculino</Sexo>
+ <E_mail>heliordf@hotmail.com</E_mail>
+ <Data>Tue Nov 10 15:10:20 BRST 2015</Data>
+ <Tipo>5</Tipo>
+ </Paciente>
+</Usuario>

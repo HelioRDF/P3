@@ -17,7 +17,7 @@ public class Controle_Usuario {//Inicio da classe Controle
     // b) Implementar uma classe de gestão que tenha um atributo List do tipo Usuário, contendo o CRUD:
 
      GetSet_P list;
-     int i;
+     int x;
      
      //Construtor.
      public Controle_Usuario (){
@@ -27,6 +27,8 @@ public class Controle_Usuario {//Inicio da classe Controle
 //1. Cadastrar Usuário.     
      
     public void Cadastrar(GetSet_Usuario objeto){
+   
+   
     
      Controle.add(objeto);
         
@@ -68,7 +70,7 @@ public class Controle_Usuario {//Inicio da classe Controle
 //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 //2.B Buscar Usuário pelo código. Retorna o objeto.
     
-public String buscarCodigo(int registro){//Inicio do método de buscar por código
+public String buscarCodigo(String registro){//Inicio do método de buscar por código
         
  String imprimir="";
  boolean encontrou=false;

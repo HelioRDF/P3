@@ -4,7 +4,19 @@
 package Atendimento;
 
 
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 //...
 
@@ -16,15 +28,15 @@ public class Preencher_anamnese extends javax.swing.JFrame {
     
 
  //Aqui eu chamo as variaveis para conexao, envio e recebimento
- 
+
  
  
     public Preencher_anamnese()  {
         initComponents();
         
-       
+     
      Calendar data = Calendar.getInstance(); 
-     DataAtual.setText(data.getTime().toString());
+     CampoDataAtual.setText(data.getTime().toString());
     
     }
     
@@ -47,7 +59,7 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         jLabel_Nome = new javax.swing.JLabel();
         CampoBuscarRegistro = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        CampoDataNasc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -63,48 +75,47 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton13 = new javax.swing.JRadioButton();
-        jRadioButton14 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
+        CampoAltura = new javax.swing.JTextField();
+        CampoPeso = new javax.swing.JTextField();
+        Fsim = new javax.swing.JRadioButton();
+        Fnao = new javax.swing.JRadioButton();
+        UDsim = new javax.swing.JRadioButton();
+        UDnao = new javax.swing.JRadioButton();
+        BASim = new javax.swing.JRadioButton();
+        BANao = new javax.swing.JRadioButton();
+        DEsim = new javax.swing.JRadioButton();
+        DEnao = new javax.swing.JRadioButton();
+        Dosim = new javax.swing.JRadioButton();
+        DOnao = new javax.swing.JRadioButton();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        CampoObservacao = new javax.swing.JTextArea();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        CampoConsultaN = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        CampoNomeMedico = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        DataAtual = new javax.swing.JTextField();
+        CampoDataAtual = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        CampoTratamento = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        CampoRemedio = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
         Fechar = new javax.swing.JButton();
-        jTextField12 = new javax.swing.JTextField();
+        CampoAnamneseN = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Anamneses");
         getContentPane().setLayout(null);
 
-        CampoBuscarNome.setEnabled(false);
         CampoBuscarNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoBuscarNomeActionPerformed(evt);
@@ -123,7 +134,6 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         getContentPane().add(jLabel_Nome);
         jLabel_Nome.setBounds(60, 100, 60, 25);
 
-        CampoBuscarRegistro.setEnabled(false);
         CampoBuscarRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CampoBuscarRegistroActionPerformed(evt);
@@ -140,10 +150,8 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         jLabel3.setText("Data de Nascimento:");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(460, 150, 120, 14);
-
-        jTextField3.setEnabled(false);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(580, 140, 90, 30);
+        getContentPane().add(CampoDataNasc);
+        CampoDataNasc.setBounds(580, 140, 90, 30);
 
         jLabel7.setText("CPF: ");
         getContentPane().add(jLabel7);
@@ -229,74 +237,74 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         jLabel13.setText("Uso de drogas:");
         getContentPane().add(jLabel13);
         jLabel13.setBounds(60, 510, 120, 20);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(340, 410, 70, 30);
+        getContentPane().add(CampoAltura);
+        CampoAltura.setBounds(340, 410, 70, 30);
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        CampoPeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                CampoPesoActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(130, 410, 70, 30);
+        getContentPane().add(CampoPeso);
+        CampoPeso.setBounds(130, 410, 70, 30);
 
-        buttonGroup1_Fuma.add(jRadioButton2);
-        jRadioButton2.setText("Sim");
-        getContentPane().add(jRadioButton2);
-        jRadioButton2.setBounds(410, 470, 50, 23);
+        buttonGroup1_Fuma.add(Fsim);
+        Fsim.setText("Sim");
+        getContentPane().add(Fsim);
+        Fsim.setBounds(410, 470, 50, 23);
 
-        buttonGroup1_Fuma.add(jRadioButton4);
-        jRadioButton4.setText("Não");
-        getContentPane().add(jRadioButton4);
-        jRadioButton4.setBounds(470, 470, 50, 23);
+        buttonGroup1_Fuma.add(Fnao);
+        Fnao.setText("Não");
+        getContentPane().add(Fnao);
+        Fnao.setBounds(470, 470, 50, 23);
 
-        buttonGroup2_Drogas.add(jRadioButton9);
-        jRadioButton9.setText("Sim");
-        getContentPane().add(jRadioButton9);
-        jRadioButton9.setBounds(180, 510, 50, 23);
+        buttonGroup2_Drogas.add(UDsim);
+        UDsim.setText("Sim");
+        getContentPane().add(UDsim);
+        UDsim.setBounds(180, 510, 50, 23);
 
-        buttonGroup2_Drogas.add(jRadioButton10);
-        jRadioButton10.setText("Não");
-        getContentPane().add(jRadioButton10);
-        jRadioButton10.setBounds(240, 510, 60, 23);
+        buttonGroup2_Drogas.add(UDnao);
+        UDnao.setText("Não");
+        getContentPane().add(UDnao);
+        UDnao.setBounds(240, 510, 60, 23);
 
-        buttonGroup1_Bebidas.add(jRadioButton11);
-        jRadioButton11.setText("Sim");
-        getContentPane().add(jRadioButton11);
-        jRadioButton11.setBounds(180, 470, 50, 23);
+        buttonGroup1_Bebidas.add(BASim);
+        BASim.setText("Sim");
+        getContentPane().add(BASim);
+        BASim.setBounds(180, 470, 50, 23);
 
-        buttonGroup1_Bebidas.add(jRadioButton12);
-        jRadioButton12.setText("Não");
-        getContentPane().add(jRadioButton12);
-        jRadioButton12.setBounds(240, 470, 60, 23);
+        buttonGroup1_Bebidas.add(BANao);
+        BANao.setText("Não");
+        getContentPane().add(BANao);
+        BANao.setBounds(240, 470, 60, 23);
 
-        buttonGroup1_Deficiencia.add(jRadioButton13);
-        jRadioButton13.setText("Sim");
-        getContentPane().add(jRadioButton13);
-        jRadioButton13.setBounds(410, 510, 50, 23);
+        buttonGroup1_Deficiencia.add(DEsim);
+        DEsim.setText("Sim");
+        getContentPane().add(DEsim);
+        DEsim.setBounds(410, 510, 50, 23);
 
-        buttonGroup1_Deficiencia.add(jRadioButton14);
-        jRadioButton14.setText("Não");
-        getContentPane().add(jRadioButton14);
-        jRadioButton14.setBounds(470, 510, 50, 23);
+        buttonGroup1_Deficiencia.add(DEnao);
+        DEnao.setText("Não");
+        getContentPane().add(DEnao);
+        DEnao.setBounds(470, 510, 50, 23);
 
-        buttonGroup1_Doença.add(jRadioButton15);
-        jRadioButton15.setText("Sim");
-        getContentPane().add(jRadioButton15);
-        jRadioButton15.setBounds(630, 470, 50, 23);
+        buttonGroup1_Doença.add(Dosim);
+        Dosim.setText("Sim");
+        getContentPane().add(Dosim);
+        Dosim.setBounds(630, 470, 50, 23);
 
-        buttonGroup1_Doença.add(jRadioButton16);
-        jRadioButton16.setText("Não");
-        getContentPane().add(jRadioButton16);
-        jRadioButton16.setBounds(690, 470, 60, 23);
+        buttonGroup1_Doença.add(DOnao);
+        DOnao.setText("Não");
+        getContentPane().add(DOnao);
+        DOnao.setBounds(690, 470, 60, 23);
 
         jLabel14.setText("Observações gerais:");
         getContentPane().add(jLabel14);
         jLabel14.setBounds(60, 560, 140, 30);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        CampoObservacao.setColumns(20);
+        CampoObservacao.setRows(5);
+        jScrollPane1.setViewportView(CampoObservacao);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(60, 590, 880, 80);
@@ -322,42 +330,42 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         jLabel18.setText("Peso:");
         getContentPane().add(jLabel18);
         jLabel18.setBounds(60, 420, 50, 20);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(590, 310, 70, 30);
+        getContentPane().add(CampoConsultaN);
+        CampoConsultaN.setBounds(590, 310, 70, 30);
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel19.setText("Consulta Nº:");
         getContentPane().add(jLabel19);
         jLabel19.setBounds(500, 320, 80, 20);
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(220, 310, 250, 30);
+        getContentPane().add(CampoNomeMedico);
+        CampoNomeMedico.setBounds(220, 310, 250, 30);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel20.setText("Nome do Médico:");
         getContentPane().add(jLabel20);
         jLabel20.setBounds(60, 320, 110, 20);
 
-        DataAtual.setEnabled(false);
-        DataAtual.addActionListener(new java.awt.event.ActionListener() {
+        CampoDataAtual.setEnabled(false);
+        CampoDataAtual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DataAtualActionPerformed(evt);
+                CampoDataAtualActionPerformed(evt);
             }
         });
-        getContentPane().add(DataAtual);
-        DataAtual.setBounds(730, 540, 210, 30);
+        getContentPane().add(CampoDataAtual);
+        CampoDataAtual.setBounds(730, 540, 210, 30);
 
         jLabel11.setText("Data:");
         getContentPane().add(jLabel11);
         jLabel11.setBounds(690, 540, 40, 30);
-        getContentPane().add(jTextField10);
-        jTextField10.setBounds(220, 360, 250, 30);
+        getContentPane().add(CampoTratamento);
+        CampoTratamento.setBounds(220, 360, 250, 30);
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel21.setText("Faz Tratamentos? Quais?:");
         getContentPane().add(jLabel21);
         jLabel21.setBounds(60, 370, 150, 20);
-        getContentPane().add(jTextField11);
-        jTextField11.setBounds(660, 360, 280, 30);
+        getContentPane().add(CampoRemedio);
+        CampoRemedio.setBounds(660, 360, 280, 30);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel22.setText("Toma Remédios? Quais?:");
@@ -389,15 +397,15 @@ public class Preencher_anamnese extends javax.swing.JFrame {
         });
         getContentPane().add(Fechar);
         Fechar.setBounds(900, 690, 40, 39);
-        getContentPane().add(jTextField12);
-        jTextField12.setBounds(780, 310, 70, 30);
+        getContentPane().add(CampoAnamneseN);
+        CampoAnamneseN.setBounds(780, 310, 70, 30);
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel24.setText("Anamnese Nº:");
         getContentPane().add(jLabel24);
         jLabel24.setBounds(690, 320, 80, 20);
 
-        setSize(new java.awt.Dimension(1008, 794));
+        setSize(new java.awt.Dimension(1021, 814));
     }// </editor-fold>//GEN-END:initComponents
 
     private void CampoBuscarNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoBuscarNomeActionPerformed
@@ -427,16 +435,23 @@ public class Preencher_anamnese extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void GravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GravarActionPerformed
-      
+
+        try {
+            NF_PDF();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Preencher_anamnese.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_GravarActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void CampoPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoPesoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_CampoPesoActionPerformed
 
-    private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
+    private void CampoDataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoDataAtualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DataAtualActionPerformed
+    }//GEN-LAST:event_CampoDataAtualActionPerformed
 
     private void FecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FecharActionPerformed
         dispose();
@@ -484,11 +499,30 @@ public class Preencher_anamnese extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton BANao;
+    private javax.swing.JRadioButton BASim;
+    private javax.swing.JTextField CampoAltura;
+    private javax.swing.JTextField CampoAnamneseN;
     private javax.swing.JTextField CampoBuscarNome;
     private javax.swing.JTextField CampoBuscarRegistro;
-    private javax.swing.JTextField DataAtual;
+    private javax.swing.JTextField CampoConsultaN;
+    private javax.swing.JTextField CampoDataAtual;
+    private javax.swing.JTextField CampoDataNasc;
+    private javax.swing.JTextField CampoNomeMedico;
+    private javax.swing.JTextArea CampoObservacao;
+    private javax.swing.JTextField CampoPeso;
+    private javax.swing.JTextField CampoRemedio;
+    private javax.swing.JTextField CampoTratamento;
+    private javax.swing.JRadioButton DEnao;
+    private javax.swing.JRadioButton DEsim;
+    private javax.swing.JRadioButton DOnao;
+    private javax.swing.JRadioButton Dosim;
     private javax.swing.JButton Fechar;
+    private javax.swing.JRadioButton Fnao;
+    private javax.swing.JRadioButton Fsim;
     private javax.swing.JButton Gravar;
+    private javax.swing.JRadioButton UDnao;
+    private javax.swing.JRadioButton UDsim;
     private javax.swing.ButtonGroup buttonGroup1_Bebidas;
     private javax.swing.ButtonGroup buttonGroup1_Deficiencia;
     private javax.swing.ButtonGroup buttonGroup1_Doença;
@@ -518,32 +552,177 @@ public class Preencher_anamnese extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabel_Nome;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    
+    
+
+ public  void NF_PDF () throws FileNotFoundException  {
+        // TODO code application logic here
+    
+     
+    String nomePaciente=CampoBuscarNome.getText().trim(),
+    registro=CampoBuscarRegistro.getText().trim(),
+    dataNasc=CampoDataNasc.getText().trim();
+    
+    String nomeMedico=CampoNomeMedico.getText().trim(),
+    consultaN=CampoConsultaN.getText().trim(),
+    anamneseN=CampoAnamneseN.getText().trim(),
+    tratamento=CampoTratamento.getText().trim(),
+    remedio=CampoRemedio.getText().trim(),
+    peso=CampoPeso.getText().trim(),
+    altura=CampoAltura.getText().trim(),
+    dataatual=CampoDataAtual.getText().trim();
+    
+    
+    
+    
+    String bebidas="", drogas="", fumante="", deficiencia="", doencas="";
+    String observacao=CampoObservacao.getText().trim();
+    
+    
+    
+    //Realiza a captura do radio button 
+    if(BASim.isSelected()){
+    bebidas="Sim";
+    }
+    if(BANao.isSelected()) {
+            bebidas="Não";}
+    
+    if(UDsim.isSelected()){
+    drogas="Sim";
+    }
+    if(UDnao.isSelected()) {
+            drogas="Não";}
+    
+     if(Fsim.isSelected()){
+    fumante="Sim";
+    }
+    if(Fnao.isSelected()) {
+            fumante="Não";}
+    
+     if(DEsim.isSelected()){
+    deficiencia="Sim";
+    }
+    if(DEnao.isSelected()) {
+            deficiencia="Não";}
+    
+     if(Dosim.isSelected()){
+    doencas="Sim";
+    }
+    if(DOnao.isSelected()) {
+            doencas="Não";}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    Document documentoPDF = new Document();
+     
+    try{
+        
+        //Cria uma instancia do doc e nomeia o PDF.
+        PdfWriter instance = PdfWriter.getInstance(documentoPDF,new FileOutputStream(anamneseN+"_anamnese.pdf"));
+        
+    
+        //abrir o documento
+        documentoPDF.open();
+        
+        //setar tamanho da pagina
+        documentoPDF.setPageSize(PageSize.A4);
+        
+        //Adicionando primeiro paragrafo.
+        
+        
+        
+         
+        documentoPDF.add(new Paragraph("\nAnamnese Nº:\t"+anamneseN
+                + "\nData da anamnese:\t"+dataatual ));
+        
+        documentoPDF.add(new Paragraph("_____________________________________________________________________________"));
+
+        
+        documentoPDF.add(new Paragraph("\nHospital Anhembi Morumbi"
+          + "\nEndereço: R.Casa do Ator, 1233 - Vila Olimpia \t  Tel: 011-1233 1232\n"
+          + "Municipio: São Paulo \t UF: SP"  ));
+        
+        documentoPDF.add(new Paragraph("_____________________________________________________________________________"));
+      
+        documentoPDF.add(new Paragraph("\nNome do Paciente: "+nomePaciente+"\t \t \t Registro: "+registro+"\n Data de nascimento: "+dataNasc));
+        
+        documentoPDF.add(new Paragraph("\n_____________________________________________________________________________"));
+        
+      
+        
+        
+        
+        
+         documentoPDF.add(new Paragraph("\nMédico:\t"+nomeMedico
+                 + "\nConsulta Nº:\t"+consultaN
+                 + "\nTratamentos:\t"+tratamento
+                 + "\nRemedios:\t"+remedio
+                 + "\nPeso:\t"+peso
+                 + "\nAltura:\t"+altura
+                 
+               
+         ));
+         
+         
+         
+         
+         
+         
+         documentoPDF.add(new Paragraph("\nIngeri bebidas alcoolicas:\t"+bebidas
+          + "\nUsa drogas:\t"+drogas
+          + "\nFuma:\t"+fumante
+          + "\nDeficiencia fisica:\t"+deficiencia
+          + "\nDoenças:\t"+doencas
+         ));
+         
+         
+       
+         
+         
+         documentoPDF.add(new Paragraph("_____________________________________________________________________________"));
+         
+         documentoPDF.add(new Paragraph("\nDescrição: "+observacao));
+         
+         documentoPDF.add(new Paragraph("_____________________________________________________________________________"));
+         
+        //Busca e abre o arquivo PDF.
+         java.awt.Desktop.getDesktop().open( new File(anamneseN+"_anamnese.pdf" ) ); 
+        
+    }
+            
+            catch(DocumentException de){
+                    de.printStackTrace();
+                    }
+                                        
+            catch(IOException ioe){
+                ioe.printStackTrace();
+                
+                
+            }     
+            finally{
+        documentoPDF.close();
+    }        
+
+
+ }
+    
+
 }

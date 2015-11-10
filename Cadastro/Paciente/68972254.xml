@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<cadastros>
+ <Paciente>
+ <Registro>68972254</Registro>
+ <Nome>sfsfsdf</Nome>
+ <CPF>6</CPF>
+ <Data_de_Nascimento>545454</Data_de_Nascimento>
+ <Sexo>Masculino</Sexo>
+ <Endereco>sfsfs</Endereco>
+ <Telefone>4</Telefone>
+ <E_mail>sfsf</E_mail>
+ <Data>Tue Nov 10 12:26:08 BRST 2015</Data>
+ </Paciente>
+</Cadastros>

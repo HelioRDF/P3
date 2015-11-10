@@ -17,14 +17,14 @@ public class GetSet_P {
     
     
 //Atributos.
-    private  Integer Registro=0;
-    private  Integer i=1000;// Código Randomico.
+    private  Integer Registro;
+
     private  String Nome;
-    private  String CPF;
+    private  Integer CPF;
     private  String Data_Nasc;
     private  String Sexo; 
     private  String Endereco;
-    private  String Telefone;
+    private  Integer Telefone;
     private  String Email;
     private  String Data_Cadastro;
     
@@ -32,7 +32,7 @@ public class GetSet_P {
     //=====================================================================
       //Contrutores
 
-    public GetSet_P(String Nome, String CPF, String Data_Nasc, String Sexo, String Endereco, String Telefone, String Email, String Data_Cadastro) {
+    public GetSet_P(String Nome, Integer CPF, String Data_Nasc, String Sexo, String Endereco, Integer Telefone, String Email, String Data_Cadastro) {
         this.Nome = Nome;
         this.CPF = CPF;
         this.Data_Nasc = Data_Nasc;
@@ -46,22 +46,22 @@ public class GetSet_P {
      
 public GetSet_P(){}
     
+
    
     //=====================================================================
     // Metodos GET e SET.
 
 
   public Integer getRegistro() {
-        return Registro;
-    }
+        return Registro;    }
     public void setRegistro(Integer Registro) {
-        Registro=i;
-        this.Registro = Registro;
-        i++;
-    
-    
+            this.Registro = Registro;
+      
+       
     }
-   
+    
+    
+
     public String getData_Nasc() {
         return Data_Nasc;
     }
@@ -89,10 +89,10 @@ return this.Nome;                  }
 public void setNome(String nome){
 this.Nome=nome;                    }
 
-public String getCPF(){
+public Integer getCPF(){
 return this.CPF;                  } 
-public void setCPF(String cpf){
-    this.setTelefone(CPF);                    }
+public void setCPF(Integer cpf){
+    this.CPF=cpf;                    }
 
 public String getDate_Nasc(){
 return  this.getData_Nasc();                  } 
@@ -106,9 +106,9 @@ public void setEndereco(String endereco){
 this.Endereco=endereco;                    }
 
 
-public String getTelefone(){
+public Integer getTelefone(){
 return this.Telefone;                  } 
-public void setTelefone(String telefone){
+public void setTelefone(Integer telefone){
 this.Telefone = telefone;                    }
 
 
@@ -119,6 +119,9 @@ this.Email=email;                    }
 
 
 //=============================================================================
+
+
+
 
 //Método de impressão. 
  //3. Definir um método para imprimir os dados do contato.

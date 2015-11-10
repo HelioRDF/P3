@@ -6,6 +6,9 @@
 package login_senha;
 
 import Tela.Menu;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -38,8 +41,8 @@ public class Login_Senha extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Login = new javax.swing.JTextField();
-        Senha = new javax.swing.JPasswordField();
+        CampoLogin = new javax.swing.JTextField();
+        CampoSenha = new javax.swing.JPasswordField();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -60,6 +63,7 @@ public class Login_Senha extends javax.swing.JFrame {
         Acessar.setBounds(110, 520, 131, 46);
 
         Fechar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Fechar.setForeground(new java.awt.Color(204, 0, 0));
         Fechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/close18.png"))); // NOI18N
         Fechar.setText("  Fechar");
         Fechar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,13 +78,13 @@ public class Login_Senha extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Tela de Login");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(180, 40, 191, 41);
+        jLabel1.setBounds(180, 70, 191, 41);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Usuário: ");
+        jLabel2.setText("Usuário/CRM: ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(30, 340, 80, 40);
+        jLabel2.setBounds(30, 340, 110, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 17)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -88,21 +92,21 @@ public class Login_Senha extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(30, 420, 80, 37);
 
-        Login.addActionListener(new java.awt.event.ActionListener() {
+        CampoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginActionPerformed(evt);
+                CampoLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(Login);
-        Login.setBounds(110, 350, 349, 40);
+        getContentPane().add(CampoLogin);
+        CampoLogin.setBounds(150, 340, 270, 40);
 
-        Senha.addActionListener(new java.awt.event.ActionListener() {
+        CampoSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SenhaActionPerformed(evt);
+                CampoSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(Senha);
-        Senha.setBounds(110, 420, 349, 37);
+        getContentPane().add(CampoSenha);
+        CampoSenha.setBounds(149, 420, 270, 37);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/LogoG.jpg"))); // NOI18N
         getContentPane().add(jLabel5);
@@ -118,7 +122,8 @@ public class Login_Senha extends javax.swing.JFrame {
 
     private void AcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AcessarActionPerformed
 
-        String Usuario = "Teste";
+        buscarUsuarioXML();
+       /* String Usuario = "Teste";
 
         if (Login.getText().equalsIgnoreCase(Usuario)&& (Senha.getText().equals("123"))){
 
@@ -138,7 +143,7 @@ public class Login_Senha extends javax.swing.JFrame {
 
         else {
             JOptionPane.showMessageDialog(null, "Acesso Negado, usuário ou senha está incorreto\nPara testes, Utilizar o usuário teste e senha 123.");
-        }
+        }*/
 
     }//GEN-LAST:event_AcessarActionPerformed
 
@@ -147,13 +152,13 @@ public class Login_Senha extends javax.swing.JFrame {
 
     }//GEN-LAST:event_FecharActionPerformed
 
-    private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
+    private void CampoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoLoginActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LoginActionPerformed
+    }//GEN-LAST:event_CampoLoginActionPerformed
 
-    private void SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaActionPerformed
+    private void CampoSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SenhaActionPerformed
+    }//GEN-LAST:event_CampoSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,13 +201,144 @@ public class Login_Senha extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Acessar;
+    private javax.swing.JTextField CampoLogin;
+    private javax.swing.JPasswordField CampoSenha;
     private javax.swing.JButton Fechar;
-    private javax.swing.JTextField Login;
-    private javax.swing.JPasswordField Senha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
+//=====================================================================================
+  
+
+public void buscarUsuarioXML(){
+    
+    
+     String crm=CampoLogin.getText().trim();
+    
+                   
+             String AuxCRM="", AuxSenha="", AuxNome="";
+             String nome;
+             String senha;
+             String sexo;
+             String email;
+             String data;
+             String tipo;
+                  
+             String mostra="";
+	     String nomeArq="Cadastro/usuario/"+crm+".xml"; //Nome do arquivo, pode ser absoluto, ou pastas /dir/teste.txt
+	     String linha="";
+	     
+		File arq = new File(nomeArq);
+		
+		//Arquivo existe
+		if (arq.exists()){
+		//	mostra="Arquivo - '"+nomeArq+"', aberto com sucesso!\n";
+		//	mostra+="Tamanho do arquivo "+Long.toString(arq.length())+"\n";
+		
+                    //tentando ler arquivo
+			try{
+				
+				FileReader reader = new FileReader(nomeArq); //abrindo arquivo para leitura
+				BufferedReader leitor = new BufferedReader(reader); //leitor do arquivo
+				
+				leitor.readLine(); //<xml
+				leitor.readLine(); //<cadastro
+                                leitor.readLine(); //<Paciente
+				while(true){
+                                
+					crm=leitor.readLine();
+                                        crm=crm.substring(crm.indexOf(">")+1,crm.indexOf("/")-1); //pegando entre as tags
+                                        AuxCRM=crm;
+                                        
+					nome=leitor.readLine();
+                                        nome=nome.substring(nome.indexOf(">")+1,nome.indexOf("/")-1); //pegando entre as tags
+                                        AuxNome=nome;
+                             
+                                       
+                                        senha=leitor.readLine();
+                                        senha=senha.substring(senha.indexOf(">")+1,senha.indexOf("/")-1); //pegando entre as tags
+                                        AuxSenha=senha;
+                                        			                
+                                        sexo=leitor.readLine();
+                                        sexo=sexo.substring(sexo.indexOf(">")+1,sexo.indexOf("/")-1); //pegando entre as tags
+                                      
+                                                                                                                                                                                                 
+                                        tipo=leitor.readLine();
+                                        tipo=tipo.substring(tipo.indexOf(">")+1,tipo.indexOf("/")-1);
+                                     
+                                        
+                                      
+                                        
+                                        email=leitor.readLine();
+                                        email=email.substring(email.indexOf(">")+1,email.indexOf("/")-1);
+                                      
+                                        
+                                        data=leitor.readLine(); 
+                                        data=data.substring(data.indexOf(">")+1,data.indexOf("/")-1);
+                                        
+                                        
+                                         mostra+="Usuário: "+ nome+"\n\n";
+                                        /* mostra+="Registro: "+registro
+                                                +"\nNome: "+nome
+                                                +"\nCPF: "+cpf
+                                                +"\nData de Nascimento: "+dataNasc
+                                                +"\nSexo: "+sexo
+                                                +"\nEndereço: "+endereco
+                                                +"\nTelefone: "+telefone
+                                                +"\nE-mail: "+email
+                                                +"\nData: "+data+"\n";   */                                                       
+			             
+					
+                                     if(nome==null){break;}
+				
+                                }
+                                        
+                                                 
+                                        
+			}
+			catch(Exception erro) {
+			//JOptionPane.showMessageDialog(null,mostra,"Arquivo (catch)",1);
+		}}
+		//Se nao existir
+		else
+			JOptionPane.showMessageDialog(null,"Falha no login, Usuário nao existe!","Erro",0);
+	
+
+	
+                
+                
+              
+
+        if (CampoLogin.getText().trim().equalsIgnoreCase(AuxCRM)&& (CampoSenha.getText().trim().equalsIgnoreCase(AuxSenha))){
+
+            JOptionPane.showMessageDialog(null, "Acesso autorizado.\nUsuário(a), "+AuxNome);
+            
+            try {
+                new Menu().setVisible(true);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Login_Senha.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           
+              
+           
+            this.dispose();//FECHA A TELA ATUAL.
+
+        }
+
+        else {
+            JOptionPane.showMessageDialog(null, "Acesso Negado, usuário ou senha está incorreto.\nPara testar, Utilizar o usuário teste e senha 123,\n ou usuário adm, senha adm.");
+        }
+                
+                
+         }       
+                
+                
 }
+
+//=====================================================================================
+
+
+

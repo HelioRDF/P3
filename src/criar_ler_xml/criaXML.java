@@ -1,3 +1,4 @@
+package criar_ler_xml;
 
 
 import javax.swing.*;
@@ -19,33 +20,33 @@ public class criaXML{
              String data="12-10-2015"; 
             
 		String nomeArq="Cadastro/"+registro+"_"+nome+".xml";
-		String texto="";
+		String texto;
 		//tentando criar arquivo
 		try
 		{
-			Formatter saida = new Formatter(nomeArq);
-			texto="<?xml version='1.0' encoding='ISO-8859-1' ?>\n"+
-				  "<cadastros>\n";
-    
-                      
-                        
-			
-				texto+=" <Paciente>\n";
-				texto+=" <Registro>"+registro+"</Registro>\n";
-                                texto+=" <Nome>"+nome+"</Nome>\n";
-                                texto+=" <CPF>"+cpf+"</CPF>\n";
-                                texto+=" <Data_de_Nascimento>"+dataNasc+"</Data_de_Nascimento>\n";
-                                texto+=" <Sexo>"+sexo+"</Sexo>\n";
-                                texto+=" <Endereco>"+endereco+"</Endereco>\n";
-                                texto+=" <Telefone>"+telefone+"</Telefone>\n";
-                                texto+=" <E_mail>"+email+"</E_mail>\n";
-                                texto+=" <Data>"+data+"</Data>\n";
-				texto+=" </Paciente>\n";
-			
-                                
-			texto+="</Cadastros>";
-			saida.format(texto);
-			saida.close();
+                 try (Formatter saida = new Formatter(nomeArq)) {
+                     texto="<?xml version='1.0' encoding='ISO-8859-1' ?>\n"+
+                             "<cadastros>\n";
+                     
+                     
+                     
+                     
+                     texto+=" <Paciente>\n";
+                     texto+=" <Registro>"+registro+"</Registro>\n";
+                     texto+=" <Nome>"+nome+"</Nome>\n";
+                     texto+=" <CPF>"+cpf+"</CPF>\n";
+                     texto+=" <Data_de_Nascimento>"+dataNasc+"</Data_de_Nascimento>\n";
+                     texto+=" <Sexo>"+sexo+"</Sexo>\n";
+                     texto+=" <Endereco>"+endereco+"</Endereco>\n";
+                     texto+=" <Telefone>"+telefone+"</Telefone>\n";
+                     texto+=" <E_mail>"+email+"</E_mail>\n";
+                     texto+=" <Data>"+data+"</Data>\n";
+                     texto+=" </Paciente>\n";
+                     
+                     
+                     texto+="</Cadastros>";
+                     saida.format(texto);
+                 }
 			JOptionPane.showMessageDialog(null,"Arquivo '"+nomeArq+"' criado!","Arquivo",1);
 		}
 		//mostrando erro em caso se nao for possivel gerar arquivo

@@ -5,8 +5,11 @@
  */
 package Paciente;
 
+import java.awt.HeadlessException;
+import java.io.FileNotFoundException;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Formatter;
 import javafx.scene.chart.PieChart.Data;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -62,13 +65,12 @@ public class Cadastrar_P extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         Cadastrar = new javax.swing.JButton();
         DataAtual = new javax.swing.JTextField();
-        Atualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Paciente");
         getContentPane().setLayout(null);
 
-        jLabel1.setText("Registro:");
+        jLabel1.setText("RG:");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(60, 90, 70, 20);
 
@@ -114,7 +116,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Excluir);
-        Excluir.setBounds(210, 570, 95, 40);
+        Excluir.setBounds(50, 570, 95, 40);
 
         Novo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         Novo.setForeground(new java.awt.Color(0, 0, 102));
@@ -136,7 +138,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jT_Registro);
-        jT_Registro.setBounds(130, 80, 100, 30);
+        jT_Registro.setBounds(130, 80, 150, 30);
 
         jT_Nome.setEnabled(false);
         jT_Nome.addActionListener(new java.awt.event.ActionListener() {
@@ -145,7 +147,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jT_Nome);
-        jT_Nome.setBounds(300, 80, 330, 30);
+        jT_Nome.setBounds(330, 80, 300, 30);
 
         jT_DataNasc.setEnabled(false);
         getContentPane().add(jT_DataNasc);
@@ -190,7 +192,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, false
@@ -237,7 +239,7 @@ public class Cadastrar_P extends javax.swing.JFrame {
 
         jLabel9.setText("Nome:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(260, 90, 40, 20);
+        jLabel9.setBounds(290, 90, 40, 20);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 51, 153));
@@ -267,19 +269,6 @@ public class Cadastrar_P extends javax.swing.JFrame {
         });
         getContentPane().add(DataAtual);
         DataAtual.setBounds(750, 80, 220, 30);
-
-        Atualizar.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        Atualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/refresh18.png"))); // NOI18N
-        Atualizar.setText("Atualizar");
-        Atualizar.setToolTipText("");
-        Atualizar.setEnabled(false);
-        Atualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AtualizarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Atualizar);
-        Atualizar.setBounds(50, 570, 130, 40);
 
         setSize(new java.awt.Dimension(1070, 680));
     }// </editor-fold>//GEN-END:initComponents
@@ -330,22 +319,24 @@ public class Cadastrar_P extends javax.swing.JFrame {
 
     private void CadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarActionPerformed
         // TODO add your handling code here:
+                        
         cadastrarPaciente();
+        
+        salvarXML();
+                       
+        jTextFalse();//jText desabilitado.
+        jTextApagar();//Limpa os campos jText.
         
         Cadastrar.setEnabled(false);
         Novo.setEnabled(true);
         Excluir.setEnabled(true);
-        Atualizar.setEnabled(true);
+     
  
     }//GEN-LAST:event_CadastrarActionPerformed
 
     private void DataAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DataAtualActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_DataAtualActionPerformed
-
-    private void AtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtualizarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AtualizarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -383,7 +374,6 @@ public class Cadastrar_P extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Atualizar;
     private javax.swing.JButton Cadastrar;
     private javax.swing.JTextField DataAtual;
     private javax.swing.JButton Excluir;
@@ -427,11 +417,11 @@ public void cadastrarPaciente(){ // Método utilizado para cadastrar novos pacie
    }
    
 
-String Registro =""+getset.getRegistro();
+
  
    
 // Atribui os valores do jtext para os atributos;
-//String Registro=jT_Registro.getText().trim();
+String Registro=jT_Registro.getText().trim();
 String Nome=jT_Nome.getText().trim();
 String CPF=jT_CPF.getText().trim();
 String DataNasc=jT_DataNasc.getText().trim();
@@ -446,23 +436,29 @@ String dataAtual = DataAtual.getText().trim();
 //Passa os valores dos atributos para o array e salva o objeto.    
 
 getset.setNome(Nome);
-getset.setCPF(CPF);
+getset.setCPF(Integer.parseInt(CPF));
 getset.setData_Nasc(DataNasc);
 getset.setSexo(Sexo);
 getset.setEndereco(Endereco);
-getset.setTelefone(Telefone);
+getset.setTelefone(Integer.parseInt(Telefone));
 getset.setEmail(Email);
 getset.setData_Cadastro(dataAtual);
 controle.Cadastrar(getset);
- 
+
+
+
 
 
 //Passa os valores dos jTexts para o jtable.
 DefaultTableModel val = (DefaultTableModel) jT_Tabela.getModel();
 val.addRow(new String[]{Registro,Nome,CPF,DataNasc,Sexo,Endereco,Telefone,Email,dataAtual });
 
-jTextFalse();//jText desabilitado.
-jTextApagar();//Limpa os campos jText.
+
+
+
+
+
+
 
 
 //JOptionPane.showMessageDialog(this, "Falha no cadastro, Preencha todos os campos corretamente.");
@@ -473,16 +469,11 @@ jTextApagar();//Limpa os campos jText.
 //=====================================================================================
     
 public void novo(){
-    
-jTextTrue();//jText habilitado
+ jTextTrue();//jText habilitado
  Calendar data = Calendar.getInstance(); 
  DataAtual.setText(data.getTime().toString());
  
 jRadio_Masculino.setSelected(true);
-getset.setRegistro(WIDTH);
-jT_Registro.setText(getset.getRegistro().toString());
-
-
 
 Novo.setEnabled(false);
     
@@ -500,6 +491,7 @@ jT_DataNasc.setEnabled(true);
 jTEndereco.setEnabled(true);
 jT_Tel.setEnabled(true);
 jT_Email.setEnabled(true);
+jT_Registro.setEnabled(true);
  
 }
 
@@ -532,6 +524,53 @@ jT_Tel.setText("");
 jT_Email.setText("");
 }
 
-
-
+  
+//=====================================================================================
+public void salvarXML(){//Salva as informações em XML.
+                               
+             String registro= jT_Registro.getText().trim();
+             String nome=getset.getNome();
+             Integer cpf=getset.getCPF();
+             String dataNasc= getset.getData_Nasc();
+             String sexo=getset.getSexo();
+             String endereco=getset.getEndereco();
+             Integer telefone=getset.getTelefone();
+             String email=getset.getEmail();
+             String data=getset.getData_Cadastro(); 
+                
+                   
+		//String nomeArq="Cadastro/"+registro+"_"+nome+".xml";
+                String nomeArq="Cadastro/Paciente/"+registro+".xml";
+             
+		String texto;
+		//tentando criar arquivo
+		try
+		{
+                try (Formatter saida = new Formatter(nomeArq)) {
+                    texto="<?xml version='1.0' encoding='ISO-8859-1' ?>\n"+
+                            "<cadastros>\n";
+                                       
+                    texto+=" <Paciente>\n";
+                    texto+=" <Registro>"+registro+"</Registro>\n";
+                    texto+=" <Nome>"+nome+"</Nome>\n";
+                    texto+=" <CPF>"+cpf+"</CPF>\n";
+                    texto+=" <Data_de_Nascimento>"+dataNasc+"</Data_de_Nascimento>\n";
+                    texto+=" <Sexo>"+sexo+"</Sexo>\n";
+                    texto+=" <Endereco>"+endereco+"</Endereco>\n";
+                    texto+=" <Telefone>"+telefone+"</Telefone>\n";
+                    texto+=" <E_mail>"+email+"</E_mail>\n";
+                    texto+=" <Data>"+data+"</Data>\n";
+                    texto+=" </Paciente>\n";
+                    texto+="</Cadastros>";
+                    saida.format(texto);
+                    
+                }
+			JOptionPane.showMessageDialog(null,"Arquivo '"+nomeArq+"' criado!","Arquivo",1);
+		}
+		//mostrando erro em caso se nao for possivel gerar arquivo
+		catch(FileNotFoundException | HeadlessException erro){
+			JOptionPane.showMessageDialog(null,"Arquivo nao pode ser gerado!","Erro",0);
+                
+        }
+}
 }

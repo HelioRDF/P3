@@ -13,6 +13,11 @@ import Atendimento.*;
 import Usuarios.*;
 import Realizar_exame.Cadastrar_Exame;
 import javax.swing.JFrame;
+import Medico.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -31,6 +36,9 @@ public class Menu extends javax.swing.JFrame {
     Buscar_Usuario buscarUsuario = new Buscar_Usuario();
     Cadastrar_Usuario cadastrarUsuario = new Cadastrar_Usuario();
     Cadastrar_Exame  novoExame = new Cadastrar_Exame();
+    Buscar_Medico buscarMedico = new Buscar_Medico();
+    Cadastrar_Medico cadastroMedico = new Cadastrar_Medico();
+    
     
     
     
@@ -57,9 +65,11 @@ public class Menu extends javax.swing.JFrame {
         jM_BuscaCadastro = new javax.swing.JMenu();
         Cadastrar_paciente = new javax.swing.JMenuItem();
         Cadastrar_usuario = new javax.swing.JMenuItem();
+        jMedico = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         Visualizar_paciente = new javax.swing.JMenuItem();
         Visualizar_usuario = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         Abrir_ficha = new javax.swing.JMenu();
         Nova_ficha = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -115,6 +125,14 @@ public class Menu extends javax.swing.JFrame {
         });
         jM_BuscaCadastro.add(Cadastrar_usuario);
 
+        jMedico.setText("Médico");
+        jMedico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMedicoActionPerformed(evt);
+            }
+        });
+        jM_BuscaCadastro.add(jMedico);
+
         jMenuBar1.add(jM_BuscaCadastro);
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/search102 (2).png"))); // NOI18N
@@ -136,6 +154,14 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu2.add(Visualizar_usuario);
+
+        jMenuItem1.setText("Médico");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
 
         jMenuBar1.add(jMenu2);
 
@@ -215,6 +241,16 @@ public class Menu extends javax.swing.JFrame {
         novoExame.setVisible(true);
     }//GEN-LAST:event_Realizar_exameActionPerformed
 
+    private void jMedicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMedicoActionPerformed
+        // TODO add your handling code here:
+        cadastroMedico.setVisible(true);
+    }//GEN-LAST:event_jMedicoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        buscarMedico.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -265,13 +301,18 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem Visualizar_usuario;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jM_BuscaCadastro;
+    private javax.swing.JMenuItem jMedico;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 
 
 
+    
+    
+    
 
 
 }
